@@ -246,12 +246,8 @@ header {position:relative; z-index:1; padding:0 0 19px 0; box-shadow:0 5px 5px 0
 .forgot-attention p {margin:0; padding:20px 0 0 0}
 .forgot-attention strong {color:#111}
 
-.queue {margin:40px -30px 0 -30px}
-.queue-inner {display:table; width:100%; border-collapse:separate; border-spacing:30px 0}
-.queue-content {display:table-cell; width:80%}
-.queue-list {position:relative; width:100%; overflow:hidden; font-size:0; line-height:0; letter-spacing:-1px; white-space:nowrap}
-.queue-list-inner {margin:0 -15px}
-.queue-list-content {width:100%}
+.queue {margin:40px -15px 0 -15px; position:relative}
+.queue-inner {position:relative; width:100%; overflow:hidden; font-size:0; line-height:0; letter-spacing:-1px; padding:0 20% 0 0}
 .queue-list-item {display:inline-block; vertical-align:top; width:25%; padding:0 15px}
 .queue-list-item-header {background:#f6f6f6; border-radius:3px; position:relative; padding:14px 20px 16px 20px; font-size:15px; line-height:18px; letter-spacing:0}
 .queue-list-item-header::before {content:""; display:block; position:absolute; left:0; top:13px; bottom:13px; width:4px; background:#a4d78b; border-radius:0 4px 4px 0}
@@ -261,10 +257,93 @@ header {position:relative; z-index:1; padding:0 0 19px 0; box-shadow:0 5px 5px 0
 .queue-list-item-times a:hover {color:#fff; background:#489eca; border-color:#489eca}
 .queue-list-item-times span {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:3px; height:40px; color:#cdcdcd}
 
-.queue-date {display:table-cell; width:20%; background:#f6f6f6; border-radius:3px}
+@media screen and (max-width:1399px) {
+    .queue-inner {padding:0 25% 0 0}
+    .queue-list-item {width:33.33%}
+    .queue-list-item:nth-child(4) {display:none}
+}
+
+@media screen and (max-width:767px) {
+    .queue-inner {padding:0 33.33% 0 0}
+    .queue-list-item {width:50%}
+    .queue-list-item:nth-child(3) {display:none}
+}
+
+.queue-date {position:absolute; right:0; top:0; bottom:0; width:20%; padding:0 15px}
+.queue-date-inner {background:#f6f6f6; border-radius:3px; height:100%}
 .queue-date-link {padding:30px 0 0 0; width:142px; margin:0 auto}
 .queue-date-hint {padding:27px 0; width:142px; margin:0 auto; color:#666; font-size:13px; line-height:18px; text-align:center}
 .queue-date-hint::before {content:""; display:block; width:33px; height:33px; background:url(../images/queue-date.png); margin:0 auto 14px auto}
+
+@media screen and (max-width:1399px) {
+    .queue-date {width:25%}
+}
+
+@media screen and (max-width:767px) {
+    .queue-date {width:33.33%}
+}
+
+.desktop {padding:30px 0 0 0}
+.desktop::after {content:""; display:block; clear:both}
+
+.desktop-side {float:left; width:288px}
+
+.desktop-menu {background:#f6f6f6; border-radius:3px; box-shadow:0 1px 0 0 #e3e3e3; padding:0 30px 3px 30px}
+.desktop-menu ul {margin:0; padding:17px 0 25px 0; list-style:none; border-top:1px solid #e3e3e3}
+.desktop-menu ul:first-child {border-top:none}
+.desktop-menu ul li {margin:6px 0 0 0; padding:0; position:relative}
+.desktop-menu ul li::before {display:none}
+.desktop-menu ul li.active {font-weight:bold}
+.desktop-menu ul li.active::after {content:""; display:block; position:absolute; left:-30px; top:0; width:4px; bottom:0; background:#ffda76; border-radius:0 4px 4px 0}
+.desktop-menu ul li a {color:#111; text-decoration:none}
+.desktop-menu ul li a:hover {text-decoration:underline}
+.desktop-menu-count {display:block; position:absolute; right:0; top:-2px; height:24px; padding:0 11px; font-size:13px; line-height:24px; background:#a4d78b; border-radius:12px}
+.desktop-menu-icon {position:absolute; right:0; top:-1px; line-height:0}
+
+.desktop-side .auth-contacts {width:auto; margin:30px 0 0 0}
+
+.desktop-container {margin:0 0 0 318px}
+.desktop-content {float:left; width:100%}
+
+.desktop-message {margin:0 0 20px 0; background:#ffda76; padding:0 60px 9px 16px; border-radius:3px; position:relative; box-shadow:0 1px 0 0 #e3c56e}
+.desktop-message::after {content:""; display:block; clear:both}
+.desktop-message-icon {float:left; width:30px; line-height:0; padding:13px 0 0 0}
+.desktop-message-text {margin:0 0 0 45px; font-size:13px; line-height:18px; padding:10px 0 0 0}
+.desktop-message-delete {display:block; width:12px; height:12px; position:absolute; right:19px; top:21px; background:url(../images/desktop-message-delete.png); transition:none}
+.desktop-message-delete:hover {background-position:left -12px}
+
+.desktop-title {font-weight:bold; font-size:20px; line-height:24px; margin:21px 0 0 0}
+.desktop-title:first-child {margin:-5px 0 0 0}
+.desktop-btns {margin:25px 0 0 0}
+.desktop-btns::after {content:""; display:block; clear:both}
+.desktop-btns a {float:left; margin:0 0 0 20px; border:2px solid #00a8ff; border-radius:3px; height:40px; padding:0 12px; color:#111; text-decoration:none; line-height:36px}
+.desktop-btns a:first-child {margin:0}
+.desktop-btns a:hover {background:#00a8ff; color:#fff}
+.desktop-btns a.desktop-btn-add::before {content:""; display:inline-block; vertical-align:middle; width:15px; height:15px; background:url(../images/icon-add.png); margin:-2px 8px 0 0}
+.desktop-btns a.desktop-btn-add:hover::before {background-position:left -15px}
+
+.desktop-orders {margin:16px 0 0 0}
+.desktop-order {margin:3px 0 0 0; background:#f6f6f6; border-radius:3px; box-shadow:0 1px 0 0 #e3e3e3; padding:17px 30px 16px 30px; position:relative}
+.desktop-order::before {content:""; display:block; position:absolute; left:0; top:18px; bottom:21px; width:4px; border-radius:0 4px 4px 0}
+.desktop-order-status-1::before {background:#489eca}
+.desktop-order-status-2::before {background:#ffda76}
+.desktop-order-status-3::before {background:#fb6060}
+.desktop-order-status-4::before {background:#d47af9}
+.desktop-order-status-5::before {background:#a4d78b}
+.desktop-order-status-6::before {background:#e6e6e6}
+.desktop-order::after {content:""; display:block; clear:both}
+.desktop-order-date {float:left; width:143px}
+.desktop-order-date span {display:block; font-size:13px; line-height:18px; color:#666}
+.desktop-order-payment {float:right; width:118px}
+.desktop-order-payment span {display:block; font-size:13px; line-height:18px}
+.desktop-order-payment a {color:#4070d8}
+.desktop-order-payment a:hover {color:#2d7fa9}
+.desktop-order-cost {float:right; color:#666; margin:0 27px 0 0; text-align:right; width:100px}
+.desktop-order-cost span {font-weight:bold; color:#111}
+.desktop-order-period {float:left}
+.desktop-order-period span {display:block; font-size:13px; line-height:18px; color:#666}
+.desktop-order-info {margin:0 276px; font-weight:bold}
+.desktop-order-info span {display:block; font-size:13px; line-height:18px; color:#666; font-weight:normal}
 
 footer {position:relative; height:116px; margin:-116px 0 0 0; background:#f6f6f6; font-size:13px; line-height:24px}
 footer p {margin:0; padding:0}

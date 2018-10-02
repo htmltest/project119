@@ -14,16 +14,16 @@ img {border:none; max-width:100%}
 
 strong {font-weight:bold}
 
-h1 {font-weight:bold; font-size:24px; line-height:29px; margin:27px 0; padding:0}
-h2 {font-weight:bold; font-size:20px; line-height:24px; margin:27px 0 20px 0; padding:0}
-h3 {font-weight:bold; font-size:18px; line-height:21px; margin:27px 0 20px 0; padding:0}
-h4 {font-weight:bold; font-size:15px; line-height:20px; margin:27px 0 20px 0; padding:0}
+h1 {font-weight:bold; font-size:30px; line-height:30px; margin:39px 0; padding:0}
+h2 {font-weight:bold; font-size:24px; line-height:29px; margin:24px 0 27px 0; padding:0}
+h3 {font-weight:bold; font-size:20px; line-height:24px; margin:20px 0; padding:0}
+h4 {font-weight:bold; font-size:18px; line-height:26px; margin:20px 0; padding:0}
 p {margin:20px 0; padding:0}
 ul {margin:20px 0; padding:0; list-style:none}
 li {margin:10px 0; padding:0 0 0 14px; position:relative}
 ul li::before {content:"•"; color:#56c6b4; position:absolute; left:0; top:0}
 li ul {margin:10px 0}
-blockquote {margin:35px 0 33px 0; padding:20px 26px 24px 26px; border-left:3px solid #56c6b4; background:#ffe9ad; font-style:italic; font-size:18px; line-height:24px}
+blockquote {margin:35px 0 33px 0; padding:20px 30px 24px 30px; background:#ffe9ad; font-style:italic; font-size:18px; line-height:24px}
 ol {margin:20px 0; padding:0; list-style:none; counter-reset:point}
 ol > li {padding:0 0 0 17px}
 ol > li::before {content:counter(point)'.'; counter-increment:point 1; position:absolute; left:0; top:0}
@@ -36,6 +36,7 @@ ol > li > ol > li::before {content:counter(point)'.'counter(subpoint); counter-i
 .wrapper th {font-weight:normal; font-size:13px; line-height:20px; color:#666666; vertical-align:top; padding:0 0 14px 30px; border-bottom:2px solid #999; text-align:left}
 .wrapper th:first-child {padding-left:0}
 .wrapper td {vertical-align:top; border-bottom:1px solid #dedede; padding:9px 0 10px 30px}
+.wrapper tbody:first-child tr:first-child td {border-top:1px solid #dedede}
 .wrapper td:first-child {padding-left:0}
 
 .table {margin:20px 0 33px 0; position:relative; overflow:auto}
@@ -50,11 +51,15 @@ ol > li > ol > li::before {content:counter(point)'.'counter(subpoint); counter-i
     .col-half {float:none; width:auto; padding:0}
 }
 
-.btn {display:block; vertical-align:top; border-radius:3px; background:#489eca; margin:0; padding:0; outline:none; overflow:visible; border:none; text-decoration:none; width:100%; height:40px; box-sizing:border-box; color:#fff; text-align:center; font:15px/40px "PT Sans", sans-serif; letter-spacing:0; -webkit-appearance:none; cursor:pointer; transition:all 0.2s}
+.btn {display:block; vertical-align:top; border-radius:4px; background:#489eca; margin:0; padding:0; outline:none; overflow:visible; border:none; text-decoration:none; width:100%; height:40px; box-sizing:border-box; color:#fff; text-align:center; font:15px/40px "PT Sans", sans-serif; letter-spacing:0; -webkit-appearance:none; cursor:pointer; transition:all 0.2s}
 .btn:hover {color:#fff; background:#2d7fa9}
 .btn:active {color:#fff; background:#1a6489}
 
-.btn-reset {display:block; vertical-align:top; border-radius:3px; background:#fff; margin:0; padding:0; outline:none; overflow:visible; border:2px solid #ececec; text-decoration:none; width:100%; height:40px; box-sizing:border-box; color:#111; text-align:center; font:15px/36px "PT Sans", sans-serif; letter-spacing:0; -webkit-appearance:none; cursor:pointer; transition:all 0.2s}
+.btn-2 {display:block; vertical-align:top; border-radius:4px; background:#fff; margin:0; padding:0; outline:none; overflow:visible; border:1px solid #489eca; text-decoration:none; width:100%; height:40px; box-sizing:border-box; color:#489eca; text-align:center; font:15px/36px "PT Sans", sans-serif; letter-spacing:0; -webkit-appearance:none; cursor:pointer; transition:all 0.2s}
+.btn-2:hover {background:#489eca; border-color:#489eca; color:#fff}
+.btn-2:active {background:#1a6489; border-color:#1a6489; color:#fff}
+
+.btn-reset {display:block; vertical-align:top; border-radius:4px; background:#fff; margin:0; padding:0; outline:none; overflow:visible; border:1px solid #ececec; text-decoration:none; width:100%; height:40px; box-sizing:border-box; color:#111; text-align:center; font:15px/36px "PT Sans", sans-serif; letter-spacing:0; -webkit-appearance:none; cursor:pointer; transition:all 0.2s}
 .btn-reset:hover {color:#489eca; border-color:#489eca}
 .btn-reset:active {color:#1a6489; border-color:#1a6489}
 
@@ -66,10 +71,16 @@ form {margin:20px 0; padding:0}
 
 .form-input input,
 .form-input textarea {position:relative; border:none; border-bottom:2px solid #ececec; font:15px/20px "PT Sans", sans-serif; color:#111; vertical-align:top; margin:0; padding:10px 0; width:100%; height:42px; box-sizing:border-box; outline:none; border-radius:0; background:url(../images/blank.gif); -webkit-appearance:none}
-.form-input textarea {height:auto; resize:none; overflow:auto}
+.form-input textarea {height:auto; resize:none; overflow:auto; border:1px solid #d8d8d8; border-radius:4px; padding-left:20px; padding-right:20px}
 .form-input input.error,
 .form-input textarea.error {border-color:#ffc2c2}
 .form-input label.error {display:none !important}
+.form-input input::-webkit-input-placeholder {opacity:1; color:#999}
+.form-input input::-moz-placeholder {opacity:1; color:#999}
+.form-input input:-ms-input-placeholder {opacity:1; color:#999}
+.form-input textarea::-webkit-input-placeholder {opacity:1; color:#999}
+.form-input textarea::-moz-placeholder {opacity:1; color:#999}
+.form-input textarea:-ms-input-placeholder {opacity:1; color:#999}
 
 .form-select {margin:13px 0}
 .form-select select {position:relative; border:none; border-bottom:2px solid #ececec; font:15px/20px "PT Sans", sans-serif; color:#111; vertical-align:top; margin:0; padding:10px 0; width:100%; height:42px; box-sizing:border-box; outline:none; border-radius:0; background:url(../images/blank.gif); -webkit-appearance:none}
@@ -82,7 +93,7 @@ form {margin:20px 0; padding:0}
 .form-checkbox label {float:left; margin:0; cursor:pointer}
 .form-checkbox input {display:none}
 .form-checkbox span {display:block; position:relative; padding:0 0 0 26px; color:#666}
-.form-checkbox span::before {content:""; display:block; position:absolute; left:0; top:1px; width:18px; height:18px; border:2px solid #ececec; border-radius:3px}
+.form-checkbox span::before {content:""; display:block; position:absolute; left:0; top:1px; width:18px; height:18px; border:2px solid #ececec; border-radius:4px}
 .form-checkbox label input:checked+span::after,
 .form-checkbox label input:checked+label+span::after {content:""; display:block; position:absolute; left:5px; top:6px; width:8px; height:8px; background:#489eca; border-radius:1px}
 .form-checkbox label input.error+span::before,
@@ -117,26 +128,36 @@ form {margin:20px 0; padding:0}
     .cols .form-radio:first-child {margin-top:20px}
 }
 
+.form-file {margin:20px 0}
+.form-file::after {content:""; display:block; clear:both}
+.form-file-input {float:left; width:143px; height:20px; text-align:right; position:relative; overflow:hidden; background:url(../images/file-input.png) no-repeat left center; color:#489eca}
+.form-file-input:hover {color:#2d7fa9}
+.form-file-input input {height:200px; position:absolute; top:0; right:0; opacity:0; cursor:pointer; font-size:200px; background:url(../images/blank.gif); -webkit-appearance:none}
+.form-file-input label.error {display:none !important}
+.form-file-name {margin:0 0 0 153px; color:#999}
+
 .form-ctrl {margin:40px 0 0 0}
 .form-ctrl::after {content:""; display:block; clear:both}
 .form-submit {float:left; width:115px}
 .form-reset {float:left; width:108px; margin:0 0 0 20px}
-.form-status {margin:0 0 0 263px}
 
 @media screen and (max-width:799px) {
     .form-submit {float:none; width:auto}
     .form-reset {float:none; width:auto; margin:20px 0 0 0}
-    .form-status {margin:20px 0 0 0}
 }
 
-.form-error-message {color:#ff5353; padding:10px 0 0 0}
-.form-error {background:#ffd5d5; border-radius:3px; padding:10px 20px 9px 20px; border-radius:3px; box-shadow:0 1px 0 #e6a3a3; font-size:13px}
-.form-success {background:#d7f5b8; border-radius:3px; padding:10px 20px 9px 20px; border-radius:3px; box-shadow:0 1px 0 #a8ca85; font-size:13px}
+.form-success {position:relative; text-align:center; background:#d7f5b8; padding:16px 30px 15px 30px; margin:20px 0; box-shadow:0 1px 0 0 #a8ca85; border-radius:4px}
+.form-success-title {color:#2a4a09; text-transform:uppercase; font-weight:bold}
+.form-success-text {color:#666; margin:-2px 0 0 0}
+
+.form-error {position:relative; text-align:center; background:#ffd5d5; padding:16px 30px 15px 30px; margin:20px 0; box-shadow:0 1px 0 0 #e6a3a3; border-radius:4px}
+.form-error-title {color:#ae3939; text-transform:uppercase; font-weight:bold}
+.form-error-text {color:#666; margin:-2px 0 0 0}
 
 .pager {margin:40px 0 0 0}
 .pager::after {content:""; display:block; clear:both}
 .pager-list {float:left}
-.pager-list a {float:left; margin:0 10px 0 0; border:2px solid #ececec; color:#489eca; line-height:36px; text-align:center; width:40px; height:40px; border-radius:3px}
+.pager-list a {float:left; margin:0 10px 0 0; border:1px solid #ececec; color:#489eca; line-height:38px; text-align:center; width:40px; height:40px; border-radius:4px}
 .pager-list a:hover {color:#489eca; border-color:#489eca}
 .pager-list a:active,
 .pager-list a.active {color:#111; border-color:#ffe9ad; background:#ffe9ad}
@@ -163,22 +184,27 @@ form {margin:20px 0; padding:0}
     .wrapper-inner {padding:0 0 256px 0}
 }
 
-header {position:relative; z-index:1; padding:0 0 19px 0; box-shadow:0 5px 5px 0 rgba(159, 159, 159, 0.1)}
+header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0 rgba(159, 159, 159, 0.1)}
 
 .header-top {height:3px; border-radius:0 0 3px 3px; background:#a4d78b}
 
-.header-left {float:left; padding:25px 0 0 0}
+.header-left {float:left; padding:28px 0 0 0}
 
-.logo {position:relative; width:121px; height:28px; background:url(../images/logo.png)}
+.logo {position:relative; width:128px; height:41px; background:url(../images/logo.png)}
 .logo a {display:block; position:absolute; left:0; top:0; right:0; bottom:0}
 
-.header-title {padding:2px 0 0 0}
+.header-logout-link {float:right; margin:27px 0 0 28px; line-height:40px; color:#666}
 
-.header-cabinet-link {float:right; margin:27px 0 0 0; border:2px solid #489eca; border-radius:3px; width:146px; text-align:center; height:40px; line-height:36px}
-.header-cabinet-link:hover {color:#fff; background:#489eca}
-.header-cabinet-link:active {color:#fff; background:#1a6489}
+.header-cabinet-link {float:right; margin:27px 0 0 28px; line-height:40px}
+.header-cabinet-link svg {display:inline-block; vertical-align:middle; margin:-2px 6px 0 0; width:17px}
+.header-cabinet-link svg path,
+.header-cabinet-link svg polygon {fill:#489eca; transition:all 0.2s}
+.header-cabinet-link:hover svg path,
+.header-cabinet-link:hover svg polygon {fill:#2d7fa9}
+.header-cabinet-link:hover svg active,
+.header-cabinet-link:hover svg active {fill:#1a6489}
 
-.header-about-link {float:right; margin:27px 34px 0 0; line-height:40px}
+.header-about-link {float:right; margin:27px 0 0 0; line-height:40px}
 
 .content-header {background:#f6f6f6; font-size:30px; line-height:36px; padding:34px 0}
 .content-header .text {margin:0}
@@ -186,7 +212,7 @@ header {position:relative; z-index:1; padding:0 0 19px 0; box-shadow:0 5px 5px 0
 .text {max-width:924px; margin:27px 0 0 0}
 
 .gallery {font-size:0; line-height:0; letter-spacing:-1px; margin:0 -15px}
-.gallery-item {display:inline-block; vertical-align:top; width:33.33%; padding:15px}
+.gallery-item {display:inline-block; vertical-align:top; width:25%; padding:15px}
 .gallery-item a {display:block}
 .gallery-item img {display:block; width:100%}
 
@@ -195,12 +221,13 @@ header {position:relative; z-index:1; padding:0 0 19px 0; box-shadow:0 5px 5px 0
 }
 
 .docs {margin:45px 0}
-.docs-item {margin:20px 0; padding:0 0 0 27px; position:relative; color:#666}
-.docs-item-icon {position:absolute; left:0; top:0}
+.docs-item {margin:20px 0; padding:0 0 0 32px; position:relative; color:#666}
+.docs-item-icon {position:absolute; left:0; top:0; width:22px}
+.docs-item-icon img {width:100%}
 
 .main {background:#111 url(../images/main-bg.jpg) center; margin:0 0 -80px 0; height:calc(100vh - 213px); min-height:468px; position:relative}
 .main-content {position:absolute; left:0; bottom:100px; right:0; text-align:center}
-.main-title {font-size:46px; line-height:55px; color:#fff; padding:0 0 89px 0}
+.main-title {font-size:46px; line-height:55px; color:#fff; font-weight:bold; padding:0 0 89px 0; font-family:"Open Sans", sans-serif}
 .main-btns {width:890px; margin:0 auto}
 .main-btns .btn {float:right; width:430px; margin:0 30px 0 0; height:80px; line-height:80px; font-weight:bold; font-size:27px; text-transform:uppercase; border-radius:8px; box-shadow:8px 0 20px rgba(16, 73, 197, 0.25)}
 .main-btns .btn:first-child {margin:0}
@@ -220,20 +247,21 @@ header {position:relative; z-index:1; padding:0 0 19px 0; box-shadow:0 5px 5px 0
     .main-btns .btn:first-child {margin:0}
 }
 
-.auth {width:394px; margin:40px auto 0 auto; background:#f6f6f6; border-radius:3px; padding:10px 30px 40px 30px}
+.auth {width:394px; margin:65px auto 0 auto; border:1px solid #ececec; border-radius:4px; padding:10px 30px 40px 30px; box-shadow:0 1px 0 0 #e3e3e3}
 .auth form {margin:0}
-.auth .form-input .form-input-label {left:26px}
-.auth .form-input.focus .form-input-label {background:none}
-.auth .form-input input {padding-left:26px}
-.auth-input-phone::before {content:""; display:block; width:10px; height:17px; background:url(../images/auth-phone.png); position:absolute; left:3px; bottom:13px}
-.auth-input-password::before {content:""; display:block; width:13px; height:16px; background:url(../images/auth-password.png); position:absolute; left:2px; bottom:15px}
-.auth .form-checkbox span::before {border-color:#d8d8d8; background:#fff}
+.auth .form-checkbox {font-size:13px}
+.auth .form-checkbox span {padding:0 0 0 20px}
+.auth .form-checkbox span::before {top:3px; width:13px; height:13px; border:2px solid #d8d8d8}
+.form-checkbox label input:checked+span::after,
+.form-checkbox label input:checked+label+span::after {left:3px; top:6px; width:7px; height:7px}
+.form-checkbox label input.error+span::before,
+.form-checkbox label input.error+label+span::before {border-color:#ffc2c2}
 .auth .form-ctrl {margin:26px 0 0 0}
-.auth .form-submit {width:auto}
+.auth .form-submit {float:right; width:auto}
 .auth .form-submit .btn {width:auto; padding:0 26px}
-.auth-forgot {float:right; line-height:40px}
+.auth-forgot {float:left; line-height:40px}
 
-.auth-contacts {width:394px; margin:40px auto 0 auto; background:#f6f6f6; border-radius:3px; padding:24px 30px 25px 30px}
+.auth-contacts {width:394px; margin:40px auto 0 auto; border:1px solid #ececec; border-radius:4px; padding:24px 30px 25px 30px; box-shadow:0 1px 0 0 #e3e3e3}
 .auth-contacts-phone {font-size:24px; line-height:29px}
 .auth-contacts-phone a {color:#111}
 .auth-contacts-schedule {color:#666; padding:2px 0 0 0}
@@ -249,13 +277,13 @@ header {position:relative; z-index:1; padding:0 0 19px 0; box-shadow:0 5px 5px 0
 .queue {margin:40px -15px 0 -15px; position:relative}
 .queue-inner {position:relative; width:100%; overflow:hidden; font-size:0; line-height:0; letter-spacing:-1px; padding:0 20% 0 0}
 .queue-list-item {display:inline-block; vertical-align:top; width:25%; padding:0 15px}
-.queue-list-item-header {background:#f6f6f6; border-radius:3px; position:relative; padding:14px 20px 16px 20px; font-size:15px; line-height:18px; letter-spacing:0}
+.queue-list-item-header {background:#f6f6f6; border-radius:4px; position:relative; padding:14px 20px 16px 20px; font-size:15px; line-height:18px; letter-spacing:0}
 .queue-list-item-header::before {content:""; display:block; position:absolute; left:0; top:13px; bottom:13px; width:4px; background:#a4d78b; border-radius:0 4px 4px 0}
 .queue-list-item-header-day {font-size:13px; color:#666; padding:1px 0 0 0}
 .queue-list-item-times {margin:10px 0 0 0; font-size:15px; line-height:38px; letter-spacing:0; text-align:center}
-.queue-list-item-times a {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:3px; height:40px; text-decoration:none; color:#111}
-.queue-list-item-times a:hover {color:#fff; background:#489eca; border-color:#489eca}
-.queue-list-item-times span {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:3px; height:40px; color:#cdcdcd}
+.queue-list-item-times a {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:4px; height:40px; text-decoration:none; color:#111}
+.queue-list-item-times a:hover {color:#111; background:#dbedf9; border-color:#dbedf9}
+.queue-list-item-times span {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:4px; height:40px; color:#cdcdcd}
 
 @media screen and (max-width:1399px) {
     .queue-inner {padding:0 25% 0 0}
@@ -270,7 +298,7 @@ header {position:relative; z-index:1; padding:0 0 19px 0; box-shadow:0 5px 5px 0
 }
 
 .queue-date {position:absolute; right:0; top:0; bottom:0; width:20%; padding:0 15px}
-.queue-date-inner {background:#f6f6f6; border-radius:3px; height:100%}
+.queue-date-inner {background:#f6f6f6; border-radius:4px; height:100%}
 .queue-date-link {padding:30px 0 0 0; width:142px; margin:0 auto}
 .queue-date-hint {padding:27px 0; width:142px; margin:0 auto; color:#666; font-size:13px; line-height:18px; text-align:center}
 .queue-date-hint::before {content:""; display:block; width:33px; height:33px; background:url(../images/queue-date.png); margin:0 auto 14px auto}
@@ -283,29 +311,34 @@ header {position:relative; z-index:1; padding:0 0 19px 0; box-shadow:0 5px 5px 0
     .queue-date {width:33.33%}
 }
 
-.desktop {padding:30px 0 0 0}
+.desktop {padding:50px 0 0 0}
 .desktop::after {content:""; display:block; clear:both}
 
 .desktop-side {float:left; width:288px}
 
-.desktop-menu {background:#f6f6f6; border-radius:3px; box-shadow:0 1px 0 0 #e3e3e3; padding:0 30px 3px 30px}
+.desktop-menu {border:1px solid #ececec; border-radius:4px; box-shadow:0 1px 0 0 #e3e3e3; padding:0 30px 3px 30px}
 .desktop-menu ul {margin:0; padding:17px 0 25px 0; list-style:none; border-top:1px solid #e3e3e3}
 .desktop-menu ul:first-child {border-top:none}
 .desktop-menu ul li {margin:6px 0 0 0; padding:0; position:relative}
 .desktop-menu ul li::before {display:none}
 .desktop-menu ul li.active {font-weight:bold}
-.desktop-menu ul li.active::after {content:""; display:block; position:absolute; left:-30px; top:0; width:4px; bottom:0; background:#ffda76; border-radius:0 4px 4px 0}
+.desktop-menu ul li.active::after {content:""; display:block; position:absolute; left:-31px; top:0; width:4px; bottom:0; background:#ffda76; border-radius:0 4px 4px 0}
 .desktop-menu ul li a {color:#111; text-decoration:none}
 .desktop-menu ul li a:hover {text-decoration:underline}
-.desktop-menu-count {display:block; position:absolute; right:0; top:-2px; height:24px; padding:0 11px; font-size:13px; line-height:24px; background:#a4d78b; border-radius:12px}
+.desktop-menu ul li a.desktop-menu-logout {color:#fb6060}
+.desktop-menu-count {display:block; position:absolute; right:0; top:-2px; height:24px; padding:0 11px; font-size:13px; line-height:24px; color:#fff; background:#489eca; border-radius:12px}
 .desktop-menu-icon {position:absolute; right:0; top:-1px; line-height:0}
+.desktop-menu-icon-text {display:none; position:absolute; z-index:999; left:50%; bottom:30px; width:237px; margin-left:-118px; padding:8px 10px 11px 10px; background:#fff; font-size:14px; line-height:18px; letter-spacing:0; text-align:center; box-shadow:0 0 10px 0 rgba(0, 0, 0, 0.15)}
+.desktop-menu-icon:hover .desktop-menu-icon-text {display:block}
+.desktop-menu-icon-text::after {content:""; display:block; width:0; height:0; position:absolute; left:50%; bottom:-6px; margin-left:-6px; border-top:6px solid #fff; border-left:6px solid transparent; border-right:6px solid transparent}
 
 .desktop-side .auth-contacts {width:auto; margin:30px 0 0 0}
 
 .desktop-container {margin:0 0 0 318px}
 .desktop-content {float:left; width:100%}
+.desktop-content h1:first-child {margin-top:0}
 
-.desktop-message {margin:0 0 20px 0; background:#ffda76; padding:0 60px 9px 16px; border-radius:3px; position:relative; box-shadow:0 1px 0 0 #e3c56e}
+.desktop-message {margin:0 0 20px 0; background:#ffda76; padding:0 60px 9px 16px; border-radius:4px; position:relative; box-shadow:0 1px 0 0 #e3c56e}
 .desktop-message::after {content:""; display:block; clear:both}
 .desktop-message-icon {float:left; width:30px; line-height:0; padding:13px 0 0 0}
 .desktop-message-text {margin:0 0 0 45px; font-size:13px; line-height:18px; padding:10px 0 0 0}
@@ -314,16 +347,27 @@ header {position:relative; z-index:1; padding:0 0 19px 0; box-shadow:0 5px 5px 0
 
 .desktop-title {font-weight:bold; font-size:20px; line-height:24px; margin:21px 0 0 0}
 .desktop-title:first-child {margin:-5px 0 0 0}
-.desktop-btns {margin:25px 0 0 0}
+.desktop-btns {margin:15px 0 0 0}
 .desktop-btns::after {content:""; display:block; clear:both}
-.desktop-btns a {float:left; margin:0 0 0 20px; border:2px solid #00a8ff; border-radius:3px; height:40px; padding:0 12px; color:#111; text-decoration:none; line-height:36px}
+.desktop-btns a {float:left; margin:0 0 0 20px; border:1px solid #489eca; border-radius:4px; height:40px; padding:0 12px; color:#111; text-decoration:none; line-height:36px}
 .desktop-btns a:first-child {margin:0}
-.desktop-btns a:hover {background:#00a8ff; color:#fff}
-.desktop-btns a.desktop-btn-add::before {content:""; display:inline-block; vertical-align:middle; width:15px; height:15px; background:url(../images/icon-add.png); margin:-2px 8px 0 0}
-.desktop-btns a.desktop-btn-add:hover::before {background-position:left -15px}
+.desktop-btns a:hover {background:#489eca; color:#fff}
+.desktop-btns a.desktop-btn-add svg {display:inline-block; vertical-align:middle; width:14px; height:14px; margin:-2px 8px 0 0}
+.desktop-btns a.desktop-btn-add svg path {fill:#489eca}
+.desktop-btns a.desktop-btn-add:hover svg path {fill:#fff}
 
 .desktop-orders {margin:16px 0 0 0}
-.desktop-order {margin:3px 0 0 0; background:#f6f6f6; border-radius:3px; box-shadow:0 1px 0 0 #e3e3e3; padding:17px 30px 16px 30px; position:relative}
+
+.desktop-orders-header {font-size:13px; color:#999; padding:2px 30px 11px 30px}
+.desktop-orders-header::after {content:""; display:block; clear:both}
+.desktop-orders-header-date {float:left; width:143px}
+.desktop-orders-header-payment {float:right; width:118px}
+.desktop-orders-header-cost {float:right; margin:0 27px 0 0; text-align:right; width:100px}
+.desktop-orders-header-period {float:left}
+.desktop-orders-header-info {margin:0 276px}
+
+.desktop-order {margin:3px 0 0 0; background:#f6f6f6; border-radius:4px; box-shadow:0 1px 0 0 #e3e3e3; padding:17px 30px 16px 30px; position:relative; transition:all 0.2s; cursor:pointer}
+.desktop-order:hover {background:#edf6fc}
 .desktop-order::before {content:""; display:block; position:absolute; left:0; top:18px; bottom:21px; width:4px; border-radius:0 4px 4px 0}
 .desktop-order-status-1::before {background:#489eca}
 .desktop-order-status-2::before {background:#ffda76}
@@ -345,7 +389,70 @@ header {position:relative; z-index:1; padding:0 0 19px 0; box-shadow:0 5px 5px 0
 .desktop-order-info {margin:0 276px; font-weight:bold}
 .desktop-order-info span {display:block; font-size:13px; line-height:18px; color:#666; font-weight:normal}
 
-footer {position:relative; height:116px; margin:-116px 0 0 0; background:#f6f6f6; font-size:13px; line-height:24px}
+.orders-header {margin:46px 0 0 0}
+.orders-header::after {content:""; display:block; clear:both}
+
+.orders-search {float:left; width:65.58%}
+.orders-search form {margin:0; padding:0}
+.orders-search .form-submit {float:right; margin:0; width:67px}
+.orders-search .form-submit .btn-reset {border-color:#489eca}
+.orders-search .form-submit .btn-reset:hover {background:#489eca; color:#fff}
+.orders-search .form-input {margin:0 75px 0 0}
+.orders-search .form-input input {border:1px solid #ececec; border-radius:4px; height:40px; padding:0 16px; line-height:38px}
+
+.orders-header .desktop-btns {float:right; margin:0}
+
+.orders-sort {margin:23px 0 0 0}
+.orders-sort::after {content:""; display:block; clear:both}
+.orders-sort-text {float:left}
+.orders-sort-select {float:left; margin:0 0 0 4px; position:relative}
+.orders-sort-select-value::after {content:""; display:inline-block; vertical-align:middle; width:9px; height:7px; background:url(../images/arrow.png); margin:-2px 0 0 6px}
+
+.order-steps {position:relative; background:#f6f6f6; font-size:0; line-height:0; letter-spacing:-1px}
+.order-steps::before {content:""; display:block; position:absolute; left:100%; top:0; bottom:0; width:9999px; background:#f6f6f6}
+.order-steps::after {content:""; display:block; position:absolute; right:100%; top:0; bottom:0; width:9999px; background:#f6f6f6}
+.order-step {display:inline-block; vertical-align:top; padding:0 0 0 100px; position:relative; height:71px; background:url(../images/order-step.png) no-repeat 30px center}
+.order-step:first-child {padding:0; background:none}
+.order-step-number {float:left; width:30px; height:30px; margin:19px 0 0 0; background:#fff; border-radius:50%; color:#999; font-size:20px; line-height:30px; font-weight:bold; text-align:center; letter-spacing:0}
+.order-step.active .order-step-number {background:#ffda76; color:#111}
+.order-step-title {float:left; margin:19px 0 0 10px; color:#999; font-size:20px; line-height:30px; font-weight:bold; text-align:center; letter-spacing:0}
+.order-step.active .order-step-title {color:#111}
+
+.order-subtitle {font-weight:bold; margin:23px 0 0 0}
+
+.order-types {margin:15px 0 0 0}
+.order-types::after {content:""; display:block; clear:both}
+.order-types label {float:left; margin:0 0 0 20px; cursor:pointer}
+.order-types label:first-child {margin:0}
+.order-types label input {display:none}
+.order-type {display:block; border:1px solid #489eca; padding:0 15px; border-radius:4px; height:40px; line-height:38px; transition:all 0.2s}
+.order-types label input:checked+.order-type {background:#ffda76; border-color:#ffda76}
+.order-type .desktop-menu-icon {position:relative; display:inline-block; vertical-align:middle; margin:-2px 0 0 4px}
+
+.order-form-submit {background:#f6f6f6; margin:40px 0; padding:10px}
+.order-form-submit::after {content:""; display:block; clear:both}
+.order-form-submit .btn {float:right; width:144px}
+
+.order-date {margin:15px 0 0 0}
+.order-date::after {content:""; display:block; clear:both}
+.order-date-select {float:left; position:relative}
+.order-date-link {display:block; width:136px; padding:0 0 0 34px; border:1px solid #489eca; color:#111; border-radius:4px; line-height:38px; height:40px; position:relative; background:url(../images/order-date-calendar.png) no-repeat 8px 9px}
+.order-date-link:hover {border-color:#489eca; color:#489eca}
+.order-date-calendar {display:none; position:absolute; left:0; top:100%}
+.order-date-select.open .order-date-calendar {display:block}
+.order-date-value {display:none; float:left; margin:0 0 0 20px; padding:0 14px 0 34px; border:1px solid #489eca; color:#111; border-radius:4px; line-height:38px; height:40px; position:relative; background:url(../images/order-date-calendar.png) no-repeat 8px 9px}
+
+.order-period {margin:13px -15px 0 -15px}
+.order-period::after {content:""; display:block; clear:both}
+.order-period-col {float:left; width:16.66%; padding:0 15px}
+.order-period label {display:block; margin:0; cursor:pointer; padding:0}
+.order-period label input {display:none}
+.order-period label span {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:4px; height:40px; text-decoration:none; color:#111; cursor:pointer; text-align:center; line-height:38px}
+.order-period label:hover span {color:#111; background:#dbedf9; border-color:#dbedf9}
+.order-period label input:checked+span {color:#111; background:#ffda76; border-color:#ffda76}
+.order-period label input:disabled+span {border:1px solid #ccc; color:#cdcdcd; cursor:default; background:none}
+
+footer {position:relative; height:116px; margin:-116px 0 0 0; background:#edf6fc; font-size:13px; line-height:24px}
 footer p {margin:0; padding:0}
 
 @media screen and (max-width:799px) {
@@ -364,3 +471,26 @@ footer p {margin:0; padding:0}
 @media screen and (max-width:799px) {
     .footer-right {float:none; text-align:left; padding:13px 0 0 0}
 }
+
+.window-open body {overflow:hidden}
+.window-open .wrapper {-webkit-filter:blur(8px); -moz-filter:blur(8px); -o-filter:blur(8px); -ms-filter:blur(8px); filter:blur(8px)}
+.window-open footer {-webkit-filter:blur(8px); -moz-filter:blur(8px); -o-filter:blur(8px); -ms-filter:blur(8px); filter:blur(8px)}
+
+.window {position:fixed; left:0; top:0; right:0; bottom:0; z-index:99997; overflow:auto; background:rgba(0, 0, 0, 0.5)}
+.window-loading {position:absolute; left:50%; top:50%; width:24px; height:24px; margin:-12px 0 0 -12px; background:url(../images/loading.gif)}
+.window-container {position:absolute; z-index:99999; left:50%; top:50%}
+.window-container-load {position:fixed; left:-9999px; top:-9999px}
+.window-content {position:relative; background:#fff}
+.window-close {display:block; position:absolute; width:17px; height:17px; right:24px; top:29px; background:url(../images/window-close.png)}
+
+.window-auth {width:476px; padding:0 41px 42px 41px}
+.window-auth .auth {width:auto; margin:26px 0 0 0}
+.window-auth .auth-contacts {width:auto; text-align:center}
+
+.window-auth-header {font-size:24px; line-height:28px; padding:23px 0 0 0}
+.window-auth-header ul {margin:0; padding:0; list-style:none}
+.window-auth-header ul::after {content:""; display:block; clear:both}
+.window-auth-header ul li {float:left; margin:0 0 0 30px; padding:0; font-weight:bold}
+.window-auth-header ul li:first-child {margin:0}
+.window-auth-header ul li::before {display:none}
+.window-auth-header ul li a {font-weight:normal}

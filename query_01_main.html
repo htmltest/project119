@@ -4,10 +4,11 @@
         <meta charset="utf-8" />
         <title>Renovo</title>
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i|Open+Sans:700&amp;subset=cyrillic" />
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="js/fancybox/jquery.fancybox.min.css">
         <link rel="stylesheet" href="js/chosen/chosen.css" />
+        <link rel="stylesheet" href="js/jquery-ui-1.12.1.custom/jquery-ui.css" />
 
         <meta name="viewport" content="width=device-width" />
     </head>
@@ -23,45 +24,25 @@
                         <div class="header-top"></div>
 
                         <div class="header-left">
-                            <div class="logo"><a href="#"></a></div>
-                            <div class="header-title">Электронная очередь</div>
+                            <div class="logo"></div>
                         </div>
 
-                        <a href="#" class="header-cabinet-link">Личный кабинет</a>
+                        <a href="#" class="header-cabinet-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 26"><path d="M15.49,18.49,16.7,19.7,23.41,13l-6.7-6.71L15.5,7.5l3.09,3.17A6,6,0,0,0,20.47,12H0v2H20.43a6,6,0,0,0-1.84,1.28Z"/><polygon points="8 0 8 6 10 6 10 2 26 2 26 24 10 24 10 20 8 20 8 26 28 26 28 0 8 0"/></svg>Личный кабинет</a>
                         <a href="#" class="header-about-link">О сервисе</a>
                     </div>
                 </header>
 
-                <!-- content header -->
-                <div class="content-header">
-                    <div class="container">
-                        <div class="text">
-                            Восстановление пароля
+                <div class="main">
+                    <div class="main-content">
+                        <div class="container">
+                            <div class="main-title">Прохождение таможенной границы без задержек.<br /> Быстро. Понятно. Удобно.</div>
+                            <div class="main-btns">
+                                <a href="#" class="btn">Очередь на границе</a>
+                                <a href="windows/query_00_auth_popup.html" class="btn window-link">Заявка на бронирование</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- content header END -->
-
-                <!-- auth -->
-                <div class="auth">
-                    <form action="#" method="post">
-                        <div class="forgot-attention">
-                            <p><strong>Внимание!</strong></p>
-                            <p>На указанный номер телефона был выслан новый пароль. Если у вас возникнут какие-то вопросы — обратитесь по контактным данным технической поддержки.</p>
-                            <p><a href="#">Авторизация</a></p>
-                        </div>
-                    </form>
-                </div>
-                <!-- auth END -->
-
-                <!-- auth contacts -->
-                <div class="auth-contacts">
-                    <div class="auth-contacts-phone"><a href="tel:+78001001255">8 800 100-12-55</a></div>
-                    <div class="auth-contacts-schedule">с 10:00 до 18:00</div>
-                    <div class="auth-contacts-text">По техническим вопросам</div>
-                    <div class="auth-contacts-email"><a href="mailto:support@elqueue.ru">support@elqueue.ru</a></div>
-                </div>
-                <!-- auth contacts END -->
 
             </div>
         </div>
@@ -87,6 +68,8 @@
         <script src="js/validation/jquery.validate.min.js"></script>
         <script src="js/validation/messages_ru.js"></script>
         <script src="js/chosen/chosen.jquery.min.js"></script>
+        <script src="js/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+        <script src="js/jquery-ui-1.12.1.custom/datepicker-ru.js"></script>
         <script src="js/tools.js"></script>
 
     </body>

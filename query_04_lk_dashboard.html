@@ -4,10 +4,11 @@
         <meta charset="utf-8" />
         <title>Renovo</title>
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i|Open+Sans:700&amp;subset=cyrillic" />
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="js/fancybox/jquery.fancybox.min.css">
         <link rel="stylesheet" href="js/chosen/chosen.css" />
+        <link rel="stylesheet" href="js/jquery-ui-1.12.1.custom/jquery-ui.css" />
 
         <meta name="viewport" content="width=device-width" />
     </head>
@@ -24,10 +25,10 @@
 
                         <div class="header-left">
                             <div class="logo"><a href="#"></a></div>
-                            <div class="header-title">Электронная очередь</div>
                         </div>
 
-                        <a href="#" class="header-cabinet-link">Личный кабинет</a>
+                        <a href="#" class="header-logout-link">Выход</a>
+                        <a href="#" class="header-cabinet-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 26"><path d="M15.49,18.49,16.7,19.7,23.41,13l-6.7-6.71L15.5,7.5l3.09,3.17A6,6,0,0,0,20.47,12H0v2H20.43a6,6,0,0,0-1.84,1.28Z"/><polygon points="8 0 8 6 10 6 10 2 26 2 26 24 10 24 10 20 8 20 8 26 28 26 28 0 8 0"/></svg>Личный кабинет</a>
                         <a href="#" class="header-about-link">О сервисе</a>
                     </div>
                 </header>
@@ -46,6 +47,7 @@
                                 <ul>
                                     <li class="active"><a href="#">Рабочий стол</a></li>
                                     <li><a href="#">Профиль</a></li>
+                                    <li><a href="#" class="desktop-menu-logout">Выход</a></li>
                                 </ul>
                                 <ul>
                                     <li><a href="#">Заявки</a><span class="desktop-menu-count">23</span></li>
@@ -53,7 +55,7 @@
                                     <li><a href="#">Обратная связь</a></li>
                                 </ul>
                                 <ul>
-                                    <li><a href="#">Помощь?</a><span class="desktop-menu-icon"><img src="images/desktop-menu-icon-help.png" alt="" /></span></li>
+                                    <li><a href="#">Помощь?</a><span class="desktop-menu-icon"><img src="images/desktop-menu-icon-help.png" alt="" /><span class="desktop-menu-icon-text">Текст с подсказкой<br /> в две строки</span></span></li>
                                 </ul>
                             </div>
                             <!-- desktop menu END -->
@@ -82,8 +84,8 @@
 
                                 <div class="desktop-title">Типовые задачи</div>
                                 <div class="desktop-btns">
-                                    <a href="#" class="desktop-btn-add">Заявка на бронирование</a>
-                                    <a href="#" class="desktop-btn-add">Сообщение п поддержку</a>
+                                    <a href="#" class="desktop-btn-add"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14px" height="14px"> <path fill-rule="evenodd" d="M14.000,8.000 L8.000,8.000 L8.000,14.000 L6.000,14.000 L6.000,8.000 L-0.000,8.000 L-0.000,6.000 L6.000,6.000 L6.000,-0.000 L8.000,-0.000 L8.000,6.000 L14.000,6.000 L14.000,8.000 Z" /></svg>Заявка на бронирование</a>
+                                    <a href="#" class="desktop-btn-add"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14px" height="14px"> <path fill-rule="evenodd" d="M14.000,8.000 L8.000,8.000 L8.000,14.000 L6.000,14.000 L6.000,8.000 L-0.000,8.000 L-0.000,6.000 L6.000,6.000 L6.000,-0.000 L8.000,-0.000 L8.000,6.000 L14.000,6.000 L14.000,8.000 Z" /></svg>Сообщение п поддержку</a>
                                 </div>
 
                                 <div class="desktop-title">Заявки на бронирование</div>
@@ -91,7 +93,15 @@
                                 <!-- desktop orders -->
                                 <div class="desktop-orders">
 
-                                    <div class="desktop-order desktop-order-status-1">
+                                    <div class="desktop-orders-header">
+                                        <div class="desktop-orders-header-date">Дата создания</div>
+                                        <div class="desktop-orders-header-payment">Статус</div>
+                                        <div class="desktop-orders-header-cost">Стоимость</div>
+                                        <div class="desktop-orders-header-period">Дата</div>
+                                        <div class="desktop-orders-header-info">Автомобиль</div>
+                                    </div>
+
+                                    <div class="desktop-order desktop-order-status-1" data-link="#">
                                         <div class="desktop-order-date">13.06.2018 12:20 <span>№13356</span></div>
                                         <div class="desktop-order-payment">Оплачена</div>
                                         <div class="desktop-order-cost"><span>250</span> руб.</div>
@@ -99,7 +109,7 @@
                                         <div class="desktop-order-info">у667ом | 177 Opel Astra <span>Легковой автомобиль</span></div>
                                     </div>
 
-                                    <div class="desktop-order desktop-order-status-2">
+                                    <div class="desktop-order desktop-order-status-2" data-link="#">
                                         <div class="desktop-order-date">13.06.2018 12:20 <span>13355</span></div>
                                         <div class="desktop-order-payment">Ожидает оплаты <span><a href="#">Оплатить</a></span></div>
                                         <div class="desktop-order-cost"><span>2 190</span> руб.</div>
@@ -107,7 +117,7 @@
                                         <div class="desktop-order-info">e188нр | 454 Toyota Corolla <span>Легковой автомобиль</span></div>
                                     </div>
 
-                                    <div class="desktop-order desktop-order-status-3">
+                                    <div class="desktop-order desktop-order-status-3" data-link="#">
                                         <div class="desktop-order-date">13.06.2018 12:20 <span>№13356</span></div>
                                         <div class="desktop-order-payment">Оплачена</div>
                                         <div class="desktop-order-cost"><span>250</span> руб.</div>
@@ -115,7 +125,7 @@
                                         <div class="desktop-order-info">у667ом | 177 Opel Astra <span>Легковой автомобиль</span></div>
                                     </div>
 
-                                    <div class="desktop-order desktop-order-status-4">
+                                    <div class="desktop-order desktop-order-status-4" data-link="#">
                                         <div class="desktop-order-date">13.06.2018 12:20 <span>13355</span></div>
                                         <div class="desktop-order-payment">Оплачена</div>
                                         <div class="desktop-order-cost"><span>2 190</span> руб.</div>
@@ -123,7 +133,7 @@
                                         <div class="desktop-order-info">e188нр | 454 Toyota Corolla <span>Легковой автомобиль</span></div>
                                     </div>
 
-                                    <div class="desktop-order desktop-order-status-5">
+                                    <div class="desktop-order desktop-order-status-5" data-link="#">
                                         <div class="desktop-order-date">13.06.2018 12:20 <span>№13356</span></div>
                                         <div class="desktop-order-payment">Оплачена</div>
                                         <div class="desktop-order-cost"><span>250</span> руб.</div>
@@ -131,7 +141,7 @@
                                         <div class="desktop-order-info">у667ом | 177 Opel Astra <span>Легковой автомобиль</span></div>
                                     </div>
 
-                                    <div class="desktop-order desktop-order-status-6">
+                                    <div class="desktop-order desktop-order-status-6" data-link="#">
                                         <div class="desktop-order-date">13.06.2018 12:20 <span>13355</span></div>
                                         <div class="desktop-order-payment">Оплачена</div>
                                         <div class="desktop-order-cost"><span>2 190</span> руб.</div>
@@ -176,6 +186,8 @@
         <script src="js/validation/jquery.validate.min.js"></script>
         <script src="js/validation/messages_ru.js"></script>
         <script src="js/chosen/chosen.jquery.min.js"></script>
+        <script src="js/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+        <script src="js/jquery-ui-1.12.1.custom/datepicker-ru.js"></script>
         <script src="js/tools.js"></script>
 
     </body>

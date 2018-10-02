@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <title>Renovo</title>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i|Open+Sans:700&amp;subset=cyrillic" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="js/fancybox/jquery.fancybox.min.css">
+        <link rel="stylesheet" href="js/chosen/chosen.css" />
+        <link rel="stylesheet" href="js/jquery-ui-1.12.1.custom/jquery-ui.css" />
+
+        <meta name="viewport" content="width=device-width" />
+    </head>
+
+    <body>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="wrapper-inner">
+
+                <header>
+                    <div class="container">
+                        <div class="header-top"></div>
+
+                        <div class="header-left">
+                            <div class="logo"><a href="#"></a></div>
+                        </div>
+
+                        <a href="#" class="header-logout-link">Выход</a>
+                        <a href="#" class="header-cabinet-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 26"><path d="M15.49,18.49,16.7,19.7,23.41,13l-6.7-6.71L15.5,7.5l3.09,3.17A6,6,0,0,0,20.47,12H0v2H20.43a6,6,0,0,0-1.84,1.28Z"/><polygon points="8 0 8 6 10 6 10 2 26 2 26 24 10 24 10 20 8 20 8 26 28 26 28 0 8 0"/></svg>Личный кабинет</a>
+                        <a href="#" class="header-about-link">О сервисе</a>
+                    </div>
+                </header>
+
+                <!-- container -->
+                <div class="container">
+
+                    <h1>Заявка на бронирование</h1>
+
+                    <!-- order steps -->
+                    <div class="order-steps">
+                        <div class="order-step active">
+                            <div class="order-step-number">1</div>
+                            <div class="order-step-title">Бронирование</div>
+                        </div>
+                        <div class="order-step">
+                            <div class="order-step-number">2</div>
+                            <div class="order-step-title">Данные автомобиля</div>
+                        </div>
+                        <div class="order-step">
+                            <div class="order-step-number">3</div>
+                            <div class="order-step-title">Данные водителя</div>
+                        </div>
+                    </div>
+                    <!-- order steps END -->
+
+                    <!-- order form -->
+                    <div class="order-form">
+                        <form action="#" method="post">
+                            <div class="order-subtitle">Тип бронирования</div>
+                            <div class="order-types">
+                                <label>
+                                    <input type="radio" name="type" value="1" checked="checked" />
+                                    <span class="order-type">Обычное бронирование</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="type" value="2" />
+                                    <span class="order-type">Приоритетное бронирование <span class="desktop-menu-icon"><img src="images/desktop-menu-icon-help.png" alt="" /><span class="desktop-menu-icon-text">Текст с подсказкой<br /> в две строки</span></span>
+                                </label>
+                            </div>
+                            <div class="order-subtitle">Дата проезда</div>
+                            <div class="order-date">
+                                <div class="order-date-select">
+                                    <a href="#" class="order-date-link">Выбрать дату</a>
+                                    <div class="order-date-calendar">
+                                        <div id="datepicker"></div>
+                                    </div>
+                                </div>
+                                <div class="order-date-value"></div>
+                            </div>
+                            <div class="order-subtitle">Выберите удобное время прохождения терминала</div>
+                            <div class="order-period">
+                                <div class="order-period-col">
+                                    <label><input type="radio" name="period" value="1" /><span>00:00–01:00</span></label>
+                                    <label><input type="radio" name="period" value="2" /><span>01:00–02:00</span></label>
+                                    <label><input type="radio" name="period" value="3" /><span>02:00–03:00</span></label>
+                                    <label><input type="radio" name="period" value="5" /><span>04:00–05:00</span></label>
+                                </div>
+                                <div class="order-period-col">
+                                    <label><input type="radio" name="period" value="6" /><span>05:00–06:00</span></label>
+                                    <label><input type="radio" name="period" value="7" /><span>06:00–07:00</span></label>
+                                    <label><input type="radio" name="period" value="8" disabled="disabled" /><span>07:00–08:00</span></label>
+                                    <label><input type="radio" name="period" value="9" /><span>08:00–09:00</span></label>
+                                </div>
+                                <div class="order-period-col">
+                                    <label><input type="radio" name="period" value="10" disabled="disabled" /><span>09:00–10:00</span></label>
+                                    <label><input type="radio" name="period" value="11" disabled="disabled" /><span>10:00–11:00</span></label>
+                                    <label><input type="radio" name="period" value="12" /><span>11:00–12:00</span></label>
+                                    <label><input type="radio" name="period" value="13" /><span>12:00–13:00</span></label>
+                                </div>
+                                <div class="order-period-col">
+                                    <label><input type="radio" name="period" value="14" /><span>13:00–14:00</span></label>
+                                    <label><input type="radio" name="period" value="15" /><span>14:00–15:00</span></label>
+                                    <label><input type="radio" name="period" value="16" /><span>15:00–16:00</span></label>
+                                    <label><input type="radio" name="period" value="17" /><span>16:00–17:00</span></label>
+                                </div>
+                                <div class="order-period-col">
+                                    <label><input type="radio" name="period" value="18" /><span>17:00–18:00</span></label>
+                                    <label><input type="radio" name="period" value="19" /><span>18:00–19:00</span></label>
+                                    <label><input type="radio" name="period" value="20" /><span>19:00–20:00</span></label>
+                                    <label><input type="radio" name="period" value="21" /><span>20:00–21:00</span></label>
+                                </div>
+                                <div class="order-period-col">
+                                    <label><input type="radio" name="period" value="22" /><span>21:00–22:00</span></label>
+                                    <label><input type="radio" name="period" value="23" /><span>22:00–23:00</span></label>
+                                    <label><input type="radio" name="period" value="24" /><span>23:00–24:00</span></label>
+                                </div>
+                            </div>
+                            <div class="order-form-submit"><input type="submit" value="Далее" class="btn" /></div>
+                        </form>
+                    </div>
+                    <!-- order form END -->
+
+                </div>
+                <!-- container END -->
+
+            </div>
+        </div>
+        <!-- wrapper END -->
+
+        <footer>
+            <div class="container">
+                <div class="footer-left">
+                    <p class="copyrights">© ФГУП 2017–2018. Все права защищены</p>
+                    <p>Нелицензионное использование материалов сайта запрещено.</p>
+                    <p>ФГУП «Унитарное предприятие» является частью МЦМ.</p>
+                </div>
+                <div class="footer-right">
+                    <p><a href="#">Политика в отношении обработки персональных данных</a></p>
+                    <p><a href="#">Условия онлайн использования</a></p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/fancybox/jquery.fancybox.min.js"></script>
+        <script src="js/jquery.maskedinput.js"></script>
+        <script src="js/validation/jquery.validate.min.js"></script>
+        <script src="js/validation/messages_ru.js"></script>
+        <script src="js/chosen/chosen.jquery.min.js"></script>
+        <script src="js/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+        <script src="js/jquery-ui-1.12.1.custom/datepicker-ru.js"></script>
+        <script src="js/tools.js"></script>
+
+    </body>
+</html>

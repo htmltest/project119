@@ -23,7 +23,7 @@ ul {margin:20px 0; padding:0; list-style:none}
 li {margin:10px 0; padding:0 0 0 14px; position:relative}
 ul li::before {content:"•"; color:#56c6b4; position:absolute; left:0; top:0}
 li ul {margin:10px 0}
-blockquote {margin:35px 0 33px 0; padding:20px 30px 24px 30px; background:#ffe9ad; font-style:italic; font-size:18px; line-height:24px}
+blockquote {margin:35px 0 33px 0; padding:20px 30px 24px 30px; background:#ffe9ad; font-style:italic; font-size:18px; line-height:24px; font-weight:normal}
 ol {margin:20px 0; padding:0; list-style:none; counter-reset:point}
 ol > li {padding:0 0 0 17px}
 ol > li::before {content:counter(point)'.'; counter-increment:point 1; position:absolute; left:0; top:0}
@@ -31,6 +31,7 @@ ol > li:nth-child(n+10) {padding:0 0 0 22px}
 ol li ol {margin:10px 0; counter-reset:subpoint}
 ol > li > ol > li {padding:0 0 0 29px}
 ol > li > ol > li::before {content:counter(point)'.'counter(subpoint); counter-increment:subpoint 1}
+hr {margin:25px 0 23px 0; padding:0; border:none; height:1px; background:#e3e3e3}
 
 .wrapper table {margin:20px 0 33px 0; width:100%; border-collapse:collapse}
 .wrapper th {font-weight:normal; font-size:13px; line-height:20px; color:#666666; vertical-align:top; padding:0 0 14px 30px; border-bottom:2px solid #999; text-align:left}
@@ -64,6 +65,13 @@ ol > li > ol > li::before {content:counter(point)'.'counter(subpoint); counter-i
 .btn-reset:active {color:#1a6489; border-color:#1a6489}
 
 form {margin:20px 0; padding:0}
+.ajax-form {position:relative}
+
+.form-loading {position:absolute; left:0; top:-2px; right:0; bottom:0; background:#fff url(../images/loading.gif) no-repeat center; z-index:20}
+.form-results {position:absolute; left:0; top:-2px; padding:2px 0 0 0; right:0; bottom:0; background:#fff; z-index:20}
+.form-results-btn {width:154px; margin:30px auto 0 auto}
+.form-results-content .form-success {margin-top:7px}
+.form-results-content .form-error {margin-top:7px}
 
 .form-input {position:relative; margin:13px 0}
 .form-input .form-input-label {position:absolute; left:0; top:10px; transition:all 0.2s}
@@ -247,6 +255,7 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
     .main-btns .btn:first-child {margin:0}
 }
 
+.auth-header {text-align:center}
 .auth {width:394px; margin:65px auto 0 auto; border:1px solid #ececec; border-radius:4px; padding:10px 30px 40px 30px; box-shadow:0 1px 0 0 #e3e3e3}
 .auth form {margin:0}
 .auth .form-checkbox {font-size:13px}
@@ -299,7 +308,9 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 
 .queue-date {position:absolute; right:0; top:0; bottom:0; width:20%; padding:0 15px}
 .queue-date-inner {background:#f6f6f6; border-radius:4px; height:100%}
-.queue-date-link {padding:30px 0 0 0; width:142px; margin:0 auto}
+.queue-date-select {padding:30px 0 0 0; width:142px; position:relative; margin:0 auto}
+.queue-date-calendar {display:none; position:absolute; right:0; top:100%}
+.queue-date-select.open .queue-date-calendar {display:block}
 .queue-date-hint {padding:27px 0; width:142px; margin:0 auto; color:#666; font-size:13px; line-height:18px; text-align:center}
 .queue-date-hint::before {content:""; display:block; width:33px; height:33px; background:url(../images/queue-date.png); margin:0 auto 14px auto}
 
@@ -365,8 +376,11 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .desktop-orders-header-cost {float:right; margin:0 27px 0 0; text-align:right; width:100px}
 .desktop-orders-header-period {float:left}
 .desktop-orders-header-info {margin:0 276px}
+.desktop-orders-header-name {float:left; width:calc(50% - 143px)}
+.desktop-orders-header-info-2 {float:left; width:calc(50% - 118px)}
 
 .desktop-order {margin:3px 0 0 0; background:#f6f6f6; border-radius:4px; box-shadow:0 1px 0 0 #e3e3e3; padding:17px 30px 16px 30px; position:relative; transition:all 0.2s; cursor:pointer}
+.desktop-order-template {padding-top:0; padding-bottom:0}
 .desktop-order:hover {background:#edf6fc}
 .desktop-order::before {content:""; display:block; position:absolute; left:0; top:18px; bottom:21px; width:4px; border-radius:0 4px 4px 0}
 .desktop-order-status-1::before {background:#489eca}
@@ -377,8 +391,11 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .desktop-order-status-6::before {background:#e6e6e6}
 .desktop-order::after {content:""; display:block; clear:both}
 .desktop-order-date {float:left; width:143px}
+.desktop-order-template .desktop-order-date {display:table}
+.desktop-order-template-cell {display:table-cell; vertical-align:middle; height:70px}
 .desktop-order-date span {display:block; font-size:13px; line-height:18px; color:#666}
 .desktop-order-payment {float:right; width:118px}
+.desktop-order-template .desktop-order-payment {display:table}
 .desktop-order-payment span {display:block; font-size:13px; line-height:18px}
 .desktop-order-payment a {color:#4070d8}
 .desktop-order-payment a:hover {color:#2d7fa9}
@@ -388,6 +405,11 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .desktop-order-period span {display:block; font-size:13px; line-height:18px; color:#666}
 .desktop-order-info {margin:0 276px; font-weight:bold}
 .desktop-order-info span {display:block; font-size:13px; line-height:18px; color:#666; font-weight:normal}
+.desktop-order-name {float:left; width:calc(50% - 143px); font-weight:bold; line-height:18px}
+.desktop-order-template .desktop-order-name {display:table}
+.desktop-order-info-2 {float:left; width:calc(50% - 118px); font-weight:bold}
+.desktop-order-info-2 span {display:block; font-size:13px; line-height:18px; color:#666; font-weight:normal}
+.desktop-order-template .desktop-order-info-2 {display:table}
 
 .orders-header {margin:46px 0 0 0}
 .orders-header::after {content:""; display:block; clear:both}
@@ -428,7 +450,8 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-types label:first-child {margin:0}
 .order-types label input {display:none}
 .order-type {display:block; border:1px solid #489eca; padding:0 15px; border-radius:4px; height:40px; line-height:38px; transition:all 0.2s}
-.order-types label input:checked+.order-type {background:#ffda76; border-color:#ffda76}
+.order-types label:hover span {color:#489eca}
+.order-types label input:checked+.order-type {background:#ffda76; border-color:#ffda76; color:#111}
 .order-type .desktop-menu-icon {position:relative; display:inline-block; vertical-align:middle; margin:-2px 0 0 4px}
 
 .order-form-submit {background:#f6f6f6; margin:40px 0; padding:10px}
@@ -492,6 +515,62 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 
 .table-confirm {margin:35px 0 40px 0}
 .table-confirm table td {width:50%; padding-top:14px; padding-bottom:15px}
+
+.profile-main {margin:-10px 0 0 0}
+.profile-main::after {content:""; display:block; clear:both}
+.profile-main-name {float:left; font-weight:bold; font-size:20px; line-height:24px; padding:8px 0 0 0}
+.profile-main-link {float:right}
+.profile-main-link .btn-reset {border-color:#489eca; width:auto; padding:0 12px}
+.profile-main-link .btn-reset:hover {background:#489eca; color:#fff}
+
+.profile-contacts {border-top:1px solid #e3e3e3; margin:31px 0 0 0}
+.profile-contacts-title {font-weight:bold; padding:23px 0 0 0}
+.profile-contacts-container {margin:9px 0 0 0}
+.profile-contacts-container::after {content:""; display:block; clear:both}
+.profile-contacts-content {float:left; max-width:calc(100% - 120px)}
+.profile-contacts-content p {margin:8px 0 0 0; padding:0}
+.profile-contacts-content span {color:#999; margin:0 5px 0 0}
+.profile-contacts-link {float:right; padding:11px 0 0 0}
+.profile-contacts-link .btn-reset {border-color:#489eca; width:auto; padding:0 12px}
+.profile-contacts-link .btn-reset:hover {background:#489eca; color:#fff}
+
+.profile-subscribe {border-top:1px solid #e3e3e3; margin:25px 0 0 0}
+.profile-subscribe::after {content:""; display:block; clear:both}
+.profile-subscribe form {margin:0; padding:0}
+.profile-subscribe-content {float:left; max-width:calc(100% - 120px)}
+.profile-subscribe-title {font-weight:bold; padding:23px 0 0 0}
+.profile-subscribe-btn {float:right; padding:30px 0 0 0}
+.profile-subscribe-btn .btn-reset {color:#999; width:auto; padding:0 12px}
+
+.btn-help {display:inline-block; width:auto; padding:0 14px; border-color:#489eca; color:#111}
+.btn-help:hover {background:#489eca; color:#fff}
+
+.form-input-feedback-textarea {margin-top:30px}
+
+.feeback {margin:30px 0 0 0; border-bottom:1px solid #e3e3e3}
+.feedback-item {border-top:1px solid #e3e3e3; display:block}
+.feedback-item-message {border-top:1px solid #e3e3e3}
+.feedback-item:hover {border-color:#edf6fc}
+.feedback-item:hover+.feedback-item {border-color:#edf6fc}
+.feedback-item-container {margin:0 -10px; padding:23px 10px 21px 10px; transition:all 0.2s}
+.feedback-item:hover .feedback-item-container {background:#edf6fc}
+.feedback-item-header {display:table; width:100%}
+.feedback-item-title {display:table-cell; vertical-align:top; width:100%; font-weight:bold; color:#489eca}
+.feedback-item-title span {color:#71a159; margin:0 0 0 16px}
+.feedback-item-title-support {color:#111}
+.feedback-item-date {display:table-cell; vertical-align:top; white-space:nowrap; padding:0 0 0 30px; color:#666}
+.feedback-item-text {color:#111; padding:8px 0 0 0}
+.feedback-item-avatar {float:left; line-height:0; width:76px; padding:7px 0 0 0}
+.feedback-item-avatar img {display:block; width:100%}
+.feedback-item-content {margin:0 0 0 106px}
+
+.feedback-ticket-header {display:table; width:100%; margin:23px 0 25px 0}
+.feedback-ticket-header-title {display:table-cell; vertical-align:top; width:100%; font-weight:bold}
+.feedback-ticket-header-back {display:table-cell; vertical-align:top; white-space:nowrap; padding:0 0 0 30px}
+.ticket-form-ctrl {margin:20px 0 0 0}
+.ticket-form-ctrl::after {content:""; display:block; clear:both}
+.ticket-form-ctrl .form-file {float:left; margin:-7px 0 0 0}
+.ticket-form-ctrl .form-submit {float:right; width:106px}
 
 footer {position:relative; height:116px; margin:-116px 0 0 0; background:#edf6fc; font-size:13px; line-height:24px}
 footer p {margin:0; padding:0}

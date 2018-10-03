@@ -54,7 +54,7 @@ $(document).ready(function() {
         windowPosition();
     });
 
-    $('body').on('click', '.window-close', function(e) {
+    $('body').on('click', '.window-close, .window-close-btn', function(e) {
         windowClose();
         e.preventDefault();
     });
@@ -77,6 +77,25 @@ $(document).ready(function() {
         onSelect: function(dateText) {
             $('.order-date-value').html(dateText).show();
             $('.order-date-select').removeClass('open');
+        }
+    });
+
+    $('body').on('click', '.queue-date-link', function(e) {
+        $('.queue-date-select').toggleClass('open');
+        e.preventDefault();
+    });
+
+    $(document).click(function(e) {
+        if ($(e.target).parents().filter('.queue-date-select').length == 0) {
+            $('.queue-date-select').removeClass('open');
+        }
+    });
+
+    $('#datepickerQueue').datepicker({
+        dateFormat: dateFormat,
+        minDate: 0,
+        onSelect: function(dateText) {
+            $('.queue-date-select').removeClass('open');
         }
     });
 
@@ -160,7 +179,21 @@ function initForm(curForm) {
     curForm.validate({
         ignore: '',
         submitHandler: function(form) {
-            form.submit();
+            if ($(form).hasClass('ajax-form')) {
+                $(form).append('<div class="form-loading"></div>');
+                $.ajax({
+                    type: 'POST',
+                    url: $(form).attr('action'),
+                    dataType: 'html',
+                    data: $(form).serialize(),
+                    cache: false
+                }).done(function(html) {
+                    $(form).find('.form-loading').remove();
+                    $(form).append('<div class="form-results">' + html + '</div>');
+                });
+            } else {
+                form.submit();
+            }
         }
     });
 }

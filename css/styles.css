@@ -229,7 +229,7 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .main-content {position:absolute; left:0; bottom:100px; right:0; text-align:center}
 .main-title {font-size:46px; line-height:55px; color:#fff; font-weight:bold; padding:0 0 89px 0; font-family:"Open Sans", sans-serif}
 .main-btns {width:890px; margin:0 auto}
-.main-btns .btn {float:right; width:430px; margin:0 30px 0 0; height:80px; line-height:80px; font-weight:bold; font-size:27px; text-transform:uppercase; border-radius:8px; box-shadow:8px 0 20px rgba(16, 73, 197, 0.25)}
+.main-btns .btn {float:right; width:430px; margin:0 30px 0 0; height:80px; line-height:80px; font-weight:bold; font-size:25px; text-transform:uppercase; border-radius:8px; box-shadow:8px 0 20px rgba(16, 73, 197, 0.25)}
 .main-btns .btn:first-child {margin:0}
 
 @media screen and (max-width:1399px) {
@@ -252,10 +252,10 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .auth .form-checkbox {font-size:13px}
 .auth .form-checkbox span {padding:0 0 0 20px}
 .auth .form-checkbox span::before {top:3px; width:13px; height:13px; border:2px solid #d8d8d8}
-.form-checkbox label input:checked+span::after,
-.form-checkbox label input:checked+label+span::after {left:3px; top:6px; width:7px; height:7px}
-.form-checkbox label input.error+span::before,
-.form-checkbox label input.error+label+span::before {border-color:#ffc2c2}
+.auth .form-checkbox label input:checked+span::after,
+.auth .form-checkbox label input:checked+label+span::after {left:3px; top:6px; width:7px; height:7px}
+.auth .form-checkbox label input.error+span::before,
+.auth .form-checkbox label input.error+label+span::before {border-color:#ffc2c2}
 .auth .form-ctrl {margin:26px 0 0 0}
 .auth .form-submit {float:right; width:auto}
 .auth .form-submit .btn {width:auto; padding:0 26px}
@@ -415,8 +415,10 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-step:first-child {padding:0; background:none}
 .order-step-number {float:left; width:30px; height:30px; margin:19px 0 0 0; background:#fff; border-radius:50%; color:#999; font-size:20px; line-height:30px; font-weight:bold; text-align:center; letter-spacing:0}
 .order-step.active .order-step-number {background:#ffda76; color:#111}
+.order-step.success .order-step-number {background:#999 url(../images/order-step-success.png) no-repeat center; color:transparent}
 .order-step-title {float:left; margin:19px 0 0 10px; color:#999; font-size:20px; line-height:30px; font-weight:bold; text-align:center; letter-spacing:0}
 .order-step.active .order-step-title {color:#111}
+.order-step.success .order-step-title {color:#999}
 
 .order-subtitle {font-weight:bold; margin:23px 0 0 0}
 
@@ -432,6 +434,8 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-form-submit {background:#f6f6f6; margin:40px 0; padding:10px}
 .order-form-submit::after {content:""; display:block; clear:both}
 .order-form-submit .btn {float:right; width:144px}
+.order-form-submit .btn-confirm {width:197px}
+.order-form-back {float:right; line-height:40px; margin:0 40px 0 0}
 
 .order-date {margin:15px 0 0 0}
 .order-date::after {content:""; display:block; clear:both}
@@ -451,6 +455,43 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-period label:hover span {color:#111; background:#dbedf9; border-color:#dbedf9}
 .order-period label input:checked+span {color:#111; background:#ffda76; border-color:#ffda76}
 .order-period label input:disabled+span {border:1px solid #ccc; color:#cdcdcd; cursor:default; background:none}
+
+.order-auto {margin:15px 0 0 0}
+.order-auto::after {content:""; display:block; clear:both}
+.order-auto label {float:left; margin:0 0 0 10px; cursor:pointer; width:193px}
+.order-auto label:first-child {margin:0}
+.order-auto label input {display:none}
+.order-auto-content {border:1px solid transparent; padding:9px; border-radius:4px; text-align:center; transition:all 0.2s}
+.order-auto label input:checked+.order-auto-content {border-color:#ececec}
+.order-auto-title {display:block; border:1px solid #489eca; border-radius:4px; height:40px; line-height:38px; transition:all 0.2s}
+.order-auto label:hover .order-auto-title {color:#489eca}
+.order-auto label input:checked+.order-auto-content .order-auto-title {background:#ffda76; border-color:#ffda76; color:#111}
+.order-auto-price {display:block; color:#999; padding:9px 0 1px 0; transition:all 0.2s}
+.order-auto label input:checked+.order-auto-content .order-auto-price {color:#111; font-weight:bold}
+
+.order-auto-country {max-width:396px; margin:-5px 0 -13px 0}
+.order-auto-info::after {content:""; display:block; clear:both}
+.order-auto-info-number {float:left; margin:0 30px 0 0}
+.order-auto-info-number-text {float:left; width:182px; margin:-5px 0 -13px 0}
+.order-auto-info-number-region {float:left; width:76px; margin:-5px 0 -13px 30px}
+.order-auto-info-brand {float:left}
+.order-auto-info-brand-name {float:left; width:288px; margin:-5px 0 -13px 0}
+.order-auto-info-brand-model {float:left; width:288px; margin:-5px 0 -13px 30px}
+
+.order-personal {margin:-5px 0 -13px 0}
+.order-personal::after {content:""; display:block; clear:both}
+.order-personal-item {float:left; width:288px; margin:0 30px 0 0}
+
+.order-form .form-checkbox {font-size:13px}
+.order-form .form-checkbox span {padding:0 0 0 20px}
+.order-form .form-checkbox span::before {top:3px; width:13px; height:13px; border:2px solid #d8d8d8}
+.order-form .form-checkbox label input:checked+span::after,
+.order-form .form-checkbox label input:checked+label+span::after {left:3px; top:6px; width:7px; height:7px}
+.order-form .form-checkbox label input.error+span::before,
+.order-form .form-checkbox label input.error+label+span::before {border-color:#ffc2c2}
+
+.table-confirm {margin:35px 0 40px 0}
+.table-confirm table td {width:50%; padding-top:14px; padding-bottom:15px}
 
 footer {position:relative; height:116px; margin:-116px 0 0 0; background:#edf6fc; font-size:13px; line-height:24px}
 footer p {margin:0; padding:0}

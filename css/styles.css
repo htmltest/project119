@@ -138,7 +138,7 @@ form {margin:20px 0; padding:0}
 
 .form-file {margin:20px 0}
 .form-file::after {content:""; display:block; clear:both}
-.form-file-input {float:left; width:143px; height:20px; text-align:right; position:relative; overflow:hidden; background:url(../images/file-input.png) no-repeat left center; color:#489eca}
+.form-file-input {float:left; width:143px; height:20px; text-align:right; position:relative; overflow:hidden; background:url(../images/file-input.svg) no-repeat left center; color:#489eca}
 .form-file-input:hover {color:#2d7fa9}
 .form-file-input input {height:200px; position:absolute; top:0; right:0; opacity:0; cursor:pointer; font-size:200px; background:url(../images/blank.gif); -webkit-appearance:none}
 .form-file-input label.error {display:none !important}
@@ -198,7 +198,7 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 
 .header-left {float:left; padding:28px 0 0 0}
 
-.logo {position:relative; width:128px; height:41px; background:url(../images/logo.png)}
+.logo {position:relative; width:128px; height:41px; background:url(../images/logo.svg) no-repeat; background-size:100%}
 .logo a {display:block; position:absolute; left:0; top:0; right:0; bottom:0}
 
 .header-logout-link {float:right; margin:27px 0 0 28px; line-height:40px; color:#666}
@@ -312,7 +312,7 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .queue-date-calendar {display:none; position:absolute; right:0; top:100%}
 .queue-date-select.open .queue-date-calendar {display:block}
 .queue-date-hint {padding:27px 0; width:142px; margin:0 auto; color:#666; font-size:13px; line-height:18px; text-align:center}
-.queue-date-hint::before {content:""; display:block; width:33px; height:33px; background:url(../images/queue-date.png); margin:0 auto 14px auto}
+.queue-date-hint::before {content:""; display:block; width:33px; height:33px; background:url(../images/queue-date.svg) no-repeat; background-size:100%; margin:0 auto 14px auto}
 
 @media screen and (max-width:1399px) {
     .queue-date {width:25%}
@@ -339,7 +339,7 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .desktop-menu ul li a.desktop-menu-logout {color:#fb6060}
 .desktop-menu-count {display:block; position:absolute; right:0; top:-2px; height:24px; padding:0 11px; font-size:13px; line-height:24px; color:#fff; background:#489eca; border-radius:12px}
 .desktop-menu-icon {position:absolute; right:0; top:-1px; line-height:0}
-.desktop-menu-icon-text {display:none; position:absolute; z-index:999; left:50%; bottom:30px; width:237px; margin-left:-118px; padding:8px 10px 11px 10px; background:#fff; font-size:14px; line-height:18px; letter-spacing:0; text-align:center; box-shadow:0 0 10px 0 rgba(0, 0, 0, 0.15)}
+.desktop-menu-icon-text {display:none; position:absolute; z-index:999; left:50%; bottom:30px; width:237px; margin-left:-118px; padding:8px 10px 11px 10px; background:#fff; font-size:14px; line-height:18px; letter-spacing:0; text-align:center; box-shadow:0 0 10px 0 rgba(0, 0, 0, 0.15); color:#111}
 .desktop-menu-icon:hover .desktop-menu-icon-text {display:block}
 .desktop-menu-icon-text::after {content:""; display:block; width:0; height:0; position:absolute; left:50%; bottom:-6px; margin-left:-6px; border-top:6px solid #fff; border-left:6px solid transparent; border-right:6px solid transparent}
 
@@ -353,8 +353,10 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .desktop-message::after {content:""; display:block; clear:both}
 .desktop-message-icon {float:left; width:30px; line-height:0; padding:13px 0 0 0}
 .desktop-message-text {margin:0 0 0 45px; font-size:13px; line-height:18px; padding:10px 0 0 0}
-.desktop-message-delete {display:block; width:12px; height:12px; position:absolute; right:19px; top:21px; background:url(../images/desktop-message-delete.png); transition:none}
-.desktop-message-delete:hover {background-position:left -12px}
+.desktop-message-delete {display:block; width:12px; position:absolute; right:19px; top:21px; line-height:0}
+.desktop-message-delete svg {display:block}
+.desktop-message-delete path {fill:#dabd6a; transition:all 0.2s}
+.desktop-message-delete:hover path {fill:#111}
 
 .desktop-title {font-weight:bold; font-size:20px; line-height:24px; margin:21px 0 0 0}
 .desktop-title:first-child {margin:-5px 0 0 0}
@@ -428,16 +430,16 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .orders-sort::after {content:""; display:block; clear:both}
 .orders-sort-text {float:left}
 .orders-sort-select {float:left; margin:0 0 0 4px; position:relative}
-.orders-sort-select-value::after {content:""; display:inline-block; vertical-align:middle; width:9px; height:7px; background:url(../images/arrow.png); margin:-2px 0 0 6px}
+.orders-sort-select-value::after {content:""; display:inline-block; vertical-align:middle; width:9px; height:7px; background:url(../images/arrow.svg) no-repeat; background-size:100%; margin:-2px 0 0 6px}
 
 .order-steps {position:relative; background:#f6f6f6; font-size:0; line-height:0; letter-spacing:-1px}
 .order-steps::before {content:""; display:block; position:absolute; left:100%; top:0; bottom:0; width:9999px; background:#f6f6f6}
 .order-steps::after {content:""; display:block; position:absolute; right:100%; top:0; bottom:0; width:9999px; background:#f6f6f6}
-.order-step {display:inline-block; vertical-align:top; padding:0 0 0 100px; position:relative; height:71px; background:url(../images/order-step.png) no-repeat 30px center}
+.order-step {display:inline-block; vertical-align:top; padding:0 0 0 100px; position:relative; height:71px; background:url(../images/order-step.svg) no-repeat 30px center}
 .order-step:first-child {padding:0; background:none}
 .order-step-number {float:left; width:30px; height:30px; margin:19px 0 0 0; background:#fff; border-radius:50%; color:#999; font-size:20px; line-height:30px; font-weight:bold; text-align:center; letter-spacing:0}
 .order-step.active .order-step-number {background:#ffda76; color:#111}
-.order-step.success .order-step-number {background:#999 url(../images/order-step-success.png) no-repeat center; color:transparent}
+.order-step.success .order-step-number {background:#999 url(../images/order-step-success.svg) no-repeat center; color:transparent}
 .order-step-title {float:left; margin:19px 0 0 10px; color:#999; font-size:20px; line-height:30px; font-weight:bold; text-align:center; letter-spacing:0}
 .order-step.active .order-step-title {color:#111}
 .order-step.success .order-step-title {color:#999}
@@ -450,7 +452,7 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-types label:first-child {margin:0}
 .order-types label input {display:none}
 .order-type {display:block; border:1px solid #489eca; padding:0 15px; border-radius:4px; height:40px; line-height:38px; transition:all 0.2s}
-.order-types label:hover span {color:#489eca}
+.order-types label:hover .order-type {color:#489eca}
 .order-types label input:checked+.order-type {background:#ffda76; border-color:#ffda76; color:#111}
 .order-type .desktop-menu-icon {position:relative; display:inline-block; vertical-align:middle; margin:-2px 0 0 4px}
 
@@ -463,11 +465,11 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-date {margin:15px 0 0 0}
 .order-date::after {content:""; display:block; clear:both}
 .order-date-select {float:left; position:relative}
-.order-date-link {display:block; width:136px; padding:0 0 0 34px; border:1px solid #489eca; color:#111; border-radius:4px; line-height:38px; height:40px; position:relative; background:url(../images/order-date-calendar.png) no-repeat 8px 9px}
+.order-date-link {display:block; width:136px; padding:0 0 0 34px; border:1px solid #489eca; color:#111; border-radius:4px; line-height:38px; height:40px; position:relative; background:url(../images/order-date-calendar.svg) no-repeat 8px 9px}
 .order-date-link:hover {border-color:#489eca; color:#489eca}
 .order-date-calendar {display:none; position:absolute; left:0; top:100%}
 .order-date-select.open .order-date-calendar {display:block}
-.order-date-value {display:none; float:left; margin:0 0 0 20px; padding:0 14px 0 34px; border:1px solid #489eca; color:#111; border-radius:4px; line-height:38px; height:40px; position:relative; background:url(../images/order-date-calendar.png) no-repeat 8px 9px}
+.order-date-value {display:none; float:left; margin:0 0 0 20px; padding:0 14px 0 34px; border:1px solid #489eca; color:#111; border-radius:4px; line-height:38px; height:40px; position:relative; background:url(../images/order-date-calendar.svg) no-repeat 8px 9px}
 
 .order-period {margin:13px -15px 0 -15px}
 .order-period::after {content:""; display:block; clear:both}
@@ -562,7 +564,7 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .feedback-item-text {color:#111; padding:8px 0 0 0}
 .feedback-item-avatar {float:left; line-height:0; width:76px; padding:7px 0 0 0}
 .feedback-item-avatar img {display:block; width:100%}
-.feedback-item-content {margin:0 0 0 106px}
+.feedback-item-avatar+.feedback-item-content {margin:0 0 0 106px}
 
 .feedback-ticket-header {display:table; width:100%; margin:23px 0 25px 0}
 .feedback-ticket-header-title {display:table-cell; vertical-align:top; width:100%; font-weight:bold}
@@ -601,7 +603,10 @@ footer p {margin:0; padding:0}
 .window-container {position:absolute; z-index:99999; left:50%; top:50%}
 .window-container-load {position:fixed; left:-9999px; top:-9999px}
 .window-content {position:relative; background:#fff}
-.window-close {display:block; position:absolute; width:17px; height:17px; right:24px; top:29px; background:url(../images/window-close.png)}
+.window-close {display:block; position:absolute; width:17px; height:17px; right:24px; top:29px; line-height:0}
+.window-close svg {display:block; width:17px}
+.window-close path {fill:#999; transition:all 0.2s}
+.window-close:hover path {fill:#111}
 
 .window-auth {width:476px; padding:0 41px 42px 41px}
 .window-auth .auth {width:auto; margin:26px 0 0 0}

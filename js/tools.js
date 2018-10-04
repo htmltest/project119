@@ -220,7 +220,7 @@ function windowOpen(linkWindow, dataWindow, callbackWindow) {
         }
         $('body').append('<div class="window"><div class="window-loading"></div></div>')
 
-        $('.window').append('<div class="window-container window-container-load"><div class="window-content">' + html + '<a href="#" class="window-close"></a></div></div>')
+        $('.window').append('<div class="window-container window-container-load"><div class="window-content">' + html + '<a href="#" class="window-close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 47.97 47.97"><title>window-close</title><path d="M28.23,24,47.09,5.12A3,3,0,0,0,42.85.88L24,19.74,5.12.88A3,3,0,0,0,.88,5.12L19.74,24,.88,42.85a3,3,0,1,0,4.24,4.24L24,28.23,42.85,47.09a3,3,0,1,0,4.24-4.24Z" transform="translate(0 0)"/></svg></a></div></div>')
 
         if ($('.window-container img').length > 0) {
             $('.window-container img').each(function() {

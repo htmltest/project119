@@ -451,8 +451,8 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-step.success .order-step-title {color:#719e5a}
 
 .order-form form {position:relative}
-.order-form-tab {position:absolute; left:-9999px; top:-9999px; width:100%}
-.order-form-tab.active {position:relative; left:auto; top:auto}
+.order-form-tab {position:absolute; left:-9999px; top:-9999px; width:100%; opacity:0; transition:opacity 0.5s}
+.order-form-tab.active {position:relative; left:auto; top:auto; opacity:1}
 
 .order-subtitle {font-weight:bold; margin:23px 0 0 0}
 .order-subtitle span.error {display:none; color:#ff7777}
@@ -468,12 +468,13 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-types label input:checked+.order-type {background:#ffda76; border-color:#ffda76; color:#111}
 .order-type .desktop-menu-icon {position:relative; display:inline-block; vertical-align:middle; margin:-2px 0 0 4px}
 
-.order-form-submit {background:#f6f6f6; margin:40px 0; padding:10px}
+.order-form-submit {background:#edf6fc; margin:40px 0; padding:10px; position:relative}
+.order-form-submit::before {content:""; display:block; position:absolute; left:-9999px; top:0; right:-9999px; bottom:0; background:#edf6fc}
 .order-form-submit::after {content:""; display:block; clear:both}
-.order-form-submit .btn {float:right; width:144px}
+.order-form-submit .btn {float:right; width:144px; position:relative}
 .order-form-submit .btn::after {content:""; display:inline-block; vertical-align:middle; width:15px; height:12px; background:url(../images/order-step-next.svg) no-repeat; background-size:100%; margin:-2px 0 0 10px}
 .order-form-submit .btn-confirm {width:197px}
-.order-form-back {float:right; line-height:40px; margin:0 40px 0 0}
+.order-form-back {float:right; line-height:40px; margin:0 40px 0 0; position:relative}
 
 .order-date {margin:15px 0 0 0}
 .order-date::after {content:""; display:block; clear:both}

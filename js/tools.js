@@ -255,10 +255,9 @@ function initForm(curForm) {
 function checkErrors() {
     $('.form-input').each(function() {
         var curField = $(this);
+        curField.find('.form-input-label span').remove();
         if (curField.find('input.error').length > 0 || curField.find('textarea.error').length > 0) {
             curField.find('.form-input-label').append('<span> — ' + curField.find('label.error').html() + '</span>');
-        } else {
-            curField.find('.form-input-label span').remove();
         }
     });
 }

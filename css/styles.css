@@ -65,17 +65,13 @@ hr {margin:25px 0 23px 0; padding:0; border:none; height:1px; background:#e3e3e3
 .btn-reset:active {color:#1a6489; border-color:#1a6489}
 
 form {margin:20px 0; padding:0}
-.ajax-form {position:relative}
-
-.form-loading {position:absolute; left:0; top:-2px; right:0; bottom:0; background:#fff url(../images/loading.gif) no-repeat center; z-index:20}
-.form-results {position:absolute; left:0; top:-2px; padding:2px 0 0 0; right:0; bottom:0; background:#fff; z-index:20}
-.form-results-btn {width:154px; margin:30px auto 0 auto}
-.form-results-content .form-success {margin-top:7px}
-.form-results-content .form-error {margin-top:7px}
 
 .form-input {position:relative; margin:13px 0}
 .form-input .form-input-label {position:absolute; left:0; top:10px; transition:all 0.2s}
 .form-input.focus .form-input-label {top:-8px; font-size:11px; color:#999; z-index:1; background:#fff; width:90%}
+.form-input-label em {font-style:normal; color:#ff5353}
+.form-input-label span {display:none; color:#ff7777}
+.form-input.focus .form-input-label span {display:inline}
 
 .form-input input,
 .form-input textarea {position:relative; border:none; border-bottom:2px solid #ececec; font:15px/20px "PT Sans", sans-serif; color:#111; vertical-align:top; margin:0; padding:10px 0; width:100%; height:42px; box-sizing:border-box; outline:none; border-radius:0; background:url(../images/blank.gif); -webkit-appearance:none}
@@ -358,8 +354,9 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .desktop-message-delete path {fill:#dabd6a; transition:all 0.2s}
 .desktop-message-delete:hover path {fill:#111}
 
-.desktop-title {font-weight:bold; font-size:20px; line-height:24px; margin:21px 0 0 0}
+.desktop-title {font-weight:bold; font-size:20px; line-height:24px; margin:21px 0 0 0; position:relative}
 .desktop-title:first-child {margin:-5px 0 0 0}
+.desktop-title a {position:absolute; right:0; top:0; font-size:15px; font-weight:normal}
 .desktop-btns {margin:15px 0 0 0}
 .desktop-btns::after {content:""; display:block; clear:both}
 .desktop-btns a {float:left; margin:0 0 0 20px; border:1px solid #489eca; border-radius:4px; height:40px; padding:0 12px; color:#111; text-decoration:none; line-height:36px}
@@ -435,16 +432,31 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-steps {position:relative; background:#f6f6f6; font-size:0; line-height:0; letter-spacing:-1px}
 .order-steps::before {content:""; display:block; position:absolute; left:100%; top:0; bottom:0; width:9999px; background:#f6f6f6}
 .order-steps::after {content:""; display:block; position:absolute; right:100%; top:0; bottom:0; width:9999px; background:#f6f6f6}
-.order-step {display:inline-block; vertical-align:top; padding:0 0 0 100px; position:relative; height:71px; background:url(../images/order-step.svg) no-repeat 30px center}
-.order-step:first-child {padding:0; background:none}
+.order-step {display:inline-block; vertical-align:top; width:329px; margin:0 0 0 -24px; padding:0 0 0 74px; position:relative; height:70px}
+.order-step:first-child {margin:0; padding:0 0 0 30px; width:281px}
+.order-step:first-child.success {margin-left:-1000px; padding-left:1030px; width:1281px}
+.order-step:nth-child(1) {z-index:3}
+.order-step:nth-child(2) {z-index:2}
+.order-step:nth-child(3) {z-index:1}
+.order-step.active {background:#ffda76}
+.order-step.success {background:#eafae1}
+.order-step.active::before {content:""; display:block; width:0; height:0; position:absolute; right:-21px; top:0; border-left:21px solid #ffda76; border-top:35px solid transparent; border-bottom:35px solid transparent}
+.order-step.success::before {content:""; display:block; width:0; height:0; position:absolute; right:-21px; top:0; border-left:21px solid #eafae1; border-top:35px solid transparent; border-bottom:35px solid transparent}
+.order-step::after {content:""; display:block; width:24px; position:absolute; right:-24px; top:0; bottom:0; background:url(../images/order-step.svg) no-repeat; background-size:100%}
 .order-step-number {float:left; width:30px; height:30px; margin:19px 0 0 0; background:#fff; border-radius:50%; color:#999; font-size:20px; line-height:30px; font-weight:bold; text-align:center; letter-spacing:0}
-.order-step.active .order-step-number {background:#ffda76; color:#111}
-.order-step.success .order-step-number {background:#999 url(../images/order-step-success.svg) no-repeat center; color:transparent}
+.order-step.active .order-step-number {background:#fff; color:#111}
+.order-step.success .order-step-number {background:#fff url(../images/order-step-success.svg) no-repeat center; color:transparent}
 .order-step-title {float:left; margin:19px 0 0 10px; color:#999; font-size:20px; line-height:30px; font-weight:bold; text-align:center; letter-spacing:0}
 .order-step.active .order-step-title {color:#111}
-.order-step.success .order-step-title {color:#999}
+.order-step.success .order-step-title {color:#719e5a}
+
+.order-form form {position:relative}
+.order-form-tab {position:absolute; left:-9999px; top:-9999px; width:100%}
+.order-form-tab.active {position:relative; left:auto; top:auto}
 
 .order-subtitle {font-weight:bold; margin:23px 0 0 0}
+.order-subtitle span.error {display:none; color:#ff7777}
+.order-subtitle span.error.visible {display:inline}
 
 .order-types {margin:15px 0 0 0}
 .order-types::after {content:""; display:block; clear:both}
@@ -459,6 +471,7 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-form-submit {background:#f6f6f6; margin:40px 0; padding:10px}
 .order-form-submit::after {content:""; display:block; clear:both}
 .order-form-submit .btn {float:right; width:144px}
+.order-form-submit .btn::after {content:""; display:inline-block; vertical-align:middle; width:15px; height:12px; background:url(../images/order-step-next.svg) no-repeat; background-size:100%; margin:-2px 0 0 10px}
 .order-form-submit .btn-confirm {width:197px}
 .order-form-back {float:right; line-height:40px; margin:0 40px 0 0}
 
@@ -562,6 +575,7 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .feedback-item-title-support {color:#111}
 .feedback-item-date {display:table-cell; vertical-align:top; white-space:nowrap; padding:0 0 0 30px; color:#666}
 .feedback-item-text {color:#111; padding:8px 0 0 0}
+.feedback-item-file {padding:0 0 0 30px; background:url(../images/file-input.svg) no-repeat left center; margin:10px 0 0 0}
 .feedback-item-avatar {float:left; line-height:0; width:76px; padding:7px 0 0 0}
 .feedback-item-avatar img {display:block; width:100%}
 .feedback-item-avatar+.feedback-item-content {margin:0 0 0 106px}
@@ -602,20 +616,25 @@ footer p {margin:0; padding:0}
 .window-loading {position:absolute; left:50%; top:50%; width:24px; height:24px; margin:-12px 0 0 -12px; background:url(../images/loading.gif)}
 .window-container {position:absolute; z-index:99999; left:50%; top:50%}
 .window-container-load {position:fixed; left:-9999px; top:-9999px}
-.window-content {position:relative; background:#fff}
-.window-close {display:block; position:absolute; width:17px; height:17px; right:24px; top:29px; line-height:0}
-.window-close svg {display:block; width:17px}
-.window-close path {fill:#999; transition:all 0.2s}
+.window-content {position:relative; background:#fff; box-shadow:0 0 30px 0 rgba(0, 0, 0, 0.3); border-radius:6px}
+.window-close {display:block; position:absolute; width:12px; height:12px; right:40px; top:30px; line-height:0}
+.window-close svg {display:block; width:12px}
+.window-close path {fill:#6ea055; transition:all 0.2s}
 .window-close:hover path {fill:#111}
+
+.window-feedback {width:476px; padding:0 41px}
 
 .window-auth {width:476px; padding:0 41px 42px 41px}
 .window-auth .auth {width:auto; margin:26px 0 0 0}
 .window-auth .auth-contacts {width:auto; text-align:center}
 
-.window-auth-header {font-size:24px; line-height:28px; padding:23px 0 0 0}
+.window-auth-header {font-size:24px; line-height:73px; padding:0 41px; margin:0 -41px; background:#ecfbe5; border-radius:6px 6px 0 0}
 .window-auth-header ul {margin:0; padding:0; list-style:none}
 .window-auth-header ul::after {content:""; display:block; clear:both}
 .window-auth-header ul li {float:left; margin:0 0 0 30px; padding:0; font-weight:bold}
 .window-auth-header ul li:first-child {margin:0}
 .window-auth-header ul li::before {display:none}
 .window-auth-header ul li a {font-weight:normal}
+
+.window-feedback .form-ctrl {margin:0 -41px; background:#edf6fc; padding:20px 41px; border-radius:0 0 6px 6px}
+.window-feedback .form-ctrl .form-submit {float:right; width:154px}

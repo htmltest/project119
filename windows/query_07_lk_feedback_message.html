@@ -1,18 +1,18 @@
-<div class="window-auth">
+<div class="window-feedback">
     <div class="window-auth-header">
         <ul>
             <li>Обращение в поддержку</li>
         </ul>
     </div>
-    <!-- auth -->
-    <div class="auth">
-        <form action="windows/query_07_lk_feedback_ok.html" method="post" class="ajax-form">
-            <div class="form-input"><span class="form-input-label">Тема сообщения</span><input type="text" name="theme" value="" class="required" /></div>
-            <div class="form-input form-input-feedback-textarea"><textarea name="message" rows="11" cols="10" class="required" placeholder="Сообщение"></textarea></div>
-            <div class="form-ctrl">
-                <div class="form-submit"><input type="submit" value="Отправить" class="btn" /></div>
-            </div>
-        </form>
-    </div>
-    <!-- auth END -->
+    <form action="windows/query_07_lk_feedback_ok.html" method="post" class="ajax-form">
+        <div class="form-input"><span class="form-input-label">Тема сообщения</span><input type="text" name="theme" value="" class="required" /></div>
+        <div class="form-input form-input-feedback-textarea"><textarea name="message" rows="11" cols="10" class="required" placeholder="Сообщение"></textarea></div>
+        <div class="form-file">
+            <div class="form-file-input">Прикрепить файл<input type="file" name="file" /></div>
+            <div class="form-file-name"></div>
+        </div>
+        <div class="form-ctrl">
+            <div class="form-submit"><input type="submit" value="Отправить" class="btn" /></div>
+        </div>
+    </form>
 </div>

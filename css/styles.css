@@ -33,6 +33,13 @@ ol > li > ol > li {padding:0 0 0 29px}
 ol > li > ol > li::before {content:counter(point)'.'counter(subpoint); counter-increment:subpoint 1}
 hr {margin:25px 0 23px 0; padding:0; border:none; height:1px; background:#e3e3e3}
 
+@media screen and (max-width:799px) {
+    h1 {margin-top:29px}
+    h1+h3 {margin-top:-13px}
+    li ul {margin-left:14px}
+    li ol {margin-left:14px}
+}
+
 .wrapper table {margin:20px 0 33px 0; width:100%; border-collapse:collapse}
 .wrapper th {font-weight:normal; font-size:13px; line-height:20px; color:#666666; vertical-align:top; padding:0 0 14px 30px; border-bottom:2px solid #999; text-align:left}
 .wrapper th:first-child {padding-left:0}
@@ -46,11 +53,6 @@ hr {margin:25px 0 23px 0; padding:0; border:none; height:1px; background:#e3e3e3
 .cols {margin:20px -10px}
 .cols::after {content:""; display:block; clear:both}
 .col-half {float:left; width:50%; padding:0 10px}
-
-@media screen and (max-width:799px) {
-    .cols {margin:0}
-    .col-half {float:none; width:auto; padding:0}
-}
 
 .btn {display:block; vertical-align:top; border-radius:4px; background:#489eca; margin:0; padding:0; outline:none; overflow:visible; border:none; text-decoration:none; width:100%; height:40px; box-sizing:border-box; color:#fff; text-align:center; font:15px/40px "PT Sans", sans-serif; letter-spacing:0; -webkit-appearance:none; cursor:pointer; transition:all 0.2s}
 .btn:hover {color:#fff; background:#2d7fa9}
@@ -170,10 +172,6 @@ form {margin:20px 0; padding:0}
 .pager-other:first-child {margin:0 20px 0 0}
 .pager-other .btn {width:auto; float:left; padding:0 20px}
 
-@media screen and (max-width:799px) {
-    .pager-other {display:none}
-}
-
 .container {max-width:1400px; padding:0 79px; margin:0 auto}
 .container::after {content:""; display:block; clear:both}
 
@@ -190,14 +188,26 @@ form {margin:20px 0; padding:0}
 
 header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0 rgba(159, 159, 159, 0.1)}
 
+@media screen and (max-width:799px) {
+    header {padding:0 0 16px 0}
+}
+
 .header-top {height:3px; border-radius:0 0 3px 3px; background:#a4d78b}
 
 .header-left {float:left; padding:28px 0 0 0}
+
+@media screen and (max-width:799px) {
+    .header-left {padding:17px 0 0 0}
+}
 
 .logo {position:relative; width:128px; height:41px; background:url(../images/logo.svg) no-repeat; background-size:100%}
 .logo a {display:block; position:absolute; left:0; top:0; right:0; bottom:0}
 
 .header-logout-link {float:right; margin:27px 0 0 28px; line-height:40px; color:#666}
+
+@media screen and (max-width:799px) {
+    .header-logout-link {display:none}
+}
 
 .header-cabinet-link {float:right; margin:27px 0 0 28px; line-height:40px}
 .header-cabinet-link svg {display:inline-block; vertical-align:middle; margin:-2px 6px 0 0; width:17px}
@@ -205,10 +215,26 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .header-cabinet-link svg polygon {fill:#489eca; transition:all 0.2s}
 .header-cabinet-link:hover svg path,
 .header-cabinet-link:hover svg polygon {fill:#2d7fa9}
-.header-cabinet-link:hover svg active,
-.header-cabinet-link:hover svg active {fill:#1a6489}
+.header-cabinet-link:active svg path,
+.header-cabinet-link:active svg polygon {fill:#1a6489}
+
+@media screen and (max-width:799px) {
+    .header-cabinet-link {display:none}
+}
 
 .header-about-link {float:right; margin:27px 0 0 0; line-height:40px}
+
+@media screen and (max-width:799px) {
+    .header-about-link {display:none}
+}
+
+.header-mobile-menu-link {display:none}
+
+@media screen and (max-width:799px) {
+    .header-mobile-menu-link {display:block; float:right; width:33px; height:18px; border-top:2px solid #489eca; border-bottom:2px solid #489eca; position:relative; margin:28px 0 0 0}
+    .header-mobile-menu-link::after,
+    .header-mobile-menu-link::before {content:""; display:block; position:absolute; left:0; top:6px; right:0; height:2px; background:#489eca}
+}
 
 .content-header {background:#f6f6f6; font-size:30px; line-height:36px; padding:34px 0}
 .content-header .text {margin:0}
@@ -221,7 +247,8 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .gallery-item img {display:block; width:100%}
 
 @media screen and (max-width:799px) {
-    .gallery-item {width:50%}
+    .gallery {margin:0 -10px}
+    .gallery-item {width:50%; padding:10px}
 }
 
 .docs {margin:45px 0}
@@ -237,15 +264,15 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .main-btns .btn:first-child {margin:0}
 
 @media screen and (max-width:1399px) {
-    .main {min-height:287px; background-size:cover}
+    .main {min-height:547px; background-size:cover}
     .main-content {bottom:60px}
-    .main-title {font-size:32px; line-height:38px; color:#fff; padding:0 0 52px 0}
+    .main-title {font-size:32px; line-height:38px; color:#fff; padding:0 0 52px 0; font-family:"PT Sans", sans-serif; font-weight:normal}
     .main-btns {width:770px}
     .main-btns .btn {font-size:24px; line-height:68px; height:69px; width:370px}
 }
 
 @media screen and (max-width:799px) {
-    .main {height:calc(100vh - 275px); min-height:384px; background-size:cover}
+    .main {height:calc(100vh - 275px)}
     .main-btns {width:370px}
     .main-btns .btn {font-size:24px; line-height:68px; height:69px; width:370px; margin:20px 0 0 0}
     .main-btns .btn:first-child {margin:0}
@@ -266,12 +293,25 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .auth .form-submit .btn {width:auto; padding:0 26px}
 .auth-forgot {float:left; line-height:40px}
 
+@media screen and (max-width:799px) {
+    .auth-header {text-align:left}
+    .auth {width:auto; margin-top:36px}
+}
+
 .auth-contacts {width:394px; margin:40px auto 0 auto; border:1px solid #ececec; border-radius:4px; padding:24px 30px 25px 30px; box-shadow:0 1px 0 0 #e3e3e3}
 .auth-contacts-phone {font-size:24px; line-height:29px}
 .auth-contacts-phone a {color:#111}
 .auth-contacts-schedule {color:#666; padding:2px 0 0 0}
 .auth-contacts-text {padding:18px 0 0 0}
 .auth-contacts-email {padding:4px 0 0 0}
+
+@media screen and (max-width:799px) {
+    .auth-contacts {width:auto}
+    .auth-contacts::after {content:""; display:block; clear:both}
+    .auth-contacts-left {float:left; width:50%}
+    .auth-contacts-right {float:left; width:50%; padding:5px 0 0 0}
+    .auth-contacts-text {padding:2px 0 0 0}
+}
 
 .forgot-text {color:#666; padding:23px 0 0 0; margin:0 0 -5px 0}
 
@@ -280,7 +320,8 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .forgot-attention strong {color:#111}
 
 .queue {margin:40px -15px 0 -15px; position:relative}
-.queue-inner {position:relative; width:100%; overflow:hidden; font-size:0; line-height:0; letter-spacing:-1px; padding:0 20% 0 0}
+.queue-inner {position:relative; width:100%; overflow:hidden; font-size:0; line-height:0; letter-spacing:-1px; padding:0 20% 0 0; min-height:24px}
+.queue-inner.loading::before {content:""; z-index:2; display:block; position:absolute; left:0; top:0; right:0; bottom:0; background:rgba(255, 255, 255, 0.9) url(../images/loading.gif) no-repeat center}
 .queue-list-item {display:inline-block; vertical-align:top; width:25%; padding:0 15px}
 .queue-list-item-header {background:#f6f6f6; border-radius:4px; position:relative; padding:14px 20px 16px 20px; font-size:15px; line-height:18px; letter-spacing:0}
 .queue-list-item-header::before {content:""; display:block; position:absolute; left:0; top:13px; bottom:13px; width:4px; background:#a4d78b; border-radius:0 4px 4px 0}
@@ -303,9 +344,9 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 }
 
 .queue-date {position:absolute; right:0; top:0; bottom:0; width:20%; padding:0 15px}
-.queue-date-inner {background:#f6f6f6; border-radius:4px; height:100%}
+.queue-date-inner {background:#f6f6f6; border-radius:4px; min-height:100%}
 .queue-date-select {padding:30px 0 0 0; width:142px; position:relative; margin:0 auto}
-.queue-date-calendar {display:none; position:absolute; right:0; top:100%}
+.queue-date-calendar {display:none; position:absolute; right:0; top:100%; z-index:99}
 .queue-date-select.open .queue-date-calendar {display:block}
 .queue-date-hint {padding:27px 0; width:142px; margin:0 auto; color:#666; font-size:13px; line-height:18px; text-align:center}
 .queue-date-hint::before {content:""; display:block; width:33px; height:33px; background:url(../images/queue-date.svg) no-repeat; background-size:100%; margin:0 auto 14px auto}
@@ -321,7 +362,15 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .desktop {padding:50px 0 0 0}
 .desktop::after {content:""; display:block; clear:both}
 
+@media screen and (max-width:799px) {
+    .desktop {padding:29px 0 0 0}
+}
+
 .desktop-side {float:left; width:288px}
+
+@media screen and (max-width:799px) {
+    .desktop-side {display:none}
+}
 
 .desktop-menu {border:1px solid #ececec; border-radius:4px; box-shadow:0 1px 0 0 #e3e3e3; padding:0 30px 3px 30px}
 .desktop-menu ul {margin:0; padding:17px 0 25px 0; list-style:none; border-top:1px solid #e3e3e3}
@@ -344,6 +393,10 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .desktop-container {margin:0 0 0 318px}
 .desktop-content {float:left; width:100%}
 .desktop-content h1:first-child {margin-top:0}
+
+@media screen and (max-width:799px) {
+    .desktop-container {margin:0}
+}
 
 .desktop-message {margin:0 0 20px 0; background:#ffda76; padding:0 60px 9px 16px; border-radius:4px; position:relative; box-shadow:0 1px 0 0 #e3c56e}
 .desktop-message::after {content:""; display:block; clear:both}
@@ -481,11 +534,11 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-date-select {float:left; position:relative}
 .order-date-link {display:block; width:136px; padding:0 0 0 34px; border:1px solid #489eca; color:#111; border-radius:4px; line-height:38px; height:40px; position:relative; background:url(../images/order-date-calendar.svg) no-repeat 8px 9px}
 .order-date-link:hover {border-color:#489eca; color:#489eca}
-.order-date-calendar {display:none; position:absolute; left:0; top:100%}
+.order-date-calendar {display:none; position:absolute; left:0; top:100%; z-index:99}
 .order-date-select.open .order-date-calendar {display:block}
 .order-date-value {display:none; float:left; margin:0 0 0 20px; padding:0 14px 0 34px; border:1px solid #489eca; color:#111; border-radius:4px; line-height:38px; height:40px; position:relative; background:url(../images/order-date-calendar.svg) no-repeat 8px 9px}
 
-.order-period {margin:13px -15px 0 -15px}
+.order-period {margin:13px -15px 0 -15px; min-height:24px}
 .order-period::after {content:""; display:block; clear:both}
 .order-period-col {float:left; width:16.66%; padding:0 15px}
 .order-period label {display:block; margin:0; cursor:pointer; padding:0}
@@ -494,6 +547,8 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-period label:hover span {color:#111; background:#dbedf9; border-color:#dbedf9}
 .order-period label input:checked+span {color:#111; background:#ffda76; border-color:#ffda76}
 .order-period label input:disabled+span {border:1px solid #ccc; color:#cdcdcd; cursor:default; background:none}
+.order-period.loading {position:relative}
+.order-period.loading::before {content:""; z-index:2; display:block; position:absolute; left:0; top:0; right:0; bottom:0; background:rgba(255, 255, 255, 0.9) url(../images/loading.gif) no-repeat center}
 
 .order-auto {margin:15px 0 0 0}
 .order-auto::after {content:""; display:block; clear:both}
@@ -581,6 +636,15 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .feedback-item-avatar img {display:block; width:100%}
 .feedback-item-avatar+.feedback-item-content {margin:0 0 0 106px}
 
+@media screen and (max-width:799px) {
+    .feedback-item-header {display:block; position:relative}
+    .feedback-item-title {display:block}
+    .feedback-item-title span {margin:0; position:absolute; right:0; bottom:0}
+    .feedback-item-date {display:block; padding:8px 0 0 0}
+    .feedback-item-avatar {width:38px; padding:5px 0 0 0}
+    .feedback-item-avatar+.feedback-item-content {margin:0 0 0 58px}
+}
+
 .feedback-ticket-header {display:table; width:100%; margin:23px 0 25px 0}
 .feedback-ticket-header-title {display:table-cell; vertical-align:top; width:100%; font-weight:bold}
 .feedback-ticket-header-back {display:table-cell; vertical-align:top; white-space:nowrap; padding:0 0 0 30px}
@@ -623,11 +687,24 @@ footer p {margin:0; padding:0}
 .window-close path {fill:#6ea055; transition:all 0.2s}
 .window-close:hover path {fill:#111}
 
+@media screen and (max-width:799px) {
+    .window-close {right:30px}
+}
+
 .window-feedback {width:476px; padding:0 41px}
+
+@media screen and (max-width:799px) {
+    .window-feedback {width:450px; padding:0 30px}
+}
 
 .window-auth {width:476px; padding:0 41px 42px 41px}
 .window-auth .auth {width:auto; margin:26px 0 0 0}
 .window-auth .auth-contacts {width:auto; text-align:center}
+
+@media screen and (max-width:799px) {
+    .window-auth {width:450px; padding:0 30px}
+    .window-auth .auth-contacts {display:none}
+}
 
 .window-auth-header {font-size:24px; line-height:73px; padding:0 41px; margin:0 -41px; background:#ecfbe5; border-radius:6px 6px 0 0}
 .window-auth-header ul {margin:0; padding:0; list-style:none}
@@ -637,5 +714,14 @@ footer p {margin:0; padding:0}
 .window-auth-header ul li::before {display:none}
 .window-auth-header ul li a {font-weight:normal}
 
+@media screen and (max-width:799px) {
+    .window-auth-header {padding:0 30px; margin:0 -30px}
+}
+
 .window-feedback .form-ctrl {margin:0 -41px; background:#edf6fc; padding:20px 41px; border-radius:0 0 6px 6px}
 .window-feedback .form-ctrl .form-submit {float:right; width:154px}
+
+@media screen and (max-width:799px) {
+    .window-feedback .form-ctrl {margin:0 -30px; background:#edf6fc; padding:20px 30px; border-radius:0 0 6px 6px}
+    .window-feedback .form-ctrl .form-submit {float:right; width:154px}
+}

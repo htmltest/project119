@@ -64,12 +64,6 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    $(document).click(function(e) {
-        if ($(e.target).parents().filter('.order-date-select').length == 0) {
-            $('.order-date-select').removeClass('open');
-        }
-    });
-
     var dateFormat = 'dd MM yy';
     $('#datepicker').datepicker({
         dateFormat: dateFormat,
@@ -79,6 +73,17 @@ $(document).ready(function() {
             $('.order-date-select').removeClass('open');
             $('.order-date-select input').val(dateText);
             $('.order-subtitle-date .error').removeClass('visible');
+            $('.order-period').addClass('loading');
+            $.ajax({
+                type: 'POST',
+                url: 'ajax/get.schedule.html',
+                dataType: 'html',
+                data: {date:dateText},
+                cache: false
+            }).done(function(html) {
+                $('#order-date-data').html(html);
+                $('.order-period').removeClass('loading');
+            });
         }
     });
 
@@ -87,17 +92,22 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    $(document).click(function(e) {
-        if ($(e.target).parents().filter('.queue-date-select').length == 0) {
-            $('.queue-date-select').removeClass('open');
-        }
-    });
-
     $('#datepickerQueue').datepicker({
         dateFormat: dateFormat,
         minDate: 0,
         onSelect: function(dateText) {
             $('.queue-date-select').removeClass('open');
+            $('.queue-inner').addClass('loading');
+            $.ajax({
+                type: 'POST',
+                url: 'ajax/get.border.html',
+                dataType: 'html',
+                data: {date:dateText},
+                cache: false
+            }).done(function(html) {
+                $('#queue-inner-date').html(html);
+                $('.queue-inner').removeClass('loading');
+            });
         }
     });
 

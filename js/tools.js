@@ -64,6 +64,12 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $(document).click(function(e) {
+        if ($(e.target).parents().filter('.order-date-select').length == 0 && $(e.target).parents().filter('.ui-datepicker-header').length == 0) {
+            $('.order-date-select').removeClass('open');
+        }
+    });
+
     var dateFormat = 'dd MM yy';
     $('#datepicker').datepicker({
         dateFormat: dateFormat,
@@ -92,6 +98,12 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $(document).click(function(e) {
+        if ($(e.target).parents().filter('.queue-date-select').length == 0 && $(e.target).parents().filter('.ui-datepicker-header').length == 0) {
+            $('.queue-date-select').removeClass('open');
+        }
+    });
+
     $('#datepickerQueue').datepicker({
         dateFormat: dateFormat,
         minDate: 0,
@@ -106,9 +118,26 @@ $(document).ready(function() {
                 cache: false
             }).done(function(html) {
                 $('#queue-inner-date').html(html);
+
+                $('.queue-list-item').each(function() {
+                    var curItem = $(this);
+                    if (curItem.find('.queue-list-item-times a').length == 0) {
+                        curItem.addClass('empty');
+                        curItem.find('.queue-list-item-header').append('<div class="queue-list-item-header-count">Свободных нет</div>');
+                    } else {
+                        curItem.find('.queue-list-item-header').append('<div class="queue-list-item-header-count">Свободно ' + curItem.find('.queue-list-item-times a').length + ' из ' + (curItem.find('.queue-list-item-times a, .queue-list-item-times span').length) + '</div>');
+                    }
+                });
+
                 $('.queue-inner').removeClass('loading');
             });
         }
+    });
+
+    $('body').on('click', '.queue-list-item-header', function(e) {
+        $(this).parent().toggleClass('open');
+        $(this).parent().find('.queue-list-item-times').slideToggle();
+        e.preventDefault();
     });
 
     var validator = $('.order-form form').validate({
@@ -164,6 +193,11 @@ $(document).ready(function() {
             $('.order-form-tab.active').removeClass('active');
             $('.order-form-tab').eq(curIndex).addClass('active');
         }
+        e.preventDefault();
+    });
+
+    $('.header-mobile-menu-link').click(function(e) {
+        $('html').toggleClass('header-mobile-menu-open');
         e.preventDefault();
     });
 
@@ -279,8 +313,9 @@ function windowOpen(linkWindow, dataWindow, callbackWindow) {
     $('body').css({'margin-right': curPadding + 'px'});
 
     if ($('.window').length == 0) {
-        $('body').append('<div class="window"><div class="window-loading"></div></div>')
+        windowClose();
     }
+    $('body').append('<div class="window"><div class="window-loading"></div></div>')
 
     $.ajax({
         type: 'POST',

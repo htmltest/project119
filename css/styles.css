@@ -34,7 +34,7 @@ ol > li > ol > li::before {content:counter(point)'.'counter(subpoint); counter-i
 hr {margin:25px 0 23px 0; padding:0; border:none; height:1px; background:#e3e3e3}
 
 @media screen and (max-width:799px) {
-    h1 {margin-top:29px}
+    h1 {margin-top:29px; margin-bottom:36px}
     h1+h3 {margin-top:-13px}
     li ul {margin-left:14px}
     li ol {margin-left:14px}
@@ -54,15 +54,15 @@ hr {margin:25px 0 23px 0; padding:0; border:none; height:1px; background:#e3e3e3
 .cols::after {content:""; display:block; clear:both}
 .col-half {float:left; width:50%; padding:0 10px}
 
-.btn {display:block; vertical-align:top; border-radius:4px; background:#489eca; margin:0; padding:0; outline:none; overflow:visible; border:none; text-decoration:none; width:100%; height:40px; box-sizing:border-box; color:#fff; text-align:center; font:15px/40px "PT Sans", sans-serif; letter-spacing:0; -webkit-appearance:none; cursor:pointer; transition:all 0.2s}
+.btn {display:inline-block; vertical-align:top; border-radius:4px; background:#489eca; margin:0; padding:0 20px; outline:none; overflow:visible; border:none; text-decoration:none; height:40px; box-sizing:border-box; color:#fff; text-align:center; font:15px/40px "PT Sans", sans-serif; letter-spacing:0; -webkit-appearance:none; cursor:pointer; transition:all 0.2s}
 .btn:hover {color:#fff; background:#2d7fa9}
 .btn:active {color:#fff; background:#1a6489}
 
-.btn-2 {display:block; vertical-align:top; border-radius:4px; background:#fff; margin:0; padding:0; outline:none; overflow:visible; border:1px solid #489eca; text-decoration:none; width:100%; height:40px; box-sizing:border-box; color:#489eca; text-align:center; font:15px/36px "PT Sans", sans-serif; letter-spacing:0; -webkit-appearance:none; cursor:pointer; transition:all 0.2s}
+.btn-2 {display:inline-block; vertical-align:top; border-radius:4px; background:#fff; margin:0; padding:0 20px; outline:none; overflow:visible; border:1px solid #489eca; text-decoration:none; height:40px; box-sizing:border-box; color:#489eca; text-align:center; font:15px/36px "PT Sans", sans-serif; letter-spacing:0; -webkit-appearance:none; cursor:pointer; transition:all 0.2s}
 .btn-2:hover {background:#489eca; border-color:#489eca; color:#fff}
 .btn-2:active {background:#1a6489; border-color:#1a6489; color:#fff}
 
-.btn-reset {display:block; vertical-align:top; border-radius:4px; background:#fff; margin:0; padding:0; outline:none; overflow:visible; border:1px solid #ececec; text-decoration:none; width:100%; height:40px; box-sizing:border-box; color:#111; text-align:center; font:15px/36px "PT Sans", sans-serif; letter-spacing:0; -webkit-appearance:none; cursor:pointer; transition:all 0.2s}
+.btn-reset {display:inline-block; vertical-align:top; border-radius:4px; background:#fff; margin:0; padding:0 20px; outline:none; overflow:visible; border:1px solid #ececec; text-decoration:none; height:40px; box-sizing:border-box; color:#111; text-align:center; font:15px/36px "PT Sans", sans-serif; letter-spacing:0; -webkit-appearance:none; cursor:pointer; transition:all 0.2s}
 .btn-reset:hover {color:#489eca; border-color:#489eca}
 .btn-reset:active {color:#1a6489; border-color:#1a6489}
 
@@ -231,9 +231,37 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .header-mobile-menu-link {display:none}
 
 @media screen and (max-width:799px) {
-    .header-mobile-menu-link {display:block; float:right; width:33px; height:18px; border-top:2px solid #489eca; border-bottom:2px solid #489eca; position:relative; margin:28px 0 0 0}
+    .header-mobile-menu-link {display:block; float:right; width:33px; height:18px; border-top:2px solid #489eca; border-bottom:2px solid #489eca; position:relative; margin:28px 0 0 0; transition:border 0.2s}
     .header-mobile-menu-link::after,
-    .header-mobile-menu-link::before {content:""; display:block; position:absolute; left:0; top:6px; right:0; height:2px; background:#489eca}
+    .header-mobile-menu-link::before {content:""; display:block; position:absolute; left:0; top:6px; right:0; height:2px; background:#489eca; transition:all 0.2s}
+    .header-mobile-menu-open header {z-index:100}
+    .header-mobile-menu-open .header-mobile-menu-link {z-index:199; border-color:transparent; position:fixed; margin:31px 15px 0 0; right:0; top:0}
+    .header-mobile-menu-open .header-mobile-menu-link::after {transform:rotate(-45deg)}
+    .header-mobile-menu-open .header-mobile-menu-link::before {transform:rotate(45deg)}
+}
+
+.header-mobile-menu {display:none}
+
+@media screen and (max-width:799px) {
+    .header-mobile-menu-open body {overflow:hidden}
+    .header-mobile-menu-open .header-mobile-menu {display:block; position:fixed; z-index:198; left:0; top:0; right:0; bottom:0; overflow:auto; background:#fff}
+    .header-mobile-menu-header {box-shadow:0 5px 5px 0 rgba(159, 159, 159, 0.1); height:77px}
+    .header-mobile-menu-header .container::before {content:""; display:block; height:3px; border-radius:0 0 3px 3px; background:#a4d78b}
+    .header-mobile-menu-profile {margin:20px 0 0 0; padding:0 0 0 26px; position:relative; font-weight:bold; font-size:24px; line-height:29px}
+    .header-mobile-menu-profile svg {width:18px; position:absolute; left:0; top:50%; transform:translateY(-50%)}
+    .header-mobile-menu-profile svg path {fill:#489eca}
+    .header-mobile-menu-header .logo {float:none; margin:17px 0 0 0}
+    .header-mobile-menu-content {position:absolute; left:0; top:77px; bottom:0; right:0; overflow:auto}
+    .header-mobile-menu-content ul {margin:0; padding:0; list-style:none; font-size:20px; line-height:59px}
+    .header-mobile-menu-content ul li {margin:0; padding:0; border-top:1px solid #e3e3e3; position:relative}
+    .header-mobile-menu-content ul li:first-child {border-top:none}
+    .header-mobile-menu-content ul li::before {display:none}
+    .header-mobile-menu-content ul li.active::after {content:""; display:block; width:8px; background:#ffda76; position:absolute; left:0; top:8px; bottom:8px; border-radius:0 3px 3px 0}
+    .header-mobile-menu-content ul li a {display:block; padding:0 0 0 41px; position:relative; color:#111; text-decoration:none}
+    .header-mobile-menu-content ul li a.desktop-menu-logout {height:73px; line-height:73px; background:#f0f0f0; color:#fb6060; margin:-1px 0 0 0}
+    .header-mobile-menu-content ul li.active {font-weight:bold}
+    .header-mobile-menu-content .desktop-menu-icon {right:15px; top:18px}
+    .header-mobile-menu-content .desktop-menu-count {right:15px; top:15px; height:30px; padding:0; width:45px; text-align:center; font-size:15px; line-height:30px; border-radius:15px}
 }
 
 .content-header {background:#f6f6f6; font-size:30px; line-height:36px; padding:34px 0}
@@ -313,6 +341,12 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
     .auth-contacts-text {padding:2px 0 0 0}
 }
 
+.help-mobile {display:none}
+
+@media screen and (max-width:799px) {
+    .help-mobile {display:block}
+}
+
 .forgot-text {color:#666; padding:23px 0 0 0; margin:0 0 -5px 0}
 
 .forgot-attention {color:#666; padding:2px 0 17px 0}
@@ -325,38 +359,44 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .queue-list-item {display:inline-block; vertical-align:top; width:25%; padding:0 15px}
 .queue-list-item-header {background:#f6f6f6; border-radius:4px; position:relative; padding:14px 20px 16px 20px; font-size:15px; line-height:18px; letter-spacing:0}
 .queue-list-item-header::before {content:""; display:block; position:absolute; left:0; top:13px; bottom:13px; width:4px; background:#a4d78b; border-radius:0 4px 4px 0}
+.queue-list-item-header-count {display:none}
+.queue-list-item.empty .queue-list-item-header::before {background:#d0d0d0}
 .queue-list-item-header-day {font-size:13px; color:#666; padding:1px 0 0 0}
 .queue-list-item-times {margin:10px 0 0 0; font-size:15px; line-height:38px; letter-spacing:0; text-align:center}
 .queue-list-item-times a {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:4px; height:40px; text-decoration:none; color:#111}
 .queue-list-item-times a:hover {color:#111; background:#dbedf9; border-color:#dbedf9}
 .queue-list-item-times span {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:4px; height:40px; color:#cdcdcd}
 
-@media screen and (max-width:1399px) {
-    .queue-inner {padding:0 25% 0 0}
-    .queue-list-item {width:33.33%}
-    .queue-list-item:nth-child(4) {display:none}
-}
-
-@media screen and (max-width:767px) {
-    .queue-inner {padding:0 33.33% 0 0}
-    .queue-list-item {width:50%}
-    .queue-list-item:nth-child(3) {display:none}
+@media screen and (max-width:799px) {
+    .queue {margin:40px 0 0 0}
+    .queue-inner {padding:0}
+    .queue-list-item {display:block; width:auto; padding:0; margin:10px 0 0 0}
+    .queue-list-item-times {display:none; margin:0}
+    .queue-list-item-header {margin:0 0 10px 0}
+    .queue-list-item-header::after {content:""; display:block; width:15px; height:9px; background:url(../images/queue-list-item-header.svg) no-repeat; background-size:100%; position:absolute; right:20px; top:50%; transform:translateY(-50%); transition:all 0.2s}
+    .queue-list-item-header-count {display:block; position:absolute; left:148px; top:50%; transform:translateY(-50%)}
+    .queue-list-item.open .queue-list-item-header::after {transform:translateY(-50%) rotate(-180deg)}
+    .queue-list-item-times a:first-child {margin-top:0}
+    .queue-list-item-times span:first-child {margin-top:0}
 }
 
 .queue-date {position:absolute; right:0; top:0; bottom:0; width:20%; padding:0 15px}
 .queue-date-inner {background:#f6f6f6; border-radius:4px; min-height:100%}
 .queue-date-select {padding:30px 0 0 0; width:142px; position:relative; margin:0 auto}
+.queue-date-select .btn {width:100%}
 .queue-date-calendar {display:none; position:absolute; right:0; top:100%; z-index:99}
 .queue-date-select.open .queue-date-calendar {display:block}
 .queue-date-hint {padding:27px 0; width:142px; margin:0 auto; color:#666; font-size:13px; line-height:18px; text-align:center}
 .queue-date-hint::before {content:""; display:block; width:33px; height:33px; background:url(../images/queue-date.svg) no-repeat; background-size:100%; margin:0 auto 14px auto}
 
-@media screen and (max-width:1399px) {
-    .queue-date {width:25%}
-}
-
-@media screen and (max-width:767px) {
-    .queue-date {width:33.33%}
+@media screen and (max-width:799px) {
+    .queue-date {position:relative; right:auto; top:auto; bottom:auto; width:auto; padding:0}
+    .queue-date-inner {padding:14px 20px}
+    .queue-date-inner::after {content:""; display:block; clear:both}
+    .queue-date-select {padding:0; width:118px; float:left}
+    .queue-date-calendar {right:auto; left:0}
+    .queue-date-hint {float:left; padding:0 0 0 53px; margin:2px 0 0 43px; width:245px; text-align:left; position:relative}
+    .queue-date-hint::before {position:absolute; left:0; top:50%; margin:0; transform:translateY(-50%)}
 }
 
 .desktop {padding:50px 0 0 0}
@@ -383,7 +423,7 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .desktop-menu ul li a:hover {text-decoration:underline}
 .desktop-menu ul li a.desktop-menu-logout {color:#fb6060}
 .desktop-menu-count {display:block; position:absolute; right:0; top:-2px; height:24px; padding:0 11px; font-size:13px; line-height:24px; color:#fff; background:#489eca; border-radius:12px}
-.desktop-menu-icon {position:absolute; right:0; top:-1px; line-height:0}
+.desktop-menu-icon {position:absolute; right:0; top:-1px; line-height:0; width:21px}
 .desktop-menu-icon-text {display:none; position:absolute; z-index:999; left:50%; bottom:30px; width:237px; margin-left:-118px; padding:8px 10px 11px 10px; background:#fff; font-size:14px; line-height:18px; letter-spacing:0; text-align:center; box-shadow:0 0 10px 0 rgba(0, 0, 0, 0.15); color:#111}
 .desktop-menu-icon:hover .desktop-menu-icon-text {display:block}
 .desktop-menu-icon-text::after {content:""; display:block; width:0; height:0; position:absolute; left:50%; bottom:-6px; margin-left:-6px; border-top:6px solid #fff; border-left:6px solid transparent; border-right:6px solid transparent}
@@ -393,12 +433,14 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .desktop-container {margin:0 0 0 318px}
 .desktop-content {float:left; width:100%}
 .desktop-content h1:first-child {margin-top:0}
+.desktop-content h1.only-mobile {display:none}
 
 @media screen and (max-width:799px) {
     .desktop-container {margin:0}
+    .desktop-content h1.only-mobile {display:block}
 }
 
-.desktop-message {margin:0 0 20px 0; background:#ffda76; padding:0 60px 9px 16px; border-radius:4px; position:relative; box-shadow:0 1px 0 0 #e3c56e}
+.desktop-message {margin:0 0 20px 0; background:#ffda76; padding:0 40px 9px 16px; border-radius:4px; position:relative; box-shadow:0 1px 0 0 #e3c56e}
 .desktop-message::after {content:""; display:block; clear:both}
 .desktop-message-icon {float:left; width:30px; line-height:0; padding:13px 0 0 0}
 .desktop-message-text {margin:0 0 0 45px; font-size:13px; line-height:18px; padding:10px 0 0 0}
@@ -406,6 +448,10 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .desktop-message-delete svg {display:block}
 .desktop-message-delete path {fill:#dabd6a; transition:all 0.2s}
 .desktop-message-delete:hover path {fill:#111}
+
+@media screen and (max-width:799px) {
+    .desktop-message-delete {top:50%; transform:translateY(-50%)}
+}
 
 .desktop-title {font-weight:bold; font-size:20px; line-height:24px; margin:21px 0 0 0; position:relative}
 .desktop-title:first-child {margin:-5px 0 0 0}
@@ -430,6 +476,10 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .desktop-orders-header-info {margin:0 276px}
 .desktop-orders-header-name {float:left; width:calc(50% - 143px)}
 .desktop-orders-header-info-2 {float:left; width:calc(50% - 118px)}
+
+@media screen and (max-width:799px) {
+    .desktop-orders-header {display:none}
+}
 
 .desktop-order {margin:3px 0 0 0; background:#f6f6f6; border-radius:4px; box-shadow:0 1px 0 0 #e3e3e3; padding:17px 30px 16px 30px; position:relative; transition:all 0.2s; cursor:pointer}
 .desktop-order-template {padding-top:0; padding-bottom:0}
@@ -463,8 +513,33 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .desktop-order-info-2 span {display:block; font-size:13px; line-height:18px; color:#666; font-weight:normal}
 .desktop-order-template .desktop-order-info-2 {display:table}
 
+@media screen and (max-width:799px) {
+    .desktop-order::before {top:23px}
+    .desktop-order-template {padding-top:17px; padding-bottom:16px}
+    .desktop-order-payment {float:none; position:absolute; right:30px; top:20px; width:auto; text-align:right; line-height:16px}
+    .desktop-order-payment span {position:absolute; right:0; top:46px}
+    .desktop-order-payment a {display:block; width:auto; padding:0 20px; height:30px; background:#489eca; font-size:15px; text-align:center; line-height:30px; color:#fff; border-radius:3px}
+    .desktop-order-cost {float:none; position:absolute; right:30px; top:36px; width:auto; text-align:right; line-height:16px; margin:0}
+    .desktop-order-info {margin:0; padding:28px 0}
+    .desktop-order-name {float:none; width:60%; margin:0}
+    .desktop-order-template .desktop-order-name {display:block}
+    .desktop-order-info-2 {float:none; width:auto; padding:18px 0 28px 0}
+    .desktop-order-template .desktop-order-info-2 {display:block}
+    .desktop-order-template-cell {display:block; height:auto}
+    .desktop-order-date {position:absolute; left:30px; bottom:15px; float:none; width:auto; font-size:13px; line-height:18px}
+    .desktop-order-date span {display:inline-block}
+    .desktop-order-period {position:absolute; left:30px; top:17px; float:none}
+    .desktop-order-period span {display:inline-block; font-size:15px; line-height:20px}
+    .desktop-order-period span::before {content:"("}
+    .desktop-order-period span::after {content:")"}
+}
+
 .orders-header {margin:46px 0 0 0}
 .orders-header::after {content:""; display:block; clear:both}
+
+@media screen and (max-width:799px) {
+    .orders-header {margin:0}
+}
 
 .orders-search {float:left; width:65.58%}
 .orders-search form {margin:0; padding:0}
@@ -474,7 +549,22 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .orders-search .form-input {margin:0 75px 0 0}
 .orders-search .form-input input {border:1px solid #ececec; border-radius:4px; height:40px; padding:0 16px; line-height:38px}
 
+@media screen and (max-width:799px) {
+    .orders-search {width:calc(100% - 80px)}
+    .orders-search form {position:relative}
+    .orders-search .form-submit {float:none; width:38px; position:absolute; right:0; top:0; z-index:1}
+    .orders-search .form-submit .btn-reset {border:none; width:38px; height:40px; background:url(../images/orders-search-mobile.svg) no-repeat center; font-size:0; line-height:0; letter-spacing:-1px; color:rgba(0, 0, 0, 0)}
+    .orders-search .form-submit .btn-reset:hover {background:url(../images/orders-search-mobile.svg) no-repeat center; color:rgba(0, 0, 0, 0)}
+    .orders-search .form-submit .btn-reset:active {background:url(../images/orders-search-mobile.svg) no-repeat center; color:rgba(0, 0, 0, 0)}
+    .orders-search .form-input {margin:0}
+}
+
 .orders-header .desktop-btns {float:right; margin:0}
+
+@media screen and (max-width:799px) {
+    .orders-header .desktop-btn-add {width:40px; font-size:0; letter-spacing:-1px; color:rgba(0, 0, 0, 0); padding:0 0 0 38px; overflow:hidden; position:relative}
+    .orders-header .desktop-btns a.desktop-btn-add svg {position:absolute; left:50%; top:50%; margin:0; display:block; transform:translate(-50%, -50%)}
+}
 
 .orders-sort {margin:23px 0 0 0}
 .orders-sort::after {content:""; display:block; clear:both}
@@ -503,6 +593,13 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-step.active .order-step-title {color:#111}
 .order-step.success .order-step-title {color:#719e5a}
 
+@media screen and (max-width:799px) {
+    .order-step {width:139px; padding:0 0 0 78px}
+    .order-step:first-child {width:96px; padding:0 0 0 37px}
+    .order-step-title {display:none}
+    .order-step:first-child.success {margin-left:-15px; padding-left:52px; width:121px}
+}
+
 .order-form form {position:relative}
 .order-form-tab {position:absolute; left:-9999px; top:-9999px; width:100%; opacity:0; transition:opacity 0.5s}
 .order-form-tab.active {position:relative; left:auto; top:auto; opacity:1}
@@ -521,6 +618,12 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-types label input:checked+.order-type {background:#ffda76; border-color:#ffda76; color:#111}
 .order-type .desktop-menu-icon {position:relative; display:inline-block; vertical-align:middle; margin:-2px 0 0 4px}
 
+@media screen and (max-width:799px) {
+    .order-types label {display:block; float:none; margin:10px 0 0 0; width:253px}
+    .order-types label:first-child {margin:0}
+    .order-type {padding:0; text-align:center}
+}
+
 .order-form-submit {background:#edf6fc; margin:40px 0; padding:10px; position:relative}
 .order-form-submit::before {content:""; display:block; position:absolute; left:-9999px; top:0; right:-9999px; bottom:0; background:#edf6fc}
 .order-form-submit::after {content:""; display:block; clear:both}
@@ -528,6 +631,12 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-form-submit .btn::after {content:""; display:inline-block; vertical-align:middle; width:15px; height:12px; background:url(../images/order-step-next.svg) no-repeat; background-size:100%; margin:-2px 0 0 10px}
 .order-form-submit .btn-confirm {width:197px}
 .order-form-back {float:right; line-height:40px; margin:0 40px 0 0; position:relative}
+
+@media screen and (max-width:799px) {
+    .order-form-submit {padding:15px 0}
+    .order-form-submit .btn {height:50px; line-height:50px}
+    .order-form-back {line-height:50px; margin:0 30px 0 0}
+}
 
 .order-date {margin:15px 0 0 0}
 .order-date::after {content:""; display:block; clear:both}
@@ -538,10 +647,9 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-date-select.open .order-date-calendar {display:block}
 .order-date-value {display:none; float:left; margin:0 0 0 20px; padding:0 14px 0 34px; border:1px solid #489eca; color:#111; border-radius:4px; line-height:38px; height:40px; position:relative; background:url(../images/order-date-calendar.svg) no-repeat 8px 9px}
 
-.order-period {margin:13px -15px 0 -15px; min-height:24px}
+.order-period {margin:13px 0 0 0; min-height:24px; column-count:6; column-gap:30px}
 .order-period::after {content:""; display:block; clear:both}
-.order-period-col {float:left; width:16.66%; padding:0 15px}
-.order-period label {display:block; margin:0; cursor:pointer; padding:0}
+.order-period label {display:block; margin:0; cursor:pointer; padding:0; width:100%}
 .order-period label input {display:none}
 .order-period label span {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:4px; height:40px; text-decoration:none; color:#111; cursor:pointer; text-align:center; line-height:38px}
 .order-period label:hover span {color:#111; background:#dbedf9; border-color:#dbedf9}
@@ -549,6 +657,10 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-period label input:disabled+span {border:1px solid #ccc; color:#cdcdcd; cursor:default; background:none}
 .order-period.loading {position:relative}
 .order-period.loading::before {content:""; z-index:2; display:block; position:absolute; left:0; top:0; right:0; bottom:0; background:rgba(255, 255, 255, 0.9) url(../images/loading.gif) no-repeat center}
+
+@media screen and (max-width:799px) {
+    .order-period {column-count:3}
+}
 
 .order-auto {margin:15px 0 0 0}
 .order-auto::after {content:""; display:block; clear:both}
@@ -563,6 +675,14 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-auto-price {display:block; color:#999; padding:9px 0 1px 0; transition:all 0.2s}
 .order-auto label input:checked+.order-auto-content .order-auto-price {color:#111; font-weight:bold}
 
+@media screen and (max-width:799px) {
+    .order-auto label {float:none; display:block; margin:10px 0 0 0; width:auto}
+    .order-auto label:first-child {margin:0}
+    .order-auto-content::after {content:""; display:block; clear:both}
+    .order-auto-title {float:left; width:173px}
+    .order-auto-price {float:right; padding:0; line-height:40px}
+}
+
 .order-auto-country {max-width:396px; margin:-5px 0 -13px 0}
 .order-auto-info::after {content:""; display:block; clear:both}
 .order-auto-info-number {float:left; margin:0 30px 0 0}
@@ -572,9 +692,25 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-auto-info-brand-name {float:left; width:288px; margin:-5px 0 -13px 0}
 .order-auto-info-brand-model {float:left; width:288px; margin:-5px 0 -13px 30px}
 
+@media screen and (max-width:799px) {
+    .order-auto-country {max-width:none; margin:-5px 0 0 0}
+    .order-auto-info-number {float:none; margin:0}
+    .order-auto-info-number::after {content:""; display:block; clear:both}
+    .order-auto-info-number-text {margin:-5px 0 0 0}
+    .order-auto-info-number-region {margin:-5px 0 0 30px}
+    .order-auto-info-brand {float:none}
+    .order-auto-info-brand-name {float:none; width:auto; margin:-5px 0 0 0}
+    .order-auto-info-brand-model {float:none; width:auto; margin:0 0 -13px 0}
+}
+
 .order-personal {margin:-5px 0 -13px 0}
 .order-personal::after {content:""; display:block; clear:both}
 .order-personal-item {float:left; width:288px; margin:0 30px 0 0}
+
+@media screen and (max-width:799px) {
+    .order-personal {margin:-5px 0 0 0}
+    .order-personal-item {float:none; width:auto; margin:0}
+}
 
 .order-form .form-checkbox {font-size:13px}
 .order-form .form-checkbox span {padding:0 0 0 20px}
@@ -702,7 +838,8 @@ footer p {margin:0; padding:0}
 .window-auth .auth-contacts {width:auto; text-align:center}
 
 @media screen and (max-width:799px) {
-    .window-auth {width:450px; padding:0 30px}
+    .window-auth {width:450px; padding:0 30px 265px 30px}
+    .window-auth .auth {margin:11px 0 0 0; padding:0; border:none; box-shadow:none}
     .window-auth .auth-contacts {display:none}
 }
 
@@ -716,6 +853,9 @@ footer p {margin:0; padding:0}
 
 @media screen and (max-width:799px) {
     .window-auth-header {padding:0 30px; margin:0 -30px}
+
+    .window-auth .form-submit {position:absolute; right:0; bottom:0; left:0; padding:20px 30px; border-radius:0 0 6px 6px; text-align:right; background:#edf6fc}
+    .window-auth .form-submit .btn {height:50px; line-height:50px; padding:0 30px}
 }
 
 .window-feedback .form-ctrl {margin:0 -41px; background:#edf6fc; padding:20px 41px; border-radius:0 0 6px 6px}

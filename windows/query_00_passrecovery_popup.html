@@ -1,19 +1,17 @@
 <div class="window-auth">
     <div class="window-auth-header">
         <ul>
-            <li>Авторизация</li>
-            <li><a href="windows/query_00_reg_popup.html" class="window-link">Регистрация</a></li>
+            <li>Восстановление пароля</li>
         </ul>
     </div>
     <!-- auth -->
     <div class="auth">
-        <form action="#" method="post">
+        <form action="windows/query_00_passrecovery_attention_popup.html" method="post" class="ajax-form">
+            <div class="forgot-text">Для восстановления пароля, укажите, пожалуйста, номер телефона, который связан с&nbsp;вашей учетной записью в системе.</div>
             <div class="form-input"><span class="form-input-label">Телефон</span><input type="text" name="phone" value="" class="required maskPhone" /></div>
-            <div class="form-input"><span class="form-input-label">Пароль</span><input type="password" name="password" value="" class="required" /></div>
-            <div class="form-checkbox"><label><input type="checkbox" name="remember" class="required" /><span>Запомнить меня на этом устройстве</span></label></div>
             <div class="form-ctrl">
-                <div class="form-submit"><input type="submit" value="Авторизоваться" class="btn" /></div>
-                <div class="auth-forgot"><a href="windows/query_00_passrecovery_popup.html" class="window-link">Забыли пароль?</a></div>
+                <div class="form-submit"><input type="submit" value="Запросить новый пароль" class="btn" /></div>
+                <div class="auth-forgot"><a href="windows/query_00_auth_popup.html" class="window-link">Авторизация</a></div>
             </div>
         </form>
     </div>

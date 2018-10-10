@@ -378,7 +378,7 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
     .queue-list-item-times {display:none; margin:0}
     .queue-list-item-header {margin:0 0 10px 0}
     .queue-list-item-header::after {content:""; display:block; width:15px; height:9px; background:url(../images/queue-list-item-header.svg) no-repeat; background-size:100%; position:absolute; right:20px; top:50%; transform:translateY(-50%); transition:all 0.2s}
-    .queue-list-item-header-count {display:block; position:absolute; left:50%; top:50%; transform:translate(-50%, -50%)}
+    .queue-list-item-header-count {display:block; position:absolute; left:181px; top:50%; transform:translateY(-50%)}
     .queue-list-item.open .queue-list-item-header::after {transform:translateY(-50%) rotate(-180deg)}
     .queue-list-item-times a:first-child {margin-top:0}
     .queue-list-item-times span:first-child {margin-top:0}

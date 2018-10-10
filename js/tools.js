@@ -104,6 +104,16 @@ $(document).ready(function() {
         }
     });
 
+    $('.queue-list-item').each(function() {
+        var curItem = $(this);
+        if (curItem.find('.queue-list-item-times a').length == 0) {
+            curItem.addClass('empty');
+            curItem.find('.queue-list-item-header').append('<div class="queue-list-item-header-count">Свободных нет</div>');
+        } else {
+            curItem.find('.queue-list-item-header').append('<div class="queue-list-item-header-count">Свободно ' + curItem.find('.queue-list-item-times a').length + ' из ' + (curItem.find('.queue-list-item-times a, .queue-list-item-times span').length) + '</div>');
+        }
+    });
+
     $('#datepickerQueue').datepicker({
         dateFormat: dateFormat,
         minDate: 0,

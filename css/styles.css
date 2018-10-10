@@ -76,7 +76,7 @@ form {margin:20px 0; padding:0}
 .form-input.focus .form-input-label span {display:inline}
 
 .form-input input,
-.form-input textarea {position:relative; border:none; border-bottom:2px solid #ececec; font:15px/20px "PT Sans", sans-serif; color:#111; vertical-align:top; margin:0; padding:10px 0; width:100%; height:42px; box-sizing:border-box; outline:none; border-radius:0; background:url(../images/blank.gif); -webkit-appearance:none}
+.form-input textarea {position:relative; border:none; border-bottom:2px solid #ececec; font:15px/20px "PT Sans", sans-serif; color:#111; vertical-align:top; margin:0; padding:15px 0 5px 0; width:100%; height:42px; box-sizing:border-box; outline:none; border-radius:0; background:url(../images/blank.gif); -webkit-appearance:none}
 .form-input textarea {height:auto; resize:none; overflow:auto; border:1px solid #d8d8d8; border-radius:4px; padding-left:20px; padding-right:20px}
 .form-input input.error,
 .form-input textarea.error {border-color:#ffc2c2}
@@ -236,8 +236,8 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
     .header-mobile-menu-link::before {content:""; display:block; position:absolute; left:0; top:6px; right:0; height:2px; background:#489eca; transition:all 0.2s}
     .header-mobile-menu-open header {z-index:100}
     .header-mobile-menu-open .header-mobile-menu-link {z-index:199; border-color:transparent; position:fixed; margin:31px 15px 0 0; right:0; top:0}
-    .header-mobile-menu-open .header-mobile-menu-link::after {transform:rotate(-45deg)}
-    .header-mobile-menu-open .header-mobile-menu-link::before {transform:rotate(45deg)}
+    .header-mobile-menu-open .header-mobile-menu-link::after {transform:rotate(-45deg); left:3px; right:4px}
+    .header-mobile-menu-open .header-mobile-menu-link::before {transform:rotate(45deg); left:3px; right:4px}
 }
 
 .header-mobile-menu {display:none}
@@ -367,6 +367,10 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .queue-list-item-times a:hover {color:#111; background:#dbedf9; border-color:#dbedf9}
 .queue-list-item-times span {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:4px; height:40px; color:#cdcdcd}
 
+@media screen and (min-width:800px) {
+    .queue-list-item-times {display:block !important}
+}
+
 @media screen and (max-width:799px) {
     .queue {margin:40px 0 0 0}
     .queue-inner {padding:0}
@@ -374,13 +378,13 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
     .queue-list-item-times {display:none; margin:0}
     .queue-list-item-header {margin:0 0 10px 0}
     .queue-list-item-header::after {content:""; display:block; width:15px; height:9px; background:url(../images/queue-list-item-header.svg) no-repeat; background-size:100%; position:absolute; right:20px; top:50%; transform:translateY(-50%); transition:all 0.2s}
-    .queue-list-item-header-count {display:block; position:absolute; left:148px; top:50%; transform:translateY(-50%)}
+    .queue-list-item-header-count {display:block; position:absolute; left:50%; top:50%; transform:translate(-50%, -50%)}
     .queue-list-item.open .queue-list-item-header::after {transform:translateY(-50%) rotate(-180deg)}
     .queue-list-item-times a:first-child {margin-top:0}
     .queue-list-item-times span:first-child {margin-top:0}
 }
 
-.queue-date {position:absolute; right:0; top:0; bottom:0; width:20%; padding:0 15px}
+.queue-date {position:absolute; right:0; top:0; bottom:0; width:20%; padding:0 15px; z-index:1}
 .queue-date-inner {background:#f6f6f6; border-radius:4px; min-height:100%}
 .queue-date-select {padding:30px 0 0 0; width:142px; position:relative; margin:0 auto}
 .queue-date-select .btn {width:100%}
@@ -859,9 +863,8 @@ footer p {margin:0; padding:0}
 }
 
 .window-feedback .form-ctrl {margin:0 -41px; background:#edf6fc; padding:20px 41px; border-radius:0 0 6px 6px}
-.window-feedback .form-ctrl .form-submit {float:right; width:154px}
+.window-feedback .form-ctrl .form-submit {float:right; width:auto}
 
 @media screen and (max-width:799px) {
     .window-feedback .form-ctrl {margin:0 -30px; background:#edf6fc; padding:20px 30px; border-radius:0 0 6px 6px}
-    .window-feedback .form-ctrl .form-submit {float:right; width:154px}
 }

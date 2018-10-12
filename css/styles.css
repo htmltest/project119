@@ -366,6 +366,7 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .queue-list-item-times a {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:4px; height:40px; text-decoration:none; color:#111}
 .queue-list-item-times a:hover {color:#111; background:#dbedf9; border-color:#dbedf9}
 .queue-list-item-times span {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:4px; height:40px; color:#cdcdcd}
+.queue-list-item-times div {background:#f6f6f6; font-size:13px; line-height:20px; letter-spacing:0; text-align:center; padding:30px 20px; color:#666}
 
 @media screen and (min-width:800px) {
     .queue-list-item-times {display:block !important}
@@ -387,10 +388,11 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .queue-date {position:absolute; right:0; top:0; bottom:0; width:20%; padding:0 15px; z-index:1}
 .queue-date-inner {background:#f6f6f6; border-radius:4px; min-height:100%}
 .queue-date-select {padding:30px 0 0 0; width:142px; position:relative; margin:0 auto}
-.queue-date-select .btn {width:100%}
+.queue-date-select .btn {width:100%; padding:0}
 .queue-date-calendar {display:none; position:absolute; right:0; top:100%; z-index:99}
 .queue-date-select.open .queue-date-calendar {display:block}
-.queue-date-hint {padding:27px 0; width:142px; margin:0 auto; color:#666; font-size:13px; line-height:18px; text-align:center}
+.queue-date-current {text-align:center; font-size:13px; line-height:30px; color:#666; letter-spacing:0; padding:10px 0 0 0}
+.queue-date-hint {padding:17px 0 27px 0; width:142px; margin:0 auto; color:#666; font-size:13px; line-height:18px; text-align:center}
 .queue-date-hint::before {content:""; display:block; width:33px; height:33px; background:url(../images/queue-date.svg) no-repeat; background-size:100%; margin:0 auto 14px auto}
 
 @media screen and (max-width:799px) {
@@ -398,8 +400,9 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
     .queue-date-inner {padding:14px 20px}
     .queue-date-inner::after {content:""; display:block; clear:both}
     .queue-date-select {padding:0; width:118px; float:left}
+    .queue-date-current {float:left; clear:left; width:118px}
     .queue-date-calendar {right:auto; left:0}
-    .queue-date-hint {float:left; padding:0 0 0 53px; margin:2px 0 0 43px; width:245px; text-align:left; position:relative}
+    .queue-date-hint {padding:0 0 0 53px; margin:2px 0 0 161px; width:245px; text-align:left; position:relative}
     .queue-date-hint::before {position:absolute; left:0; top:50%; margin:0; transform:translateY(-50%)}
 }
 

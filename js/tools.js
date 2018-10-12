@@ -120,6 +120,7 @@ $(document).ready(function() {
         onSelect: function(dateText) {
             $('.queue-date-select').removeClass('open');
             $('.queue-inner').addClass('loading');
+            $('.queue-date-current').html(dateText);
             $.ajax({
                 type: 'POST',
                 url: 'ajax/get.border.html',

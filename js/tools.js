@@ -14,6 +14,16 @@ $(document).ready(function() {
         }
     });
 
+    $.validator.addMethod('maskPhone',
+        function(value, element) {
+            if (value == '') {
+                return true;
+            }
+            return /^\+\d{10,15}$/.test(value);
+        },
+        'Не соответствует формату'
+    );
+
     $('form').each(function() {
         initForm($(this));
     });
@@ -353,28 +363,7 @@ $(window).on('resize', function() {
 });
 
 function initForm(curForm) {
-    curForm.find('input.maskPhone').each(function() {
-        var curBlock = $(this).parent();
-        curBlock.find('input').keypress(function(evt) {
-            var charCode = (evt.which) ? evt.which : evt.keyCode
-            if ((charCode > 47 && charCode < 58) || (charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || (charCode == 8) || (charCode == 37) || (charCode == 39)) {
-                return true;
-            }
-            return false;
-        });
-    });
-
-    curForm.find('input.maskPhone').change(function() {
-        var curValue = $(this).val();
-        var newValue = '';
-        for (var i = 0; i < curValue.length; i++) {
-            var curSymbol = curValue[i];
-            if (curSymbol == '0' || curSymbol == '1' || curSymbol == '2' || curSymbol == '3' || curSymbol == '4' || curSymbol == '5' || curSymbol == '6' || curSymbol == '7' || curSymbol == '8' || curSymbol == '9') {
-                newValue += curSymbol;
-            }
-        }
-        $(this).val(newValue);
-    });
+    curForm.find('input.maskPhone').mask('+9999999999?99999');
 
     curForm.find('.form-input input, .form-input textarea').each(function() {
         if ($(this).val() != '') {

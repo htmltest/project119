@@ -213,7 +213,9 @@ $(document).ready(function() {
     $('body').on('click', '.auth-phone-send a', function(e) {
         var curLink = $(this);
         var curForm = $(this).parents().filter('form');
-        if (curForm.valid()) {
+        var validator = curForm.validate();
+        validator.element($('.auth-phone-input .form-input input'));
+        if (!$('.auth-phone-input .form-input input').hasClass('error')) {
             curForm.addClass('loading');
             $.ajax({
                 type: 'POST',
@@ -223,9 +225,14 @@ $(document).ready(function() {
                 cache: false
             }).done(function(data) {
                 curForm.removeClass('loading');
-                curForm.find('.auth-phone-message').html(data.message);
                 if (data.status == 'ok') {
                     curForm.addClass('visible-pin');
+                    curForm.find('.auth-phone-message').html(data.message);
+                } else {
+                    curForm.find('.auth-phone-message').html('');
+                    curForm.find('.auth-phone-input .form-input .form-input-label span').remove();
+                    curForm.find('.auth-phone-input .form-input .form-input-label').append('<span> — ' + data.message + '</span>');
+                    curForm.find('.auth-phone-input .form-input input').addClass('error');
                 }
                 $(window).trigger('resize');
                 updateAuthTimers();
@@ -234,30 +241,38 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    $('body').on('click', '.auth-phone-pin a', function(e) {
+    $('body').on('click', '.auth-phone-pin-link a', function(e) {
         var curLink = $(this);
         var curForm = $(this).parents().filter('form');
-        curForm.addClass('loading');
-        $.ajax({
-            type: 'POST',
-            url: curLink.attr('href'),
-            dataType: 'json',
-            data: curForm.serialize(),
-            cache: false
-        }).done(function(data) {
-            curForm.removeClass('loading');
-            if (data.status == 'ok') {
-                window.location = data.url;
-            } else if (data.status == 'error-timer') {
-                curForm.find('.auth-pin-message').html(data.message);
-                curForm.find('.auth-phone-pin .form-input input').val('').trigger('focus');
-                curForm.find('.auth-timer').html('');
-            } else {
-                curForm.find('.auth-pin-message').html(data.message);
-                curForm.find('.auth-phone-pin .form-input input').val('').trigger('focus');
-            }
-            updateAuthTimers();
-        });
+        var validator = curForm.validate();
+        validator.form();
+        if (curForm.find('input.error').length == 0) {
+            curForm.addClass('loading');
+            $.ajax({
+                type: 'POST',
+                url: curLink.attr('href'),
+                dataType: 'json',
+                data: curForm.serialize(),
+                cache: false
+            }).done(function(data) {
+                curForm.removeClass('loading');
+                if (data.status == 'ok') {
+                    window.location = data.url;
+                } else if (data.status == 'error-timer') {
+                    curForm.find('.auth-phone-pin .form-input .form-input-label span').remove();
+                    curForm.find('.auth-phone-pin .form-input .form-input-label').append('<span> — ' + data.message + '</span>');
+                    curForm.find('.auth-phone-pin .form-input input').addClass('error');
+                    curForm.find('.auth-phone-pin .form-input input').val('').trigger('focus');
+                    curForm.find('.auth-timer').html('');
+                } else {
+                    curForm.find('.auth-phone-pin .form-input .form-input-label span').remove();
+                    curForm.find('.auth-phone-pin .form-input .form-input-label').append('<span> — ' + data.message + '</span>');
+                    curForm.find('.auth-phone-pin .form-input input').addClass('error');
+                    curForm.find('.auth-phone-pin .form-input input').val('').trigger('focus');
+                }
+                updateAuthTimers();
+            });
+        }
         e.preventDefault();
     });
 
@@ -342,10 +357,10 @@ function initForm(curForm) {
         var curBlock = $(this).parent();
         curBlock.find('input').keypress(function(evt) {
             var charCode = (evt.which) ? evt.which : evt.keyCode
-            if (charCode > 31 && (charCode < 43 || charCode > 57)) {
-                return false;
+            if ((charCode > 47 && charCode < 58) || (charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || (charCode == 8) || (charCode == 37) || (charCode == 39)) {
+                return true;
             }
-            return true;
+            return false;
         });
     });
 

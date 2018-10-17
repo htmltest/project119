@@ -88,6 +88,12 @@ form {margin:20px 0; padding:0}
 .form-input textarea::-moz-placeholder {opacity:1; color:#999}
 .form-input textarea:-ms-input-placeholder {opacity:1; color:#999}
 
+.form-input-phone::after {content:"+"; display:block; position:absolute; left:1px; top:15px}
+.form-input-phone .form-input-label {left:22px}
+.form-input-phone.focus .form-input-label {left:0}
+.form-input-phone input {padding-left:21px}
+
+
 .form-select {margin:13px 0}
 .form-select select {position:relative; border:none; border-bottom:2px solid #ececec; font:15px/20px "PT Sans", sans-serif; color:#111; vertical-align:top; margin:0; padding:10px 0; width:100%; height:42px; box-sizing:border-box; outline:none; border-radius:0; background:url(../images/blank.gif); -webkit-appearance:none}
 .form-select label.error {display:none !important}
@@ -328,13 +334,18 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 
 .auth-phone {display:table; width:100%}
 .auth-phone-plus {display:table-cell; width:20px; vertical-align:middle}
-.auth-phone-input {display:table-cell; vertical-align:middle}
+.auth-phone-input {display:table-cell; vertical-align:middle; position:relative}
+.auth-phone-input::after {content:"+"; display:block; position:absolute; left:1px; top:28px}
+.auth-phone-input .form-input-label {left:22px}
+.auth-phone-input .form-input.focus .form-input-label {left:0}
+.auth-phone-input .form-input input {padding-left:21px}
 .auth-phone-send {display:table-cell; vertical-align:middle; width:40px; padding:0 0 0 10px}
 .auth-phone-send .btn::after {content:""; display:inline-block; vertical-align:middle; width:15px; height:12px; background:url(../images/order-step-next.svg) no-repeat; background-size:100%; margin:-2px 0 0 0}
-.auth form.visible-pin .auth-phone-send .btn {display:none}
+.auth form.visible-pin .auth-phone-send {display:none}
+.auth-phone-message {margin:13px 0}
 
 .auth form.loading {position:relative}
-.auth form.loading::after {content:""; display:block; position:absolute; left:0; top:-10px; right:0; bottom:-10px; background:rgba(255, 255, 255, 0.9) url(../images/loading.gif) no-repeat center; z-index:9}
+.auth form.loading::after {content:""; display:block; position:absolute; left:0; top:-10px; right:0; bottom:-10px; background:rgba(255, 255, 255, 0.6) url(../images/loading.gif) no-repeat center; z-index:9}
 
 .auth-phone-pin {display:none}
 .auth form.visible-pin .auth-phone-pin {display:block}

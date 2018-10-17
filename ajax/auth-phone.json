@@ -1,0 +1,4 @@
+{
+    "status"    : "ok",
+    "message"   : "<div class=\"form-success\">На ваш номер отправлено<br /> SMS с паролем, пароль актуален<br /> в течении <span class=\"auth-timer\" data-time=\"15\"></span></div>"
+}

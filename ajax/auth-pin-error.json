@@ -1,0 +1,4 @@
+{
+    "status"    : "error",
+    "message"   : "<div class=\"form-error\">Введеный пароль - некорректный</div>"
+}

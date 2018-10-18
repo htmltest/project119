@@ -8,12 +8,17 @@
     <!-- auth -->
     <div class="auth">
         <form action="#" method="post">
-            <div class="form-input"><span class="form-input-label">Имя</span><input type="text" name="name" value="" class="required" /></div>
-            <div class="form-input"><span class="form-input-label">E-mail</span><input type="text" name="email" value="" class="required email" /></div>
-            <div class="form-input"><span class="form-input-label">Телефон</span><input type="text" name="phone" value="" class="required maskPhone" /></div>
-            <div class="form-input"><span class="form-input-label">Пароль</span><input type="password" name="password" value="" class="required" /></div>
-            <div class="form-ctrl">
-                <div class="form-submit"><input type="submit" value="Регистрация" class="btn" /></div>
+            <div class="auth-phone">
+                <div class="auth-phone-input">
+                    <div class="form-input"><span class="form-input-label">Телефон</span><input type="text" name="phone" value="" class="required maskPhone" autocomplete="off" minlength="10" maxlength="15" /></div>
+                </div>
+                <div class="auth-phone-send"><a href="#" class="btn"></a></div>
+            </div>
+            <div class="form-input auth-phone-visible-code"><span class="form-input-label">Код</span><input type="text" name="pin" value="" class="required maskPin" /></div>
+            <div class="auth-phone-message auth-phone-visible-message"></div>
+            <div class="form-checkbox auth-phone-visible-code">Нажимая кнопку Регистрация выражаю свое согласие с <a href="#">политики конфиденциальности</a></div>
+            <div class="form-ctrl auth-phone-visible-code">
+                <div class="form-submit auth-phone-pin-link"><a href="#" class="btn">Регистрация</a></div>
             </div>
         </form>
     </div>

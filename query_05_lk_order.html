@@ -213,13 +213,13 @@
                                 <div class="order-subtitle">Контакты</div>
                                 <div class="order-personal">
                                     <div class="order-personal-item">
-                                        <div class="form-input"><span class="form-input-label">Телефон <em>*</em></span><input type="text" name="phone" value="" class="required maskPhone" /></div>
+                                        <div class="form-input form-input-phone"><span class="form-input-label">Телефон <em>*</em></span><input type="text" name="phone" value="" class="required maskPhone" autocomplete="off" minlength="10" maxlength="15" /></div>
                                     </div>
                                     <div class="order-personal-item">
                                         <div class="form-input"><span class="form-input-label">Адрес электронной почты <em>*</em></span><input type="text" name="email" value="" class="required email" /></div>
                                     </div>
                                 </div>
-                                <div class="form-checkbox"><label><input type="checkbox" name="confirm" class="required" /><span>Я принимаю условия <a href="#">политики конфиденциальности</a> и <a href="#">пользовательского соглашения</a></span></label></div>
+                                <div class="form-checkbox"><label><input type="checkbox" name="confirm" class="required" checked="checked" /><span>Я принимаю условия <a href="#">политики конфиденциальности</a> и <a href="#">пользовательского соглашения</a></span></label></div>
                                 <div class="order-form-submit">
                                     <button class="btn" />Далее</button>
                                     <a href="#" class="order-form-back">Назад</a>
@@ -254,7 +254,7 @@
 
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/fancybox/jquery.fancybox.min.js"></script>
-        <script src="js/jquery.maskedinput.js"></script>
+        <script src="js/jquery.mask.min.js"></script>
         <script src="js/validation/jquery.validate.min.js"></script>
         <script src="js/validation/messages_ru.js"></script>
         <script src="js/chosen/chosen.jquery.min.js"></script>

@@ -223,9 +223,9 @@
 
                     <h4>Форма</h4>
                     <form action="#" method="post">
-                        <div class="form-input"><span class="form-input-label">Телефон <em>*</em></span><input type="text" name="phone" value="" class="required maskPhone" /></div>
+                        <div class="form-input form-input-phone"><span class="form-input-label">Телефон <em>*</em></span><input type="text" name="phone" value="" class="required maskPhone" autocomplete="off" minlength="10" maxlength="15" /></div>
                         <div class="form-input"><span class="form-input-label">Пароль</span><input type="password" name="password" value="" /></div>
-                        <div class="form-input"><span class="form-input-label">Телефон</span><input type="text" name="phone2" value="+7 (800) 232-45-45" class="maskPhone" /></div>
+                        <div class="form-input"><span class="form-input-label">Телефон</span><input type="text" name="phone2" value="+78002324545" class="maskPhone" /></div>
                         <div class="form-input"><span class="form-input-label">Пароль</span><input type="password" name="password2" value="" /></div>
                         <div class="form-select">
                             <select name="country" data-placeholder="Выбрать страну <em>*</em>" class="required">
@@ -316,7 +316,7 @@
 
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/fancybox/jquery.fancybox.min.js"></script>
-        <script src="js/jquery.maskedinput.js"></script>
+        <script src="js/jquery.mask.min.js"></script>
         <script src="js/validation/jquery.validate.min.js"></script>
         <script src="js/validation/messages_ru.js"></script>
         <script src="js/chosen/chosen.jquery.min.js"></script>

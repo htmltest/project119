@@ -72,8 +72,7 @@ form {margin:20px 0; padding:0}
 .form-input .form-input-label {position:absolute; left:0; top:10px; transition:all 0.2s; white-space:nowrap}
 .form-input.focus .form-input-label {top:-8px; font-size:11px; color:#999; z-index:1; background:#fff; width:90%}
 .form-input-label em {font-style:normal; color:#ff5353}
-.form-input-label span {display:none; color:#ff7777}
-.form-input.focus .form-input-label span {display:inline}
+.form-input-label span {color:#ff7777}
 
 .form-input input,
 .form-input textarea {position:relative; border:none; border-bottom:2px solid #ececec; font:15px/20px "PT Sans", sans-serif; color:#111; vertical-align:top; margin:0; padding:15px 0 5px 0; width:100%; height:42px; box-sizing:border-box; outline:none; border-radius:0; background:url(../images/blank.gif); -webkit-appearance:none}
@@ -92,7 +91,7 @@ form {margin:20px 0; padding:0}
 .form-select select {position:relative; border:none; border-bottom:2px solid #ececec; font:15px/20px "PT Sans", sans-serif; color:#111; vertical-align:top; margin:0; padding:10px 0; width:100%; height:42px; box-sizing:border-box; outline:none; border-radius:0; background:url(../images/blank.gif); -webkit-appearance:none}
 .form-select label.error {display:none !important}
 
-.form-checkbox {margin:20px 0}
+.form-checkbox {margin:20px 0; color:#666}
 .cols .form-checkbox {margin-bottom:0}
 .cols .form-checkbox:first-child {margin-top:0}
 .form-checkbox::after {content:""; display:block; clear:both}
@@ -292,9 +291,9 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .main-btns .btn:first-child {margin:0}
 
 @media screen and (max-width:1399px) {
-    .main {min-height:547px; background-size:cover}
+    .main {min-height:387px; background-size:cover}
     .main-content {bottom:60px}
-    .main-title {font-size:32px; line-height:38px; color:#fff; padding:0 0 52px 0; font-family:"PT Sans", sans-serif; font-weight:normal}
+    .main-title {font-size:27px; line-height:32px; color:#fff; padding:0 0 52px 0}
     .main-btns {width:770px}
     .main-btns .btn {font-size:24px; line-height:68px; height:69px; width:370px}
 }
@@ -302,7 +301,7 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 @media screen and (max-width:799px) {
     .main {height:calc(100vh - 275px)}
     .main-btns {width:370px}
-    .main-btns .btn {font-size:24px; line-height:68px; height:69px; width:370px; margin:20px 0 0 0}
+    .main-btns .btn {font-size:24px; line-height:68px; height:69px; width:370px; margin:20px 0 0 0; font-family:"PT Sans", sans-serif; font-weight:normal}
     .main-btns .btn:first-child {margin:0}
 }
 
@@ -325,6 +324,25 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
     .auth-header {text-align:left}
     .auth {width:auto; margin-top:36px}
 }
+
+.auth-phone {display:table; width:100%}
+.auth-phone-plus {display:table-cell; width:20px; vertical-align:middle}
+.auth-phone-input {display:table-cell; vertical-align:middle; position:relative}
+.auth-phone-send {display:table-cell; vertical-align:middle; width:40px; padding:0 0 0 10px}
+.auth-phone-send .btn::after {content:""; display:inline-block; vertical-align:middle; width:15px; height:12px; background:url(../images/order-step-next.svg) no-repeat; background-size:100%; margin:-2px 0 0 0}
+.auth form.visible-pin .auth-phone-send {display:none}
+.auth-phone-message {margin:15px 0 10px 0}
+.auth-phone-message .form-success {box-shadow:none; border-radius:2px; margin:0}
+.auth-phone-message .form-error {box-shadow:none; border-radius:2px; margin:0}
+
+.auth form.loading {position:relative}
+.auth form.loading::after {content:""; display:block; position:absolute; left:0; top:-10px; right:0; bottom:-10px; background:rgba(255, 255, 255, 0.6) url(../images/loading.gif) no-repeat center; z-index:9}
+
+.auth-phone-visible-code {display:none}
+.auth form.visible-pin .auth-phone-visible-code {display:block}
+
+.auth-phone-visible-message {display:none}
+.auth form.visible-message .auth-phone-visible-message {display:block}
 
 .auth-contacts {width:394px; margin:40px auto 0 auto; border:1px solid #ececec; border-radius:4px; padding:24px 30px 25px 30px; box-shadow:0 1px 0 0 #e3e3e3}
 .auth-contacts-phone {font-size:24px; line-height:29px}
@@ -372,6 +390,12 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
     .queue-list-item-times {display:block !important}
 }
 
+@media screen and (max-width:1399px) {
+    .queue {margin:40px -10px 0 -10px}
+    .queue-list-item {padding:0 10px}
+    .queue-list-item-header {padding-right:0}
+}
+
 @media screen and (max-width:799px) {
     .queue {margin:40px 0 0 0}
     .queue-inner {padding:0}
@@ -395,6 +419,12 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .queue-date-hint {padding:17px 0 27px 0; width:142px; margin:0 auto; color:#666; font-size:13px; line-height:18px; text-align:center}
 .queue-date-hint::before {content:""; display:block; width:33px; height:33px; background:url(../images/queue-date.svg) no-repeat; background-size:100%; margin:0 auto 14px auto}
 
+@media screen and (max-width:1399px) {
+    .queue-date {padding:0 10px}
+    .queue-date-select {padding:12px 10px 0 10px; width:auto}
+    .queue-date-hint {padding:17px 10px 27px 10px; width:auto}
+}
+
 @media screen and (max-width:799px) {
     .queue-date {position:relative; right:auto; top:auto; bottom:auto; width:auto; padding:0}
     .queue-date-inner {padding:14px 20px}
@@ -414,6 +444,10 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 }
 
 .desktop-side {float:left; width:288px}
+
+@media screen and (max-width:1399px) {
+    .desktop-side {width:191px}
+}
 
 @media screen and (max-width:799px) {
     .desktop-side {display:none}
@@ -435,12 +469,26 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .desktop-menu-icon:hover .desktop-menu-icon-text {display:block}
 .desktop-menu-icon-text::after {content:""; display:block; width:0; height:0; position:absolute; left:50%; bottom:-6px; margin-left:-6px; border-top:6px solid #fff; border-left:6px solid transparent; border-right:6px solid transparent}
 
+@media screen and (max-width:1399px) {
+    .desktop-menu {padding:0 20px 3px 20px}
+    .desktop-menu ul li.active::after {left:-21px}
+}
+
 .desktop-side .auth-contacts {width:auto; margin:30px 0 0 0}
+
+@media screen and (max-width:1399px) {
+    .desktop-side .auth-contacts {padding:24px 20px 25px 20px}
+    .desktop-side .auth-contacts-phone {font-size:21px; white-space:nowrap}
+}
 
 .desktop-container {margin:0 0 0 318px}
 .desktop-content {float:left; width:100%}
 .desktop-content h1:first-child {margin-top:0}
 .desktop-content h1.only-mobile {display:none}
+
+@media screen and (max-width:1399px) {
+    .desktop-container {margin:0 0 0 211px}
+}
 
 @media screen and (max-width:799px) {
     .desktop-container {margin:0}
@@ -484,7 +532,7 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .desktop-orders-header-name {float:left; width:calc(50% - 143px)}
 .desktop-orders-header-info-2 {float:left; width:calc(50% - 118px)}
 
-@media screen and (max-width:799px) {
+@media screen and (max-width:1399px) {
     .desktop-orders-header {display:none}
 }
 
@@ -520,7 +568,7 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .desktop-order-info-2 span {display:block; font-size:13px; line-height:18px; color:#666; font-weight:normal}
 .desktop-order-template .desktop-order-info-2 {display:table}
 
-@media screen and (max-width:799px) {
+@media screen and (max-width:1399px) {
     .desktop-order::before {top:23px}
     .desktop-order-template {padding-top:17px; padding-bottom:16px}
     .desktop-order-payment {float:none; position:absolute; right:30px; top:20px; width:auto; text-align:right; line-height:16px}
@@ -556,7 +604,7 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .orders-search .form-input {margin:0 75px 0 0}
 .orders-search .form-input input {border:1px solid #ececec; border-radius:4px; height:40px; padding:0 16px; line-height:38px}
 
-@media screen and (max-width:799px) {
+@media screen and (max-width:1399px) {
     .orders-search {width:calc(100% - 80px)}
     .orders-search form {position:relative}
     .orders-search .form-submit {float:none; width:38px; position:absolute; right:0; top:0; z-index:1}
@@ -568,7 +616,7 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 
 .orders-header .desktop-btns {float:right; margin:0}
 
-@media screen and (max-width:799px) {
+@media screen and (max-width:1399px) {
     .orders-header .desktop-btn-add {width:40px; font-size:0; letter-spacing:-1px; color:rgba(0, 0, 0, 0); padding:0 0 0 38px; overflow:hidden; position:relative}
     .orders-header .desktop-btns a.desktop-btn-add svg {position:absolute; left:50%; top:50%; margin:0; display:block; transform:translate(-50%, -50%)}
 }
@@ -600,9 +648,17 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-step.active .order-step-title {color:#111}
 .order-step.success .order-step-title {color:#719e5a}
 
+@media screen and (max-width:1399px) {
+    .order-step {width:290px; padding:0 0 0 62px}
+    .order-step:first-child {width:239px; padding:0 0 0 15px}
+    .order-step:first-child.success {margin-left:-15px; padding-left:30px; width:239px}
+    .order-step:last-child {width:261px}
+}
+
 @media screen and (max-width:799px) {
     .order-step {width:139px; padding:0 0 0 78px}
     .order-step:first-child {width:96px; padding:0 0 0 37px}
+    .order-step:last-child {width:139px}
     .order-step-title {display:none}
     .order-step:first-child.success {margin-left:-15px; padding-left:52px; width:121px}
 }
@@ -641,6 +697,10 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-form-submit .btn-confirm {width:197px}
 .order-form-back {float:right; line-height:40px; margin:0 40px 0 0; position:relative}
 
+@media screen and (max-width:1399px) {
+    .order-form-submit {padding:10px 0}
+}
+
 @media screen and (max-width:799px) {
     .order-form-submit {padding:15px 0}
     .order-form-submit .btn {height:50px; line-height:50px}
@@ -667,14 +727,19 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-period.loading {position:relative}
 .order-period.loading::before {content:""; z-index:2; display:block; position:absolute; left:0; top:0; right:0; bottom:0; background:rgba(255, 255, 255, 0.9) url(../images/loading.gif) no-repeat center}
 
-@media screen and (max-width:799px) {
-    .order-period label {width:calc(33.33% - 30px)}
+@media screen and (max-width:1399px) {
+    .order-period {margin:13px -10px 0 -10px}
+    .order-period label {width:calc(20% - 20px); margin:0 10px}
 }
 
-.order-auto {margin:15px 0 0 0}
+@media screen and (max-width:799px) {
+    .order-period {margin:13px -15px 0 -15px}
+    .order-period label {width:calc(33.33% - 30px); margin:0 15px}
+}
+
+.order-auto {margin:15px 0 -10px -10px}
 .order-auto::after {content:""; display:block; clear:both}
-.order-auto label {float:left; margin:0 0 0 10px; cursor:pointer; width:193px}
-.order-auto label:first-child {margin:0}
+.order-auto label {float:left; margin:0 0 10px 10px; cursor:pointer; width:193px}
 .order-auto label input {display:none}
 .order-auto-content {border:1px solid transparent; padding:9px; border-radius:4px; text-align:center; transition:all 0.2s}
 .order-auto label input:checked+.order-auto-content {border-color:#ececec}
@@ -685,6 +750,7 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-auto label input:checked+.order-auto-content .order-auto-price {color:#111; font-weight:bold}
 
 @media screen and (max-width:799px) {
+    .order-auto {margin:15px 0 0 0}
     .order-auto label {float:none; display:block; margin:10px 0 0 0; width:auto}
     .order-auto label:first-child {margin:0}
     .order-auto-content::after {content:""; display:block; clear:both}
@@ -715,6 +781,10 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .order-personal {margin:-5px 0 -13px 0}
 .order-personal::after {content:""; display:block; clear:both}
 .order-personal-item {float:left; width:288px; margin:0 30px 0 0}
+
+@media screen and (max-width:1399px) {
+    .order-personal-item {width:236px; margin:0 20px 0 0}
+}
 
 @media screen and (max-width:799px) {
     .order-personal {margin:-5px 0 0 0}

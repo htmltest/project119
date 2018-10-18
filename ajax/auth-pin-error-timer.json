@@ -1,0 +1,4 @@
+{
+    "status"    : "0",
+    "message"   : "<div class='form-error'>Введеный код устарел. Отправлен новый код. Код актуален в течении<br /> <span class='auth-timer' data-time-m='15' data-time-s='30'></span></div>"
+}

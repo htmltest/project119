@@ -15,13 +15,17 @@ $(document).ready(function() {
     });
 
     $.validator.addMethod('maskPhone',
-        function(value, element) {
-            if (value == '') {
-                return true;
-            }
-            return /^\+7 \(\d{3}\) \d{3}\-\d{2}\-\d{2}$/.test(value);
+        function(phone_number, element) {
+            return this.optional(element) || phone_number.match(/^\+\d{10,15}$/);
         },
-        'Не соответствует формату'
+        'должен содержать от 10 до 15 цифр'
+    );
+
+    $.validator.addMethod('maskPin',
+        function(pin_code, element) {
+            return this.optional(element) || pin_code.match(/^\d{6}$/);
+        },
+        'должен содержать 6 цифр'
     );
 
     $('form').each(function() {
@@ -220,6 +224,125 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $('body').on('click', '.auth-phone-send a', function(e) {
+        var curLink = $(this);
+        var curForm = $(this).parents().filter('form');
+        var validator = curForm.validate();
+        validator.element($('.auth-phone-input .form-input input'));
+        validator.showErrors();
+        checkErrors();
+        if (!$('.auth-phone-input .form-input input').hasClass('error')) {
+            curForm.addClass('loading');
+            $.ajax({
+                type: 'POST',
+                url: 'ajax/auth-phone.json',
+                dataType: 'json',
+                data: curForm.serialize(),
+                cache: false
+            }).done(function(data) {
+                curForm.removeClass('loading');
+                curForm.find('.auth-phone-message').html(data.message);
+                curForm.addClass('visible-message');
+                if (data.status == '1') {
+                    curForm.addClass('visible-pin');
+                }
+                $(window).trigger('resize');
+                updateAuthTimers();
+            });
+        }
+        e.preventDefault();
+    });
+
+    $('body').on('click', '.auth-phone-pin-link a', function(e) {
+        var curLink = $(this);
+        var curForm = $(this).parents().filter('form');
+        var validator = curForm.validate();
+        validator.form();
+        validator.showErrors();
+        checkErrors();
+        if (curForm.find('input.error').length == 0) {
+            curForm.addClass('loading');
+            $.ajax({
+                type: 'POST',
+                url: 'ajax/auth-pin.json',
+                dataType: 'json',
+                data: curForm.serialize(),
+                cache: false
+            }).done(function(data) {
+                curForm.removeClass('loading');
+                curForm.find('.auth-phone-message').html(data.message);
+                if (data.status == '1') {
+                    window.location = data.url;
+                }
+                updateAuthTimers();
+            });
+        }
+        e.preventDefault();
+    });
+
+    function updateAuthTimers() {
+        $('.auth-timer').each(function() {
+            var curTimer = $(this);
+            if (curTimer.find('span').length == 0) {
+                curTimer.html('<span class="auth-timer-m">' + curTimer.data('time-m') + '</span> ' + getMinutesText(curTimer.data('time-m')) + ' <span class="auth-timer-s">' + curTimer.data('time-s') + '</span> ' + getMinutesText(curTimer.data('time-s')));
+                window.clearInterval(curTimer.data('timer'));
+                curTimer.data('timer', null);
+                curTimer.data('timer', window.setInterval(function() {
+                    var curMinutes = Number(curTimer.find('.auth-timer-m').html());
+                    var curSeconds = Number(curTimer.find('.auth-timer-s').html());
+                    curSeconds--;
+                    if (curSeconds < 0) {
+                        curSeconds = 59;
+                        curMinutes--;
+                        if (curMinutes < 0) {
+                            curMinutes = 0;
+                            curSeconds = 0;
+                        }
+                    }
+                    curTimer.html('<span class="auth-timer-m">' + curMinutes + '</span> ' + getMinutesText(curMinutes) + ' <span class="auth-timer-s">' + curSeconds + '</span> ' + getSecondsText(curSeconds));
+                }, 1000));
+            }
+        });
+    }
+
+    function getMinutesText(number) {
+        var endings = Array('минут', 'минута', 'минуты');
+        var num100 = number % 100;
+        var num10 = number % 10;
+        if (num100 >= 5 && num100 <= 20) {
+            return endings[0];
+        } else if (num10 == 0) {
+            return endings[0];
+        } else if (num10 == 1) {
+            return endings[1];
+        } else if (num10 >= 2 && num10 <= 4) {
+            return endings[2];
+        } else if (num10 >= 5 && num10 <= 9) {
+            return endings[0];
+        } else {
+            return endings[2];
+        }
+    }
+
+    function getSecondsText(number) {
+        var endings = Array('секунд', 'секунда', 'секунды');
+        var num100 = number % 100;
+        var num10 = number % 10;
+        if (num100 >= 5 && num100 <= 20) {
+            return endings[0];
+        } else if (num10 == 0) {
+            return endings[0];
+        } else if (num10 == 1) {
+            return endings[1];
+        } else if (num10 >= 2 && num10 <= 4) {
+            return endings[2];
+        } else if (num10 >= 5 && num10 <= 9) {
+            return endings[0];
+        } else {
+            return endings[2];
+        }
+    }
+
 });
 
 $(window).on('resize', function() {
@@ -234,7 +357,25 @@ $(window).on('resize', function() {
 });
 
 function initForm(curForm) {
-    curForm.find('input.maskPhone').mask('+7 (999) 999-99-99');
+    curForm.find('input.maskPhone').mask('+0000000000ZZZZZ', {translation:  {'Z': {pattern: /[0-9]/, optional: true}}});
+    curForm.find('input.maskPhone').on('keyup keydown keypress click blur focus', function() {
+        window.setTimeout(function() {
+            checkErrors();
+        }, 100);
+    });
+
+    curForm.find('input.maskPhone').on('focus', function() {
+        if ($(this).val() == '') {
+            $(this).val('+');
+        }
+    });
+
+    curForm.find('input.maskPin').mask('000000');
+    curForm.find('input.maskPin').on('keyup keydown keypress click blur focus', function() {
+        window.setTimeout(function() {
+            checkErrors();
+        }, 100);
+    });
 
     curForm.find('.form-input input, .form-input textarea').each(function() {
         if ($(this).val() != '') {

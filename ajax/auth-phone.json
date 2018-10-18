@@ -1,0 +1,4 @@
+{
+    "status"    : "1",
+    "message"   : "На ваш номер отправлено SMS с кодом, код актуален в течении<br /> <span class='auth-timer' data-time-m='15' data-time-s='30'></span>"
+}

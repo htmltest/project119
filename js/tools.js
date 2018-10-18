@@ -14,6 +14,16 @@ $(document).ready(function() {
         }
     });
 
+    $.validator.addMethod('maskPhone',
+        function(value, element) {
+            if (value == '') {
+                return true;
+            }
+            return /^\+7 \(\d{3}\) \d{3}\-\d{2}\-\d{2}$/.test(value);
+        },
+        'Не соответствует формату'
+    );
+
     $('form').each(function() {
         initForm($(this));
     });
@@ -210,120 +220,6 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    $('body').on('click', '.auth-phone-send a', function(e) {
-        var curLink = $(this);
-        var curForm = $(this).parents().filter('form');
-        if (curForm.valid()) {
-            curForm.addClass('loading');
-            $.ajax({
-                type: 'POST',
-                url: curLink.attr('href'),
-                dataType: 'json',
-                data: curForm.serialize(),
-                cache: false
-            }).done(function(data) {
-                curForm.removeClass('loading');
-                curForm.find('.auth-phone-message').html(data.message);
-                if (data.status == 'ok') {
-                    curForm.addClass('visible-pin');
-                }
-                $(window).trigger('resize');
-                updateAuthTimers();
-            });
-        }
-        e.preventDefault();
-    });
-
-    $('body').on('click', '.auth-phone-pin a', function(e) {
-        var curLink = $(this);
-        var curForm = $(this).parents().filter('form');
-        curForm.addClass('loading');
-        $.ajax({
-            type: 'POST',
-            url: curLink.attr('href'),
-            dataType: 'json',
-            data: curForm.serialize(),
-            cache: false
-        }).done(function(data) {
-            curForm.removeClass('loading');
-            if (data.status == 'ok') {
-                window.location = data.url;
-            } else if (data.status == 'error-timer') {
-                curForm.find('.auth-pin-message').html(data.message);
-                curForm.find('.auth-phone-pin .form-input input').val('').trigger('focus');
-                curForm.find('.auth-timer').html('');
-            } else {
-                curForm.find('.auth-pin-message').html(data.message);
-                curForm.find('.auth-phone-pin .form-input input').val('').trigger('focus');
-            }
-            updateAuthTimers();
-        });
-        e.preventDefault();
-    });
-
-    function updateAuthTimers() {
-        $('.auth-timer').each(function() {
-            var curTimer = $(this);
-            if (curTimer.find('span').length == 0) {
-                curTimer.html('<span class="auth-timer-m">' + curTimer.data('time') + '</span> ' + getMinutesText(curTimer.data('time')) + ' <span class="auth-timer-s">0</span> ' + getSecondsText(0));
-                window.clearInterval(curTimer.data('timer'));
-                curTimer.data('timer', null);
-                curTimer.data('timer', window.setInterval(function() {
-                    var curMinutes = Number(curTimer.find('.auth-timer-m').html());
-                    var curSeconds = Number(curTimer.find('.auth-timer-s').html());
-                    curSeconds--;
-                    if (curSeconds < 0) {
-                        curSeconds = 59;
-                        curMinutes--;
-                        if (curMinutes < 0) {
-                            curMinutes = 0;
-                            curSeconds = 0;
-                        }
-                    }
-                    curTimer.html('<span class="auth-timer-m">' + curMinutes + '</span> ' + getMinutesText(curMinutes) + ' <span class="auth-timer-s">' + curSeconds + '</span> ' + getSecondsText(curSeconds));
-                }, 1000));
-            }
-        });
-    }
-
-    function getMinutesText(number) {
-        var endings = Array('минут', 'минута', 'минуты');
-        var num100 = number % 100;
-        var num10 = number % 10;
-        if (num100 >= 5 && num100 <= 20) {
-            return endings[0];
-        } else if (num10 == 0) {
-            return endings[0];
-        } else if (num10 == 1) {
-            return endings[1];
-        } else if (num10 >= 2 && num10 <= 4) {
-            return endings[2];
-        } else if (num10 >= 5 && num10 <= 9) {
-            return endings[0];
-        } else {
-            return endings[2];
-        }
-    }
-
-    function getSecondsText(number) {
-        var endings = Array('секунд', 'секунда', 'секунды');
-        var num100 = number % 100;
-        var num10 = number % 10;
-        if (num100 >= 5 && num100 <= 20) {
-            return endings[0];
-        } else if (num10 == 0) {
-            return endings[0];
-        } else if (num10 == 1) {
-            return endings[1];
-        } else if (num10 >= 2 && num10 <= 4) {
-            return endings[2];
-        } else if (num10 >= 5 && num10 <= 9) {
-            return endings[0];
-        } else {
-            return endings[2];
-        }
-    }
-
 });
 
 $(window).on('resize', function() {
@@ -338,28 +234,7 @@ $(window).on('resize', function() {
 });
 
 function initForm(curForm) {
-    curForm.find('input.maskPhone').each(function() {
-        var curBlock = $(this).parent();
-        curBlock.find('input').keypress(function(evt) {
-            var charCode = (evt.which) ? evt.which : evt.keyCode
-            if (charCode > 31 && (charCode < 43 || charCode > 57)) {
-                return false;
-            }
-            return true;
-        });
-    });
-
-    curForm.find('input.maskPhone').change(function() {
-        var curValue = $(this).val();
-        var newValue = '';
-        for (var i = 0; i < curValue.length; i++) {
-            var curSymbol = curValue[i];
-            if (curSymbol == '0' || curSymbol == '1' || curSymbol == '2' || curSymbol == '3' || curSymbol == '4' || curSymbol == '5' || curSymbol == '6' || curSymbol == '7' || curSymbol == '8' || curSymbol == '9') {
-                newValue += curSymbol;
-            }
-        }
-        $(this).val(newValue);
-    });
+    curForm.find('input.maskPhone').mask('+7 (999) 999-99-99');
 
     curForm.find('.form-input input, .form-input textarea').each(function() {
         if ($(this).val() != '') {

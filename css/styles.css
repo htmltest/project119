@@ -263,6 +263,17 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
     .header-mobile-menu-content .desktop-menu-count {right:15px; top:15px; height:30px; padding:0; width:45px; text-align:center; font-size:15px; line-height:30px; border-radius:15px}
 }
 
+.header-controller {float:left; font-size:20px; margin:34px 0 0 0; max-width:250px}
+.header-controller svg {display:inline-block; vertical-align:middle; margin:-2px 10px 0 0; width:18px}
+.header-controller svg path,
+.header-controller svg polygon {fill:#489eca; transition:all 0.2s}
+
+.controller-menu-link {display:block; float:right; width:33px; height:18px; border-top:2px solid #489eca; border-bottom:2px solid #489eca; position:relative; margin:38px 0 0 0}
+.controller-menu-link::after {content:""; display:block; position:absolute; left:0; top:6px; right:0; height:2px; background:#489eca}
+
+.header-datetime {margin:0 250px; text-align:center; font-weight:bold; font-size:30px; line-height:30px; padding:31px 0 8px 0}
+.header-time {margin:0 0 0 31px}
+
 .content-header {background:#f6f6f6; font-size:30px; line-height:36px; padding:34px 0}
 .content-header .text {margin:0}
 
@@ -868,6 +879,51 @@ header {position:relative; z-index:1; padding:0 0 25px 0; box-shadow:0 5px 5px 0
 .ticket-form-ctrl .form-file {float:left; margin:-7px 0 0 0}
 .ticket-form-ctrl .form-submit {float:right; width:106px}
 
+.controller {background:#edf6fc; margin:0 0 -80px 0; min-width:800px; padding:38px 0 0 0}
+
+.controller-period {text-align:center; position:relative; font-size:24px; line-height:26px; font-weight:bold}
+.controller-period::before {content:""; display:block; position:absolute; left:0; top:50%; right:0; height:2px; background:#bfced9; margin:-1px 0 0 0}
+.controller-period span {display:inline-block; padding:0 20px; background:#edf6fc; position:relative}
+
+.controller-areas {margin:0 -10px; padding:39px 0 0 0}
+.controller-areas::after {content:""; display:block; clear:both}
+.controller-area {float:left; width:25%; padding:0 10px}
+.controller-area a {display:block; text-decoration:none}
+.controller-area-content {background:#dfecf4; border-radius:3px}
+.controller-area-content.free {background:#a4d78b}
+.controller-area-header {height:30px; padding:0 20px; line-height:30px}
+.controller-area-header::after {content:""; display:block; clear:both}
+.controller-area-name {float:left; color:#111}
+.controller-area-content.free .controller-area-name {width:100%; text-align:center}
+.controller-area-timer {float:right; color:#666}
+.controller-area-content.free .controller-area-timer {display:none}
+.controller-area-inner {background:#fff; border:1px solid #ececec; border-radius:3px; background:#fff; padding:0 19px; height:98px}
+.controller-area-brand {color:#666; font-weight:bold; padding:12px 0 0 0}
+.controller-area-content.free .controller-area-brand {text-align:center; padding:36px 0 0 0}
+.controller-area-number {text-align:center; font-weight:bold; font-size:35px; line-height:50px; color:#111; padding:2px 0 0 0}
+
+ul.controller-tabs-menu {border-bottom:1px solid #489eca; margin:30px 0 0 0; padding:0; list-style:none}
+ul.controller-tabs-menu::after {content:""; display:block; clear:both}
+ul.controller-tabs-menu li {float:left; width:33.33%; margin:0; padding:0 0 0 1px}
+ul.controller-tabs-menu li:first-child {padding:0; width:33.34%}
+ul.controller-tabs-menu li::before {display:none}
+ul.controller-tabs-menu li a {display:block; text-decoration:none; color:#666; font-size:20px; line-height:60px; height:60px; text-align:center; border-radius:3px 3px 0 0; background:#fff}
+ul.controller-tabs-menu li.active a {background:#489eca; color:#fff; font-weight:bold}
+
+.controller-tabs {position:relative}
+.controller-tab {position:absolute; left:-9999px; top:-9999px; width:100%; margin:0 -10px; padding:0 0 38px 0; opacity:0; transition:opacity 0.5s}
+.controller-tab::after {content:""; display:block; clear:both}
+.controller-tab.active {position:relative; left:auto; top:auto; width:auto; opacity:1}
+.controller-tab-item {float:left; width:20%; padding:20px 10px 0 10px}
+.controller-tab-item a {display:block; text-decoration:none; color:#111; background:#fff; border:1px solid #ececec; background:#fff; height:95px; padding:0 0 0 20px; border-radius:3px}
+.controller-tab-item-brand {color:#666; font-weight:bold; padding:12px 0 0 0}
+.controller-tab-item.priority .controller-tab-item-brand {position:relative}
+.controller-tab-item.priority .controller-tab-item-brand::after {content:""; display:block; width:18px; height:18px; position:absolute; right:10px; top:13px; background:url(../images/controller-priority.svg) no-repeat center; background-size:100%}
+.controller-tab-item-number {text-align:center; font-weight:bold; font-size:20px; line-height:36px; color:#111; font-weight:bold; padding:10px 0 0 0}
+
+.controller-future {margin:0 -10px; padding:18px 0 43px 0}
+.controller-future::after {content:""; display:block; clear:both}
+
 footer {position:relative; height:116px; margin:-116px 0 0 0; background:#edf6fc; font-size:13px; line-height:24px}
 footer p {margin:0; padding:0}
 
@@ -943,3 +999,21 @@ footer p {margin:0; padding:0}
 @media screen and (max-width:799px) {
     .window-feedback .form-ctrl {margin:0 -30px; background:#edf6fc; padding:20px 30px; border-radius:0 0 6px 6px}
 }
+
+.window-controller {width:636px}
+
+.window-controller-menu-btns {padding:60px 0 104px 0}
+.window-controller-menu-btns .btn {height:70px; font-size:24px; padding:0; display:block; margin:20px 0 0 0; width:100%; line-height:70px}
+
+.window-controller-info {border-bottom:2px solid #d8d8d8; padding:33px 0 35px 0}
+.window-controller-info::after {content:""; display:block; clear:both}
+.window-controller-info-item {float:left; width:50%}
+.window-controller-info-value {font-weight:bold; padding:5px 0 0 0}
+.window-controller-number {text-align:center; font-weight:bold; font-size:50px; line-height:100px; padding:22px 0 8px 0}
+
+.window-controller-links {text-align:center; margin:0 -41px; background:#edf6fc; padding:18px 0 22px 0; border-radius:0 0 6px 6px}
+.window-controller-links .btn {margin:0 7px}
+
+.window-controller-area-success {text-align:center; margin:-11px 0 0 0; padding:0 0 37px 0}
+.window-controller-area-success-title {font-weight:bold; font-size:24px; line-height:26px}
+.window-controller-area-success-timepoint {padding:8px 0 0 0}

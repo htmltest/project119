@@ -343,6 +343,23 @@ $(document).ready(function() {
         }
     }
 
+    $('.header-datetime').each(function() {
+        controllerDateTime();
+        window.setInterval(controllerDateTime, 1000);
+    });
+
+    $('body').on('click', '.controller-tabs-menu li a', function(e) {
+        var curLi = $(this).parent();
+        if (!curLi.hasClass('active')) {
+            $('.controller-tabs-menu li.active').removeClass('active');
+            curLi.addClass('active');
+            var curIndex = $('.controller-tabs-menu li').index(curLi);
+            $('.controller-tab.active').removeClass('active');
+            $('.controller-tab').eq(curIndex).addClass('active');
+        }
+        e.preventDefault();
+    });
+
 });
 
 $(window).on('resize', function() {
@@ -467,14 +484,15 @@ function checkErrors() {
 }
 
 function windowOpen(linkWindow, dataWindow, callbackWindow) {
+    if ($('.window').length > 0) {
+        windowClose();
+    }
+
     var curPadding = $('.wrapper').width();
     $('html').addClass('window-open');
     curPadding = $('.wrapper').width() - curPadding;
     $('body').css({'margin-right': curPadding + 'px'});
 
-    if ($('.window').length == 0) {
-        windowClose();
-    }
     $('body').append('<div class="window"><div class="window-loading"></div></div>')
 
     $.ajax({
@@ -537,4 +555,47 @@ function windowClose() {
         $('html').removeClass('window-open');
         $('body').css({'margin-right': 0});
     }
+}
+
+function controllerDateTime() {
+    var now = new Date();
+    var curDay = now.getDate();
+    if (curDay < 10) {
+        curDay = '0' + curDay;
+    }
+    var curMonth = now.getMonth() + 1;
+    if (curMonth < 10) {
+        curMonth = '0' + curMonth;
+    }
+    var curHour = now.getHours();
+    if (curHour < 10) {
+        curHour = '0' + curHour;
+    }
+    var curMinutes = now.getMinutes();
+    if (curMinutes < 10) {
+        curMinutes = '0' + curMinutes;
+    }
+    $('.header-date').html(curDay + '.' + curMonth + '.' + now.getFullYear());
+    $('.header-time').html(curHour + ':' + curMinutes);
+
+    $('.controller-area-timer').each(function() {
+        var curTimer = $(this);
+        var curM = curTimer.data('m');
+        var curS = curTimer.data('s');
+        curS--;
+        if (curS < 0) {
+            curS = 59;
+            curM--;
+            if (curM < 0) {
+                curM = 0;
+                curS = 0;
+            }
+        }
+        curTimer.data('m', curM);
+        curTimer.data('s', curS);
+        if (curS < 10) {
+            curS = '0' + curS;
+        }
+        curTimer.html(curM + ':' + curS);
+    });
 }

@@ -4,16 +4,16 @@
         <meta charset="utf-8" />
         <title>Renovo</title>
 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i|Open+Sans:700&amp;subset=cyrillic" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic" />
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="js/fancybox/jquery.fancybox.min.css">
         <link rel="stylesheet" href="js/chosen/chosen.css" />
         <link rel="stylesheet" href="js/jquery-ui-1.12.1.custom/jquery-ui.css" />
 
-        <meta name="viewport" content="width=device-width" />
+        <meta name="viewport" content="width=1280" />
     </head>
 
-    <body class="page-checkin">
+    <body class="page-controller page-checkin">
 
         <!-- wrapper -->
         <div class="wrapper">
@@ -21,23 +21,33 @@
 
                 <header>
                     <div class="container">
-                        <div class="header-top"></div>
-
                         <div class="header-left">
                             <div class="logo"><a href="#"></a></div>
                         </div>
 
+                        <div class="header-datetime">
+                            <span class="header-date"></span>
+                            <span class="header-time"></span>
+                        </div>
                     </div>
                 </header>
 
                 <!-- checkin -->
                 <div class="checkin">
-                    <form action="#" method="post">
-                        <div class="checkin-label">Номер заявки на бронирование</div>
-                        <div class="checkin-input"><input type="text" name="number" value="" class="required" /></div>
-                        <div class="checkin-label">Телефон</div>
-                        <div class="checkin-input"><input type="text" name="phone" value="" class="required maskPhone" /></div>
-                        <div class="checkin-submit"><input type="submit" value="Зарегистрироваться" class="btn" /></div>
+                    <form action="windows/check_in-success.html" method="post" class="ajax-form">
+                        <div class="checkin-title">Электронная очередь таможенного контроля</div>
+                        <div class="checkin-subtitle">Регистрация в очереди</div>
+                        <div class="checkin-row">
+                            <div class="checkin-field">
+                                <div class="checkin-label">Номер заявки на бронирование*</div>
+                                <div class="checkin-input"><input type="text" name="number" value="" class="required" /></div>
+                            </div>
+                            <div class="checkin-field">
+                                <div class="checkin-label">Телефон*</div>
+                                <div class="checkin-input"><input type="text" name="phone" value="" class="required maskPhone" /></div>
+                            </div>
+                        </div>
+                        <div class="checkin-submit"><input type="submit" value="Зарегистрироваться" class="btn" /> <a href="#" class="checkin-info"></a></div>
                     </form>
                 </div>
                 <!-- checkin END -->
@@ -46,7 +56,9 @@
         </div>
         <!-- wrapper END -->
 
-        <footer>© ФГУП 2017–2018. Все права защищены</footer>
+        <footer>
+            <div class="container">© ФГУП 2017–2018. Все права защищены</div>
+        </footer>
 
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/fancybox/jquery.fancybox.min.js"></script>

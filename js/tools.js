@@ -360,6 +360,11 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $('body').on('click', '.window-checkin-btn a', function(e) {
+        windowClose();
+        e.preventDefault();
+    });
+
 });
 
 $(window).on('resize', function() {

@@ -346,6 +346,7 @@ $(document).ready(function() {
     $('.header-datetime').each(function() {
         controllerDateTime();
         window.setInterval(controllerDateTime, 1000);
+        window.setInterval(controllerUpdate, 1000);
     });
 
     $('body').on('click', '.controller-tabs-menu li a', function(e) {
@@ -582,25 +583,136 @@ function controllerDateTime() {
     }
     $('.header-date').html(curDay + '.' + curMonth + '.' + now.getFullYear());
     $('.header-time').html(curHour + ':' + curMinutes);
+}
 
-    $('.controller-area-timer').each(function() {
-        var curTimer = $(this);
-        var curM = curTimer.data('m');
-        var curS = curTimer.data('s');
-        curS--;
-        if (curS < 0) {
-            curS = 59;
-            curM--;
-            if (curM < 0) {
-                curM = 0;
-                curS = 0;
+var controllerUpdateProcess = false;
+
+function controllerUpdate() {
+    if (!controllerUpdateProcess) {
+        controllerUpdateProcess = true;
+        $.ajax({
+            type: 'POST',
+            url: 'ajax/controller.json',
+            dataType: 'json',
+            cache: false,
+            timeout: 5000
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            $('.form-error').remove();
+            $('.controller-period').eq(0).after('<div class="form-error"><div class="form-error-title">Ошибка!</div><div class="form-error-text">Данные с сервера не получены</div></div>');
+            controllerUpdateProcess = false;
+        }).done(function(data) {
+            $('.form-error').remove();
+
+            if (typeof (data.currentPeriod) != 'undefined') {
+                $('.controller-period').html(data.currentPeriod);
             }
-        }
-        curTimer.data('m', curM);
-        curTimer.data('s', curS);
-        if (curS < 10) {
-            curS = '0' + curS;
-        }
-        curTimer.html(curM + ':' + curS);
-    });
+
+            $('.controller-area').each(function() {
+                var curArea = $(this);
+                var curIndex = $('.controller-area').index(curArea);
+                var curData = data.areas[curIndex];
+                if (curData.status == '1') {
+                    var timerM = curData.timerM;
+                    var timerS = curData.timerS;
+                    if (timerS < 10) {
+                        timerS = '0' + timerS;
+                    }
+
+                    curArea.html(       '<a href="' + curData.link + '" class="window-link">' +
+                                            '<div class="controller-area-content">' +
+                                                '<div class="controller-area-header">' +
+                                                    '<div class="controller-area-name">Зона ' + (curIndex + 1) + '</div>' +
+                                                    '<div class="controller-area-timer">' + timerM + ':' + timerS + '</div>' +
+                                                    '<div class="controller-area-header-icon ' + curData.type + '"></div>' +
+                                                '</div>' +
+                                                '<div class="controller-area-number">' + curData.number + '</div>' +
+                                                '<div class="controller-area-brand">' + curData.brand + '</div>' +
+                                            '</div>' +
+                                        '</a>');
+                } else {
+                    curArea.html(       '<div class="controller-area-content free">' +
+                                            '<div class="controller-area-header">' +
+                                                '<div class="controller-area-name">Зона ' + (curIndex + 1) + '</div>' +
+                                                '<div class="controller-area-timer" data-m="0" data-s="0"></div>' +
+                                            '</div>' +
+                                            '<div class="controller-area-brand">Свободно</div>' +
+                                        '</div>');
+                }
+            });
+
+            if (typeof (data.queue) != 'undefined') {
+                $('.controller-tab').eq(0).html('');
+
+                for (var i = 0; i < data.queue.length; i++) {
+                    var curItem = data.queue[i];
+                    var newBlock = $('<div class="controller-tab-item"><a href="" class="window-link"><div class="controller-tab-item-icon"></div><div class="controller-tab-item-number"></div><div class="controller-tab-item-brand"></div></a></div>');
+                    if (curItem.priority == '1') {
+                        newBlock.addClass('priority');
+                    }
+                    newBlock.find('a').attr('href', curItem.link);
+                    newBlock.find('.controller-tab-item-icon').addClass(curItem.type);
+                    newBlock.find('.controller-tab-item-number').html(curItem.number);
+                    newBlock.find('.controller-tab-item-brand').html(curItem.brand);
+                    $('.controller-tab').eq(0).append(newBlock);
+                }
+            }
+
+            if (typeof (data.reg) != 'undefined') {
+                $('.controller-tab').eq(1).html('');
+
+                for (var i = 0; i < data.reg.length; i++) {
+                    var curItem = data.reg[i];
+                    var newBlock = $('<div class="controller-tab-item"><a href="" class="window-link"><div class="controller-tab-item-icon"></div><div class="controller-tab-item-number"></div><div class="controller-tab-item-brand"></div></a></div>');
+                    if (curItem.priority == '1') {
+                        newBlock.addClass('priority');
+                    }
+                    newBlock.find('a').attr('href', curItem.link);
+                    newBlock.find('.controller-tab-item-icon').addClass(curItem.type);
+                    newBlock.find('.controller-tab-item-number').html(curItem.number);
+                    newBlock.find('.controller-tab-item-brand').html(curItem.brand);
+                    $('.controller-tab').eq(1).append(newBlock);
+                }
+            }
+
+            if (typeof (data.success) != 'undefined') {
+                $('.controller-tab').eq(2).html('');
+
+                for (var i = 0; i < data.success.length; i++) {
+                    var curItem = data.success[i];
+                    var newBlock = $('<div class="controller-tab-item"><a href="" class="window-link"><div class="controller-tab-item-icon"></div><div class="controller-tab-item-number"></div><div class="controller-tab-item-brand"></div></a></div>');
+                    if (curItem.priority == '1') {
+                        newBlock.addClass('priority');
+                    }
+                    newBlock.find('a').attr('href', curItem.link);
+                    newBlock.find('.controller-tab-item-icon').addClass(curItem.type);
+                    newBlock.find('.controller-tab-item-number').html(curItem.number);
+                    newBlock.find('.controller-tab-item-brand').html(curItem.brand);
+                    $('.controller-tab').eq(2).append(newBlock);
+                }
+            }
+
+            if (typeof (data.futurePeriod) != 'undefined') {
+                $('.controller-period-future').html(data.futurePeriod);
+            }
+
+            if (typeof (data.future) != 'undefined') {
+                $('.controller-future').html('');
+
+                for (var i = 0; i < data.future.length; i++) {
+                    var curItem = data.future[i];
+                    var newBlock = $('<div class="controller-tab-item"><a href="" class="window-link"><div class="controller-tab-item-icon"></div><div class="controller-tab-item-number"></div><div class="controller-tab-item-brand"></div></a></div>');
+                    if (curItem.priority == '1') {
+                        newBlock.addClass('priority');
+                    }
+                    newBlock.find('a').attr('href', curItem.link);
+                    newBlock.find('.controller-tab-item-icon').addClass(curItem.type);
+                    newBlock.find('.controller-tab-item-number').html(curItem.number);
+                    newBlock.find('.controller-tab-item-brand').html(curItem.brand);
+                    $('.controller-future').append(newBlock);
+                }
+            }
+
+            controllerUpdateProcess = false;
+        });
+    }
 }

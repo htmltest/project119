@@ -1,0 +1,86 @@
+{
+    "currentPeriod"     : "16:00 - 17:00",
+
+    "areas"             : [
+                            {
+                                "status"    : "1",
+                                "link"      : "windows/controller-area.html",
+                                "timerM"    : "3",
+                                "timerS"    : "30",
+                                "type"      : "cargo",
+                                "number"    : "A111AA",
+                                "brand"     : "Volvo"
+                            },
+                            {
+                                "status"    : "1",
+                                "link"      : "windows/controller-area.html",
+                                "timerM"    : "1",
+                                "timerS"    : "20",
+                                "type"      : "sedan",
+                                "number"    : "X111XX",
+                                "brand"     : "KIA"
+                            },
+                            {
+                                "status"    : "0"
+                            },
+                            {
+                                "status"    : "0"
+                            }
+                        ],
+
+    "queue"             : [
+                            {
+                                "priority"  : "0",
+                                "link"      : "windows/controller-item-future.html",
+                                "type"      : "sedan",
+                                "number"    : "A111AA",
+                                "brand"     : "Volvo"
+                            },
+                            {
+                                "priority"  : "0",
+                                "link"      : "windows/controller-item-future.html",
+                                "type"      : "sedan",
+                                "number"    : "A111AA",
+                                "brand"     : "Volvo"
+                            },
+                            {
+                                "priority"  : "1",
+                                "link"      : "windows/controller-item-future.html",
+                                "type"      : "sedan",
+                                "number"    : "A111AA",
+                                "brand"     : "Volvo"
+                            }
+                        ],
+
+    "reg"               : [
+                            {
+                                "priority"  : "0",
+                                "link"      : "windows/controller-area-success.html",
+                                "type"      : "cargo",
+                                "number"    : "X111XX",
+                                "brand"     : "Audi"
+                            }
+                        ],
+
+    "success"           : [
+                            {
+                                "priority"  : "0",
+                                "link"      : "windows/controller-item-success.html",
+                                "type"      : "bus",
+                                "number"    : "H111HH",
+                                "brand"     : "Nissan"
+                            }
+                        ],
+
+    "futurePeriod"      : "17:00 - 18:00",
+
+    "future"            : [
+                            {
+                                "priority"  : "1",
+                                "link"      : "windows/controller-item-future.html",
+                                "type"      : "motorcycle",
+                                "number"    : "O000O",
+                                "brand"     : "Honda"
+                            }
+                        ]
+}

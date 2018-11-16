@@ -1,4 +1,38 @@
+var sliderPeriod    = 5000;
+var sliderSpeed     = 2000;
+var sliderTimer     = null;
+
 $(document).ready(function() {
+
+    $('.main-slider').each(function() {
+        var curSlider = $(this);
+        curSlider.data('curIndex', 0);
+        curSlider.data('disableAnimation', true);
+        if (curSlider.find('.main-slider-item').length > 1) {
+            sliderTimer = window.setTimeout(sliderNext, sliderPeriod);
+        }
+    });
+
+    function sliderNext() {
+        var curSlider = $('.main-slider');
+
+        if (curSlider.data('disableAnimation')) {
+            var curIndex = curSlider.data('curIndex');
+            var newIndex = curIndex + 1;
+            if (newIndex >= curSlider.find('.main-slider-item').length) {
+                newIndex = 0;
+            }
+
+            curSlider.data('curIndex', newIndex);
+            curSlider.data('disableAnimation', false);
+
+            curSlider.find('.main-slider-item').eq(newIndex).css({'z-index': 1, 'opacity': 1});
+            curSlider.find('.main-slider-item').eq(curIndex).css({'z-index': 2}).animate({'opacity': 0}, sliderSpeed, function() {
+                curSlider.data('disableAnimation', true);
+                sliderTimer = window.setTimeout(sliderNext, sliderPeriod);
+            });
+        }
+    }
 
     $('.gallery-item a').fancybox({
         buttons : [

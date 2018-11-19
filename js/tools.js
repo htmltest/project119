@@ -380,7 +380,9 @@ $(document).ready(function() {
     $('.header-datetime').each(function() {
         controllerDateTime();
         window.setInterval(controllerDateTime, 1000);
-        window.setInterval(controllerUpdate, 1000);
+        if ($('.controller').length > 0) {
+            window.setInterval(controllerUpdate, 1000);
+        }
     });
 
     $('body').on('click', '.controller-tabs-menu li a', function(e) {

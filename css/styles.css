@@ -407,7 +407,7 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .queue-list-item-header {background:#f6f6f6; border-radius:4px; position:relative; padding:14px 20px 16px 20px; font-size:15px; line-height:18px; letter-spacing:0}
 .queue-list-item-header::before {content:""; display:block; position:absolute; left:0; top:13px; bottom:13px; width:4px; background:#a4d78b; border-radius:0 4px 4px 0}
 .queue-list-item-header-count {display:none}
-.queue-list-item.empty .queue-list-item-header::before {background:#d0d0d0}
+.queue-list-item.queue-empty .queue-list-item-header::before {background:#d0d0d0}
 .queue-list-item-header-day {font-size:13px; color:#666; padding:1px 0 0 0}
 .queue-list-item-times {margin:10px 0 0 0; font-size:15px; line-height:38px; letter-spacing:0; text-align:center}
 .queue-list-item-times a {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:4px; height:40px; text-decoration:none; color:#111}

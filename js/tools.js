@@ -148,6 +148,14 @@ $(document).ready(function() {
             curItem.addClass('queue-empty');
             curItem.find('.queue-list-item-header').append('<div class="queue-list-item-header-count">Свободных нет</div>');
         } else {
+            var countFree = Math.round(curItem.find('.queue-list-item-times a').length / curItem.find('.queue-list-item-times a, .queue-list-item-times span').length * 100);
+            if (countFree > 31) {
+                curItem.addClass('queue-volume-many');
+            } else if (countFree > 15) {
+                curItem.addClass('queue-volume-middle');
+            } else {
+                curItem.addClass('queue-volume-few');
+            }
             curItem.find('.queue-list-item-header').append('<div class="queue-list-item-header-count">Свободно ' + curItem.find('.queue-list-item-times a').length + ' из ' + (curItem.find('.queue-list-item-times a, .queue-list-item-times span').length) + '</div>');
         }
     });
@@ -174,6 +182,14 @@ $(document).ready(function() {
                         curItem.addClass('queue-empty');
                         curItem.find('.queue-list-item-header').append('<div class="queue-list-item-header-count">Свободных нет</div>');
                     } else {
+                        var countFree = Math.round(curItem.find('.queue-list-item-times a').length / curItem.find('.queue-list-item-times a, .queue-list-item-times span').length * 100);
+                        if (countFree > 31) {
+                            curItem.addClass('queue-volume-many');
+                        } else if (countFree > 15) {
+                            curItem.addClass('queue-volume-middle');
+                        } else {
+                            curItem.addClass('queue-volume-few');
+                        }
                         curItem.find('.queue-list-item-header').append('<div class="queue-list-item-header-count">Свободно ' + curItem.find('.queue-list-item-times a').length + ' из ' + (curItem.find('.queue-list-item-times a, .queue-list-item-times span').length) + '</div>');
                     }
                 });
@@ -399,6 +415,12 @@ $(document).ready(function() {
 
     $('body').on('click', '.window-checkin-btn a', function(e) {
         windowClose();
+        e.preventDefault();
+    });
+
+    $('body').on('click', '#order-btn-payment', function(e) {
+        $(this).parent().append('<div class="payment-loading"></div>');
+        $(this).prop('disabled', true);
         e.preventDefault();
     });
 
@@ -691,6 +713,10 @@ function controllerUpdate() {
                     newBlock.find('.controller-tab-item-brand').html(curItem.brand);
                     $('.controller-tab').eq(0).append(newBlock);
                 }
+
+                if (data.queue.length == 0) {
+                    $('.controller-tab').eq(0).html('<div class="controller-tab-item no-requests"><div class="controller-tab-item-no-requests">Заявок нет.</div></div>');
+                }
             }
 
             if (typeof (data.reg) != 'undefined') {
@@ -708,6 +734,10 @@ function controllerUpdate() {
                     newBlock.find('.controller-tab-item-brand').html(curItem.brand);
                     $('.controller-tab').eq(1).append(newBlock);
                 }
+
+                if (data.reg.length == 0) {
+                    $('.controller-tab').eq(1).html('<div class="controller-tab-item no-requests"><div class="controller-tab-item-no-requests">Заявок нет.</div></div>');
+                }
             }
 
             if (typeof (data.success) != 'undefined') {
@@ -724,6 +754,10 @@ function controllerUpdate() {
                     newBlock.find('.controller-tab-item-number').html(curItem.number);
                     newBlock.find('.controller-tab-item-brand').html(curItem.brand);
                     $('.controller-tab').eq(2).append(newBlock);
+                }
+
+                if (data.success.length == 0) {
+                    $('.controller-tab').eq(2).html('<div class="controller-tab-item no-requests"><div class="controller-tab-item-no-requests">Заявок нет.</div></div>');
                 }
             }
 
@@ -745,6 +779,10 @@ function controllerUpdate() {
                     newBlock.find('.controller-tab-item-number').html(curItem.number);
                     newBlock.find('.controller-tab-item-brand').html(curItem.brand);
                     $('.controller-future').append(newBlock);
+                }
+
+                if (data.future.length == 0) {
+                    $('.controller-future').html('<div class="controller-tab-item no-requests"><div class="controller-tab-item-no-requests">Заявок нет.</div></div>');
                 }
             }
 

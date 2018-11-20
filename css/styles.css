@@ -226,6 +226,7 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 }
 
 .header-about-link {float:right; margin:27px 0 0 0; line-height:40px}
+.header-about-link+.header-about-link {margin-right:28px}
 
 @media screen and (max-width:799px) {
     .header-about-link {display:none}
@@ -408,6 +409,9 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .queue-list-item-header::before {content:""; display:block; position:absolute; left:0; top:13px; bottom:13px; width:4px; background:#a4d78b; border-radius:0 4px 4px 0}
 .queue-list-item-header-count {display:none}
 .queue-list-item.queue-empty .queue-list-item-header::before {background:#d0d0d0}
+.queue-list-item.queue-volume-many .queue-list-item-header::before {background:#008000}
+.queue-list-item.queue-volume-middle .queue-list-item-header::before {background:#ff0}
+.queue-list-item.queue-volume-few .queue-list-item-header::before {background:#f00}
 .queue-list-item-header-day {font-size:13px; color:#666; padding:1px 0 0 0}
 .queue-list-item-times {margin:10px 0 0 0; font-size:15px; line-height:38px; letter-spacing:0; text-align:center}
 .queue-list-item-times a {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:4px; height:40px; text-decoration:none; color:#111}
@@ -724,6 +728,8 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .order-form-submit .btn {float:right; width:144px; position:relative}
 .order-form-submit .btn::after {content:""; display:inline-block; vertical-align:middle; width:15px; height:12px; background:url(../images/order-step-next.svg) no-repeat; background-size:100%; margin:-2px 0 0 10px}
 .order-form-submit .btn-confirm {width:197px}
+.order-form-submit .btn-confirm:disabled {cursor:default; opacity:0.5; pointer-events:none}
+.order-form-submit .payment-loading {display:block; position:absolute; right:10px; top:0; width:197px; bottom:0; background:url(../images/loading.gif) no-repeat center}
 .order-form-back {float:right; line-height:40px; margin:0 40px 0 0; position:relative}
 
 @media screen and (max-width:1399px) {
@@ -922,7 +928,7 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .controller-area-header-icon.bus {width:32px; height:15px; background-image:url(../images/bus.svg)}
 .controller-area-header-icon.cargo {width:27px; height:17px; background-image:url(../images/cargo.svg)}
 .controller-area-number {text-align:center; font-weight:bold; font-size:48px; line-height:48px; color:#000; padding:32px 0 0 0}
-.controller-area-brand {color:#b9b9b9; font-weight:normal; text-align:center; font-size:16px; padding:19px 0 0 0}
+.controller-area-brand {color:#b9b9b9; font-weight:normal; text-align:center; font-size:16px; padding:19px 10px 0 10px; position:relative; width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 .controller-area-content.free .controller-area-brand {font-size:36px; line-height:36px; color:#0fc676; font-weight:bold; padding:39px 0 0 0}
 
 ul.controller-tabs-menu {border-bottom:2px solid #e1e7eb; margin:71px 0 0 0; padding:0 0 3px 0; list-style:none}
@@ -946,8 +952,11 @@ ul.controller-tabs-menu li.active a {color:#007fce}
 .controller-tab-item-icon.bus {width:26px; height:12px; background-image:url(../images/bus.svg)}
 .controller-tab-item-icon.cargo {width:22px; height:14px; background-image:url(../images/cargo.svg)}
 .controller-tab-item-number {font-weight:bold; font-size:36px; line-height:36px; color:#000; padding:43px 0 0 0}
-.controller-tab-item-brand {color:#959595; font-size:12px; padding:6px 0 0 0}
+.controller-tab-item-brand {color:#959595; font-size:12px; padding:6px 10px 0 10px; position:relative; width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 .controller-tab-item.priority .controller-tab-item-brand::before {content:""; display:inline-block; width:15px; height:15px; margin:-4px 7px 0 0; vertical-align:middle; background:url(../images/controller-priority.svg) no-repeat center; background-size:100%}
+
+.controller-tab-item.no-requests {width:100%}
+.controller-tab-item-no-requests {display:block; text-decoration:none; color:#000; text-align:center; background:#fff; height:114px; border-radius:5px; line-height:114px; box-shadow:0 5px 20px 0 rgba(1, 51, 111, 0.15); position:relative}
 
 .controller-future {margin:0 -17px; padding:16px 0 68px 0; background:#fff; position:relative}
 .controller-future::before {content:""; display:block; position:absolute; left:-999px; top:0; right:-999px; bottom:0; background:#fff}

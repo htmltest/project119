@@ -9,7 +9,7 @@
                                 "timerS"    : "30",
                                 "type"      : "cargo",
                                 "number"    : "A111AA",
-                                "brand"     : "Volvo"
+                                "brand"     : "Трансформер Аннигилятор Карпинского"
                             },
                             {
                                 "status"    : "1",
@@ -41,7 +41,7 @@
                                 "link"      : "windows/controller-item-future.html",
                                 "type"      : "sedan",
                                 "number"    : "A111AA",
-                                "brand"     : "Volvo"
+                                "brand"     : "Трансформер Аннигилятор Карпинского"
                             },
                             {
                                 "priority"  : "1",
@@ -52,15 +52,7 @@
                             }
                         ],
 
-    "reg"               : [
-                            {
-                                "priority"  : "0",
-                                "link"      : "windows/controller-area-success.html",
-                                "type"      : "cargo",
-                                "number"    : "X111XX",
-                                "brand"     : "Audi"
-                            }
-                        ],
+    "reg"               : [],
 
     "success"           : [
                             {

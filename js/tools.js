@@ -126,7 +126,35 @@ $(document).ready(function() {
                 cache: false
             }).done(function(html) {
                 $('#order-date-data').html(html);
+                $('.order-period input').each(function() {
+                    var curInput = $(this);
+                    curInput.data('startValue', curInput.prop('disabled'));
+                });
+                if ($('#order-type-priority').prop('checked')) {
+                    $('.order-period input').each(function() {
+                        var curInput = $(this);
+                        if (!curInput.hasClass('past')) {
+                            curInput.prop('disabled', false);
+                        }
+                    });
+                }
                 $('.order-period').removeClass('loading');
+            });
+        }
+    });
+
+    $('body').on('change', '#order-types input', function() {
+        if ($('#order-type-priority').prop('checked')) {
+            $('.order-period input').each(function() {
+                var curInput = $(this);
+                if (!curInput.hasClass('past')) {
+                    curInput.prop('disabled', false);
+                }
+            });
+        } else {
+            $('.order-period input').each(function() {
+                var curInput = $(this);
+                curInput.prop('disabled', curInput.data('startValue'));
             });
         }
     });
@@ -148,14 +176,6 @@ $(document).ready(function() {
             curItem.addClass('queue-empty');
             curItem.find('.queue-list-item-header').append('<div class="queue-list-item-header-count">Свободных нет</div>');
         } else {
-            var countFree = Math.round(curItem.find('.queue-list-item-times a').length / curItem.find('.queue-list-item-times a, .queue-list-item-times span').length * 100);
-            if (countFree > 31) {
-                curItem.addClass('queue-volume-many');
-            } else if (countFree > 15) {
-                curItem.addClass('queue-volume-middle');
-            } else {
-                curItem.addClass('queue-volume-few');
-            }
             curItem.find('.queue-list-item-header').append('<div class="queue-list-item-header-count">Свободно ' + curItem.find('.queue-list-item-times a').length + ' из ' + (curItem.find('.queue-list-item-times a, .queue-list-item-times span').length) + '</div>');
         }
     });
@@ -182,14 +202,6 @@ $(document).ready(function() {
                         curItem.addClass('queue-empty');
                         curItem.find('.queue-list-item-header').append('<div class="queue-list-item-header-count">Свободных нет</div>');
                     } else {
-                        var countFree = Math.round(curItem.find('.queue-list-item-times a').length / curItem.find('.queue-list-item-times a, .queue-list-item-times span').length * 100);
-                        if (countFree > 31) {
-                            curItem.addClass('queue-volume-many');
-                        } else if (countFree > 15) {
-                            curItem.addClass('queue-volume-middle');
-                        } else {
-                            curItem.addClass('queue-volume-few');
-                        }
                         curItem.find('.queue-list-item-header').append('<div class="queue-list-item-header-count">Свободно ' + curItem.find('.queue-list-item-times a').length + ' из ' + (curItem.find('.queue-list-item-times a, .queue-list-item-times span').length) + '</div>');
                     }
                 });
@@ -274,6 +286,18 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $('body').on('keydown', '.auth-phone-input input', function(e) {
+        if (e.keyCode == 13) {
+            $(this).parents().filter('form').find($('.auth-phone-send a').trigger('click'))
+        }
+    });
+
+    $('body').on('keydown', '.auth-phone-visible-code input', function(e) {
+        if (e.keyCode == 13) {
+            $(this).parents().filter('form').find($('.auth-phone-pin-link a').trigger('click'))
+        }
+    });
+
     $('body').on('click', '.auth-phone-send a', function(e) {
         var curLink = $(this);
         var curForm = $(this).parents().filter('form');
@@ -295,6 +319,7 @@ $(document).ready(function() {
                 curForm.addClass('visible-message');
                 if (data.status == '1') {
                     curForm.addClass('visible-pin');
+                    curForm.find('.auth-phone-visible-code input').trigger('focus');
                 }
                 $(window).trigger('resize');
                 updateAuthTimers();

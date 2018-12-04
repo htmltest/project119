@@ -174,7 +174,7 @@ form {margin:20px 0; padding:0}
 .container {max-width:1400px; padding:0 79px; margin:0 auto}
 .container::after {content:""; display:block; clear:both}
 
-@media screen and (max-width:1399px) {
+@media screen and (max-width:1200px) {
     .container {padding:0 15px}
 }
 
@@ -215,11 +215,14 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .header-cabinet-link {float:right; margin:27px 0 0 28px; line-height:40px}
 .header-cabinet-link svg {display:inline-block; vertical-align:middle; margin:-2px 6px 0 0; width:17px}
 .header-cabinet-link svg path,
-.header-cabinet-link svg polygon {fill:#489eca; transition:all 0.2s}
+.header-cabinet-link svg polygon,
+.header-cabinet-link svg circle {stroke:#489eca; transition:all 0.2s}
 .header-cabinet-link:hover svg path,
-.header-cabinet-link:hover svg polygon {fill:#2d7fa9}
+.header-cabinet-link:hover svg polygon,
+.header-cabinet-link:hover svg circle {stroke:#2d7fa9}
 .header-cabinet-link:active svg path,
-.header-cabinet-link:active svg polygon {fill:#1a6489}
+.header-cabinet-link:active svg polygon,
+.header-cabinet-link:active svg circle {stroke:#1a6489}
 
 @media screen and (max-width:799px) {
     .header-cabinet-link {display:none}
@@ -253,7 +256,8 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
     .header-mobile-menu-header .container::before {content:""; display:block; height:3px; border-radius:0 0 3px 3px; background:#a4d78b}
     .header-mobile-menu-profile {margin:20px 0 0 0; padding:0 0 0 26px; position:relative; font-weight:bold; font-size:24px; line-height:29px}
     .header-mobile-menu-profile svg {width:18px; position:absolute; left:0; top:50%; transform:translateY(-50%)}
-    .header-mobile-menu-profile svg path {fill:#489eca}
+    .header-mobile-menu-profile svg path,
+    .header-mobile-menu-profile svg circle {stroke:#489eca}
     .header-mobile-menu-header .logo {float:none; margin:17px 0 0 0}
     .header-mobile-menu-content {position:absolute; left:0; top:77px; bottom:0; right:0; overflow:auto}
     .header-mobile-menu-content ul {margin:0; padding:0; list-style:none; font-size:20px; line-height:59px}
@@ -320,7 +324,7 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .main-btns .btn {float:right; width:430px; margin:0 30px 0 0; height:80px; line-height:80px; font-weight:bold; font-size:25px; text-transform:uppercase; border-radius:8px; box-shadow:8px 0 20px rgba(16, 73, 197, 0.25)}
 .main-btns .btn:first-child {margin:0}
 
-@media screen and (max-width:1399px) {
+@media screen and (max-width:1200px) {
     .main {min-height:387px}
     .main-content {bottom:60px}
     .main-title {font-size:27px; line-height:32px; color:#fff; padding:0 0 52px 0}
@@ -414,7 +418,11 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .queue-list-item.queue-volume-few .queue-list-item-header::before {background:#f00}
 .queue-list-item-header-day {font-size:13px; color:#666; padding:1px 0 0 0}
 .queue-list-item-times {margin:10px 0 0 0; font-size:15px; line-height:38px; letter-spacing:0; text-align:center}
-.queue-list-item-times a {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:4px; height:40px; text-decoration:none; color:#111}
+.queue-list-item-times a {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:4px; height:40px; text-decoration:none; color:#111; position:relative}
+.queue-list-item-times a::before {content:""; display:block; position:absolute; left:0; top:0; bottom:0; width:4px; border-radius:3px 0 0 3px}
+.queue-list-item-times a.order-status-1::before {background-color: #008000}
+.queue-list-item-times a.order-status-2::before {background-color: #ff0}
+.queue-list-item-times a.order-status-3::before {background-color: #f00}
 .queue-list-item-times a:hover {color:#111; background:#dbedf9; border-color:#dbedf9}
 .queue-list-item-times span {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:4px; height:40px; color:#cdcdcd}
 .queue-list-item-times div {background:#f6f6f6; font-size:13px; line-height:20px; letter-spacing:0; text-align:center; padding:30px 20px; color:#666}
@@ -423,7 +431,7 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
     .queue-list-item-times {display:block !important}
 }
 
-@media screen and (max-width:1399px) {
+@media screen and (max-width:1200px) {
     .queue {margin:40px -10px 0 -10px}
     .queue-list-item {padding:0 10px}
     .queue-list-item-header {padding-right:0}
@@ -452,7 +460,7 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .queue-date-hint {padding:17px 0 27px 0; width:142px; margin:0 auto; color:#666; font-size:13px; line-height:18px; text-align:center}
 .queue-date-hint::before {content:""; display:block; width:33px; height:33px; background:url(../images/queue-date.svg) no-repeat; background-size:100%; margin:0 auto 14px auto}
 
-@media screen and (max-width:1399px) {
+@media screen and (max-width:1200px) {
     .queue-date {padding:0 10px}
     .queue-date-select {padding:12px 10px 0 10px; width:auto}
     .queue-date-hint {padding:17px 10px 27px 10px; width:auto}
@@ -478,7 +486,7 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 
 .desktop-side {float:left; width:288px}
 
-@media screen and (max-width:1399px) {
+@media screen and (max-width:1200px) {
     .desktop-side {width:191px}
 }
 
@@ -502,14 +510,14 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .desktop-menu-icon:hover .desktop-menu-icon-text {display:block}
 .desktop-menu-icon-text::after {content:""; display:block; width:0; height:0; position:absolute; left:50%; bottom:-6px; margin-left:-6px; border-top:6px solid #fff; border-left:6px solid transparent; border-right:6px solid transparent}
 
-@media screen and (max-width:1399px) {
+@media screen and (max-width:1200px) {
     .desktop-menu {padding:0 20px 3px 20px}
     .desktop-menu ul li.active::after {left:-21px}
 }
 
 .desktop-side .auth-contacts {width:auto; margin:30px 0 0 0}
 
-@media screen and (max-width:1399px) {
+@media screen and (max-width:1200px) {
     .desktop-side .auth-contacts {padding:24px 20px 25px 20px}
     .desktop-side .auth-contacts-phone {font-size:21px; white-space:nowrap}
 }
@@ -519,7 +527,7 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .desktop-content h1:first-child {margin-top:0}
 .desktop-content h1.only-mobile {display:none}
 
-@media screen and (max-width:1399px) {
+@media screen and (max-width:1200px) {
     .desktop-container {margin:0 0 0 211px}
 }
 
@@ -565,7 +573,7 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .desktop-orders-header-name {float:left; width:calc(50% - 143px)}
 .desktop-orders-header-info-2 {float:left; width:calc(50% - 118px)}
 
-@media screen and (max-width:1399px) {
+@media screen and (max-width:1200px) {
     .desktop-orders-header {display:none}
 }
 
@@ -601,7 +609,7 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .desktop-order-info-2 span {display:block; font-size:13px; line-height:18px; color:#666; font-weight:normal}
 .desktop-order-template .desktop-order-info-2 {display:table}
 
-@media screen and (max-width:1399px) {
+@media screen and (max-width:1200px) {
     .desktop-order::before {top:23px}
     .desktop-order-template {padding-top:17px; padding-bottom:16px}
     .desktop-order-payment {float:none; position:absolute; right:30px; top:20px; width:auto; text-align:right; line-height:16px}
@@ -637,7 +645,7 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .orders-search .form-input {margin:0 75px 0 0}
 .orders-search .form-input input {border:1px solid #ececec; border-radius:4px; height:40px; padding:0 16px; line-height:38px}
 
-@media screen and (max-width:1399px) {
+@media screen and (max-width:1200px) {
     .orders-search {width:calc(100% - 80px)}
     .orders-search form {position:relative}
     .orders-search .form-submit {float:none; width:38px; position:absolute; right:0; top:0; z-index:1}
@@ -649,7 +657,7 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 
 .orders-header .desktop-btns {float:right; margin:0}
 
-@media screen and (max-width:1399px) {
+@media screen and (max-width:1200px) {
     .orders-header .desktop-btn-add {width:40px; font-size:0; letter-spacing:-1px; color:rgba(0, 0, 0, 0); padding:0 0 0 38px; overflow:hidden; position:relative}
     .orders-header .desktop-btns a.desktop-btn-add svg {position:absolute; left:50%; top:50%; margin:0; display:block; transform:translate(-50%, -50%)}
 }
@@ -681,7 +689,7 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .order-step.active .order-step-title {color:#111}
 .order-step.success .order-step-title {color:#719e5a}
 
-@media screen and (max-width:1399px) {
+@media screen and (max-width:1200px) {
     .order-step {width:290px; padding:0 0 0 62px}
     .order-step:first-child {width:239px; padding:0 0 0 15px}
     .order-step:first-child.success {margin-left:-15px; padding-left:30px; width:239px}
@@ -732,7 +740,7 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .order-form-submit .payment-loading {display:block; position:absolute; right:10px; top:0; width:197px; bottom:0; background:url(../images/loading.gif) no-repeat center}
 .order-form-back {float:right; line-height:40px; margin:0 40px 0 0; position:relative}
 
-@media screen and (max-width:1399px) {
+@media screen and (max-width:1200px) {
     .order-form-submit {padding:10px 0}
 }
 
@@ -755,14 +763,18 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .order-period::after {content:""; display:block; clear:both}
 .order-period label {display:inline-block; vertical-align:top; font-size:15px; line-height:20px; letter-spacing:0; margin:0; cursor:pointer; padding:0; width:calc(16.66% - 30px); margin:0 15px}
 .order-period label input {display:none}
-.order-period label span {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:4px; height:40px; text-decoration:none; color:#111; cursor:pointer; text-align:center; line-height:38px}
+.order-period label span {display:block; border:1px solid #ccc; margin:2px 0 0 0; border-radius:4px; height:40px; text-decoration:none; color:#111; cursor:pointer; text-align:center; line-height:38px; position:relative}
+.order-period label span::before {content:""; display:block; position:absolute; left:0; top:0; bottom:0; width:4px; border-radius:3px 0 0 3px}
+.order-period label span.order-status-1::before {background-color: #008000}
+.order-period label span.order-status-2::before {background-color: #ff0}
+.order-period label span.order-status-3::before {background-color: #f00}
 .order-period label:hover span {color:#111; background:#dbedf9; border-color:#dbedf9}
 .order-period label input:checked+span {color:#111; background:#ffda76; border-color:#ffda76}
 .order-period label input:disabled+span {border:1px solid #ccc; color:#cdcdcd; cursor:default; background:none}
 .order-period.loading {position:relative}
 .order-period.loading::before {content:""; z-index:2; display:block; position:absolute; left:0; top:0; right:0; bottom:0; background:rgba(255, 255, 255, 0.9) url(../images/loading.gif) no-repeat center}
 
-@media screen and (max-width:1399px) {
+@media screen and (max-width:1200px) {
     .order-period {margin:13px -10px 0 -10px}
     .order-period label {width:calc(20% - 20px); margin:0 10px}
 }
@@ -817,7 +829,7 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .order-personal::after {content:""; display:block; clear:both}
 .order-personal-item {float:left; width:288px; margin:0 30px 0 0}
 
-@media screen and (max-width:1399px) {
+@media screen and (max-width:1200px) {
     .order-personal-item {width:236px; margin:0 20px 0 0}
 }
 

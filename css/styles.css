@@ -929,6 +929,7 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .controller-area {float:left; width:25%; padding:0 0 0 35px}
 .controller-area a {display:block; text-decoration:none}
 .controller-area-content {background:#fff; border-radius:5px; box-shadow:0 5px 20px 0 rgba(1, 51, 111, 0.15); height:178px}
+.controller-area.hold .controller-area-content {background:#ecffeb}
 .controller-area-header {padding:17px 30px 0 30px; line-height:30px; position:relative}
 .controller-area-header::after {content:""; display:block; clear:both}
 .controller-area-name {float:left; color:#b9b9b9; font-size:18px; font-weight:bold; text-transform:uppercase}

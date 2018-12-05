@@ -695,23 +695,38 @@ function controllerUpdate() {
                 var curIndex = $('.controller-area').index(curArea);
                 var curData = data.areas[curIndex];
                 if (curData.status == '1') {
-                    var timerM = curData.timerM;
-                    var timerS = curData.timerS;
-                    if (timerS < 10) {
-                        timerS = '0' + timerS;
-                    }
+                    if (typeof (curData.hold) == 'undefined') {
+                        var timerM = curData.timerM;
+                        var timerS = curData.timerS;
+                        if (timerS < 10) {
+                            timerS = '0' + timerS;
+                        }
 
-                    curArea.html(       '<a href="' + curData.link + '" class="window-link">' +
-                                            '<div class="controller-area-content">' +
-                                                '<div class="controller-area-header">' +
-                                                    '<div class="controller-area-name">Зона ' + (curIndex + 1) + '</div>' +
-                                                    '<div class="controller-area-timer">' + timerM + ':' + timerS + '</div>' +
-                                                    '<div class="controller-area-header-icon ' + curData.type + '"></div>' +
+                        curArea.html(       '<a href="' + curData.link + '" class="window-link">' +
+                                                '<div class="controller-area-content">' +
+                                                    '<div class="controller-area-header">' +
+                                                        '<div class="controller-area-name">Зона ' + (curIndex + 1) + '</div>' +
+                                                        '<div class="controller-area-timer">' + timerM + ':' + timerS + '</div>' +
+                                                        '<div class="controller-area-header-icon ' + curData.type + '"></div>' +
+                                                    '</div>' +
+                                                    '<div class="controller-area-number">' + curData.number + '</div>' +
+                                                    '<div class="controller-area-brand">' + curData.brand + '</div>' +
                                                 '</div>' +
-                                                '<div class="controller-area-number">' + curData.number + '</div>' +
-                                                '<div class="controller-area-brand">' + curData.brand + '</div>' +
-                                            '</div>' +
-                                        '</a>');
+                                            '</a>');
+                    } else {
+                        curArea.html(       '<a href="' + curData.link + '" class="window-link">' +
+                                                '<div class="controller-area-content">' +
+                                                    '<div class="controller-area-header">' +
+                                                        '<div class="controller-area-name">Зона ' + (curIndex + 1) + '</div>' +
+                                                        '<div class="controller-area-timer" data-m="0" data-s="0"></div>' +
+                                                        '<div class="controller-area-header-icon ' + curData.type + '"></div>' +
+                                                    '</div>' +
+                                                    '<div class="controller-area-number">' + curData.number + '</div>' +
+                                                    '<div class="controller-area-brand">' + curData.brand + '</div>' +
+                                                '</div>' +
+                                            '</a>');
+                        curArea.addClass('hold');
+                    }
                 } else {
                     curArea.html(       '<div class="controller-area-content free">' +
                                             '<div class="controller-area-header">' +

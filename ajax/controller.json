@@ -18,7 +18,8 @@
                                 "timerS"    : "20",
                                 "type"      : "sedan",
                                 "number"    : "X111XX",
-                                "brand"     : "KIA"
+                                "brand"     : "KIA",
+                                "hold"      : "1"
                             },
                             {
                                 "status"    : "0"

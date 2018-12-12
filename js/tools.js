@@ -220,7 +220,10 @@ $(document).ready(function() {
     $('.order-auto-info-number').find('input[type="text"]').keypress(function(evt) {
         var charCode = (evt.which) ? evt.which : evt.keyCode;
         if ((charCode > 47 && charCode < 58) || (charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || (charCode == 8) || (charCode == 37) || (charCode == 39)) {
+            $(this).parent().removeClass('error');
             return true;
+        } else {
+            $(this).parents().addClass('error');
         }
         return false;
     });

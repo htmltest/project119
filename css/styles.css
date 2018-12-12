@@ -74,6 +74,8 @@ form {margin:20px 0; padding:0}
 .form-input-label em {font-style:normal; color:#ff5353}
 .form-input-label span {color:#ff7777}
 
+.form-hint {font-size:11px; color:#999}
+
 .form-input input,
 .form-input textarea {position:relative; border:none; border-bottom:2px solid #ececec; font:15px/20px "PT Sans", sans-serif; color:#111; vertical-align:top; margin:0; padding:15px 0 5px 0; width:100%; height:42px; box-sizing:border-box; outline:none; border-radius:0; background:url(../images/blank.gif); -webkit-appearance:none}
 .form-input textarea {height:auto; resize:none; overflow:auto; border:1px solid #d8d8d8; border-radius:4px; padding-left:20px; padding-right:20px}
@@ -505,7 +507,7 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .desktop-menu ul li a:hover {text-decoration:underline}
 .desktop-menu ul li a.desktop-menu-logout {color:#fb6060}
 .desktop-menu-count {display:block; position:absolute; right:0; top:-2px; height:24px; padding:0 11px; font-size:13px; line-height:24px; color:#fff; background:#489eca; border-radius:12px}
-.desktop-menu-icon {position:absolute; right:0; top:-1px; line-height:0; width:21px}
+.desktop-menu-icon {position:absolute; right:0; top:-1px; line-height:0; width:18px}
 .desktop-menu-icon-text {display:none; position:absolute; z-index:999; left:50%; bottom:30px; width:237px; margin-left:-118px; padding:8px 10px 11px 10px; background:#fff; font-size:14px; line-height:18px; letter-spacing:0; text-align:left; box-shadow:0 0 10px 0 rgba(0, 0, 0, 0.15); color:#111; font-weight:normal}
 .desktop-menu-icon:hover .desktop-menu-icon-text {display:block}
 .desktop-menu-icon-text::after {content:""; display:block; width:0; height:0; position:absolute; left:50%; bottom:-6px; margin-left:-6px; border-top:6px solid #fff; border-left:6px solid transparent; border-right:6px solid transparent}
@@ -809,6 +811,8 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .order-auto-info::after {content:""; display:block; clear:both}
 .order-auto-info-number {float:left; margin:0 30px 0 0}
 .order-auto-info-number-text {float:left; width:182px; margin:-5px 0 -13px 0}
+.order-auto-info-number-text .form-hint {display:none; color:#ff7777}
+.order-auto-info-number-text .form-input.error .form-hint {display:block}
 .order-auto-info-number-region {float:left; width:76px; margin:-5px 0 -13px 30px}
 .order-auto-info-brand {float:left}
 .order-auto-info-brand-name {float:left; width:288px; margin:-5px 0 -13px 0}
@@ -845,6 +849,8 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .order-form .form-checkbox label input:checked+label+span::after {left:3px; top:6px; width:7px; height:7px}
 .order-form .form-checkbox label input.error+span::before,
 .order-form .form-checkbox label input.error+label+span::before {border-color:#ffc2c2}
+.order-form .form-checkbox .form-hint {display:none; position:relative; font-size:11px; color:#ff7777}
+.order-form .form-checkbox label input.error+label+span .form-hint {display:block}
 
 .table-confirm {margin:35px 0 40px 0}
 .table-confirm table td {width:50%; padding-top:14px; padding-bottom:15px}
@@ -860,9 +866,12 @@ header {position:relative; z-index:10; padding:0 0 25px 0; box-shadow:0 5px 5px 
 .profile-contacts-title {font-weight:bold; padding:23px 0 0 0}
 .profile-contacts-container {margin:9px 0 0 0}
 .profile-contacts-container::after {content:""; display:block; clear:both}
-.profile-contacts-content {float:left; max-width:calc(100% - 120px)}
-.profile-contacts-content p {margin:8px 0 0 0; padding:0}
-.profile-contacts-content span {color:#999; margin:0 5px 0 0}
+.profile-contacts-content {float:left; max-width:calc(100% - 120px); display:table}
+.profile-contacts-content-row {display:table-row}
+.profile-contacts-content-label {color:#999; display:table-cell; vertical-align:top; padding:8px 0 0 0}
+.profile-contacts-content-label .desktop-menu-icon {position:relative; display:inline-block; vertical-align:middle; width:18px}
+.profile-contacts-content-label .desktop-menu-icon-text {width:280px; margin-left:-140px}
+.profile-contacts-content-value {display:table-cell; vertical-align:top; padding:8px 0 0 10px}
 .profile-contacts-link {float:right; padding:11px 0 0 0}
 .profile-contacts-link .btn-reset {border-color:#489eca; width:auto; padding:0 12px}
 .profile-contacts-link .btn-reset:hover {background:#489eca; color:#fff}
@@ -1018,10 +1027,20 @@ footer p {margin:0; padding:0}
     .footer-left {float:none}
 }
 
-.footer-right {float:right; text-align:right; padding:45px 0 0 0}
+.footer-right {float:right; text-align:right; padding:21px 0 0 0}
 
 @media screen and (max-width:799px) {
     .footer-right {float:none; text-align:left; padding:13px 0 0 0}
+}
+
+.footer-payment {float:left; line-height:0; padding:25px 0 0 145px}
+
+@media screen and (max-width:1000px) {
+    .footer-payment {width:110px; padding:25px 0 0 10px}
+}
+
+@media screen and (max-width:799px) {
+    .footer-payment {padding:0; position:absolute; right:15px; top:25px; width:100px}
 }
 
 .window-open body {overflow:hidden}
